@@ -1,16 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tu Carrito - IniciaToy`s Store</title>
- <!-- CSS only -->
- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <title>Carrito - IniciaToy`s Store</title> <!--Title-->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="./assent/image/logo-iniciatoysstore.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
-    
-</body>
+    <!-- Inicia Barra de Navegación  -->
+    <header>
+       <nav  class="barra__navegacion">
+          <div class="content__logo">
+            <img src="./assent/image/logo-iniciatoysstore.png" alt="logo de la pagina" class="logo">
+          </div>
+          <div class="content__search">
+            <form role="search">
+              <input type="search" placeholder="Buscar" aria-label="Buscar" class="input__search">
+              <button type="submit" class="boton__search">Buscar</button>
+            </form>
+          </div>
+          <div class="content__links">
+            <ul class="content__botones">
+              <li>
+                <a href="../index.html" class="options">Home</a>
+              </li>
+              <li>
+                <a href="../index.html" class="options">Products</a>
+              </li>
+              <li>
+                <a href="./abount.html" class="options">Abount Us</a>
+              </li>
+            </ul>
+          </div>
+       </nav>
+    </header>
+    <!-- Inicia Sección de Productos  -->
+    <main class="content__section">
+      <div>
+        <nav class="content__barraCategory">
+          <div class="content__list">
+            <ul class="list__category">
+              <li class="nav-item options__category">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Category
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Niños</a></li>
+                  <li><a class="dropdown-item" href="#">Niñas</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">1 a 3 años</a></li>
+                  <li><a class="dropdown-item" href="#">4 a 8 años</a></li>
+                  <li><a class="dropdown-item" href="#">8 a 12 años</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="content__icons">
+            <a href="" class="icons__nav"><i class="bi bi-person-circle"></i></a>
+            <a href="" class="icons__nav"><i class="bi bi-cart2"></i></a>
+          </div>
+        </nav>
+      </div>
+       
+    </main>
+    <!-- Inicia Pie de Página  -->
+    <footer class="pie__pagina">
+      <div class="content__copy">
+        <p>©Copyright 2022 Iniciatec</p> 
+      </div>
+      <div class="content__redes">
+        <div class="dev">
+          <p>Esteban Karaputny</p>
+          <div>
+            <a href="https://www.linkedin.com/in/esteban-karaputny-9149171ab/"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/estebankaraputny"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+        <div class="dev">
+          <p>Cesar Ferreyra</p>
+          <div>
+            <a href="www.linkedin.com/in/cesar-ferreyra-vadnal"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/CesarFerrey"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+        <div class="dev">
+          <p>Franco Guerra</p>
+          <div>
+            <a href="https://www.linkedin.com/in/franco-luis-guerra/"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/FrancoLguerra"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+        <div class="dev">
+          <p>Brisa Alvarez</p>
+          <div>
+            <a href=""><i class="fa-brands fa-linkedin"></i></a>
+            <a href=""><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+    </div>
+    </footer>
+</body> 
 <!-- JavaScript Bundle with Popper -->
+<script src="https://kit.fontawesome.com/ccba2732cb.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </html>
