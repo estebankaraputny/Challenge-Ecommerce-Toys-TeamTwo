@@ -16,6 +16,7 @@
     --rosa-claro:#e4d5e3;
     --negro:#000;
     --blanco: #fff;
+    --effect: hover 1s linear infinite;
 }
 
 
@@ -103,7 +104,7 @@
 
 /* COMIENZA MAIN  */
 
-.content__section{
+.content__body{
     height: 100vh;
 }
 
@@ -170,6 +171,84 @@
 
 .dev{
     width: 50%;
+}
+
+
+/* COMIENZA SECCION DE PRODUCTOS  */
+
+
+.carousel{
+    height: 5%;
+}
+
+
+.content__cards{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.card{
+    margin: 1rem;
+    overflow: hidden;
+    transform: translate(0);
+    transition: 0.25s;
+}
+
+.card:hover{
+    transform: scale(1.03);
+}
+
+.card::before{
+    content: "";
+    position: absolute;
+    transform: rotate(-12deg);
+    z-index: -1;
+}
+
+
+.card-price{
+    font-size: 1.5rem;
+}
+
+.gradient {
+    background: linear-gradient(-45deg, var(--turquesa-claro), var(--turquesa-medio), var(--turquesa-oscuro), var(--azul-oscuro));
+    background-size: 400% 400%;
+    background-position: 0% 10%;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align:center ;
+    
+}
+
+
+.gradient:hover{
+    animation: gradient 8s ease infinite;
+    text-align:center ;
+    color: var(--blanco);
+
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 10%;
+    }
+    
+    50%{
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.btn{
+    color: var(--blanco);
+    width: 100%;
 }
 
 /* COMIENZA RESPONSIVE  */
