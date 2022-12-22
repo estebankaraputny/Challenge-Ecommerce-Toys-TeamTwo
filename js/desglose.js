@@ -67,8 +67,8 @@ const productsToys = [
 
 
 
+ const ProductsList = document.getElementById("productsList")
 const renderProduct = (product) => {    
-const ProductsList = document.getElementById("productsList")
 const ProductCard = ` 
 <div class="card mb-3 mb-lg-0">
 <div class="card-body">
@@ -103,18 +103,18 @@ const ProductCard = `
 ProductsList.innerHTML += ProductCard;}
 
 const renderProducts = (products) => {
+    ProductsList.innerHTML = "";
     products.forEach((product) => {
         renderProduct(product);
     });
 }
 
 
-renderProducts(productsToys);
 
 const btnsDelete = document.querySelectorAll(".btnDelete");
 btnsDelete.forEach((btnDelete) => {
     btnDelete.addEventListener("click", (e) => {
-        e.target.parentElement.parentElement.parentElement.parentElement.remove();
+        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
     });
 });
 
@@ -135,3 +135,31 @@ btnsRestar.forEach((btnRestar) => {
         }
     });
 });
+
+
+const sortBy = (criterio,productos) =>{
+    productos.sort((a,b) => {
+        if (a[criterio] > b[criterio]) {
+            return 1;
+        }
+        if (a[criterio] < b[criterio]) {
+            return -1;
+        }
+        return 0;
+    }
+    )
+    renderProducts(productos);
+
+
+}
+
+
+
+const optionOrder = document.getElementById("orderBy");
+optionOrder.addEventListener("change", (e) => {
+    sortBy(e.target.value,productsToys);
+});
+// sortBy("stock",productsToys);
+
+renderProducts(productsToys);
+
