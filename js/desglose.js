@@ -6,70 +6,72 @@
 //  *idProduct<number>
 //  *price<number>
 
-
 const productsToys = [
-    {
-        titleProduct: "Pelota",
-        descriptionProduct: "Pelota de goma",
-        stock: 10,
-        category: "Deportes",
-        imageProduct:'https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        idProduct: 1,
-        price: 100
-    },
-    {
-        titleProduct: "Helicoptero",    
-        descriptionProduct: "Helicoptero a control remoto",
-        stock: 4,
-        category: "Juguetes control remoto",
-        imageProduct:'https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        idProduct: 2,
-        price: 200
-    },
-    {
-        titleProduct: "Patineta",
-        descriptionProduct: "Patineta de madera",
-        stock: 2,
-        category: "Deportes",
-        imageProduct:'https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        idProduct: 3,
-        price: 300
-    },
-    {
-        titleProduct: "TEG",
-        descriptionProduct: "Juego de mesa TEG",
-        stock: 5,
-        category: "Juegos de mesa",
-        imageProduct:'https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        idProduct: 4,
-        price: 400
-    },
-    {
-        titleProduct: "Cubo de Rubik",
-        descriptionProduct: "Cubo de Rubik 3x3",
-        stock: 3,
-        category: "Juegos disacticos",
-        imageProduct:'https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        idProduct: 5,
-        price: 500
-    },
-    {
-        titleProduct: "Buzz Lightyear",
-        descriptionProduct: "Buzz Lightyear articulado",
-        stock: 10,
-        category: "Juguetes de accion",
-        imageProduct:'https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-        idProduct: 6,
-        price: 600
-    },
-    
- ]
+  {
+    titleProduct: "Pelota",
+    descriptionProduct: "Pelota de goma",
+    stock: 10,
+    category: "Deportes",
+    imageProduct:
+      "https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    idProduct: 1,
+    price: 100,
+  },
+  {
+    titleProduct: "Helicoptero",
+    descriptionProduct: "Helicoptero a control remoto",
+    stock: 4,
+    category: "Juguetes control remoto",
+    imageProduct:
+      "https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    idProduct: 2,
+    price: 200,
+  },
+  {
+    titleProduct: "Patineta",
+    descriptionProduct: "Patineta de madera",
+    stock: 2,
+    category: "Deportes",
+    imageProduct:
+      "https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    idProduct: 3,
+    price: 300,
+  },
+  {
+    titleProduct: "TEG",
+    descriptionProduct: "Juego de mesa TEG",
+    stock: 5,
+    category: "Juegos de mesa",
+    imageProduct:
+      "https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    idProduct: 4,
+    price: 400,
+  },
+  {
+    titleProduct: "Cubo de Rubik",
+    descriptionProduct: "Cubo de Rubik 3x3",
+    stock: 3,
+    category: "Juegos disacticos",
+    imageProduct:
+      "https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    idProduct: 5,
+    price: 500,
+  },
+  {
+    titleProduct: "Buzz Lightyear",
+    descriptionProduct: "Buzz Lightyear articulado",
+    stock: 10,
+    category: "Juguetes de accion",
+    imageProduct:
+      "https://images.pexels.com/photos/981588/pexels-photo-981588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    idProduct: 6,
+    price: 600,
+  },
+];
 
-
-
- const ProductsList = document.getElementById("productsList")
-const renderProduct = (product) => {    
-const ProductCard = ` 
+const ProductsList = document.getElementById("productsList");
+const renderProduct = (product) => {
+  const ProductCard = ` 
 <div class="card mb-3 mb-lg-0">
 <div class="card-body">
   <div  class="d-flex justify-content-between">
@@ -86,7 +88,7 @@ const ProductCard = `
     </div>
     <div class="d-flex flex-row align-items-center">
       <div style="width: 50px;">
-        <a id="restarCantidad" class="btn">-</a><h5 class="fw-normal mb-0" id="cantidad">${product.stock}</h5><a id="sumarCantidad" class="btn">+</a>
+        <button type="button" class="btn restarCantidad">-</button><h5 class="fw-normal mb-0" id="cantidad">${product.stock}</h5><a  class="btn sumarCantidad " id="">+</a>
       </div>
       <div style="width: 80px;">
         <h5 class="mb-0">$${product.price}</h5>
@@ -99,67 +101,65 @@ const ProductCard = `
 </div>
 </div>
 
-</div>`
-ProductsList.innerHTML += ProductCard;}
+</div>`;
+  ProductsList.innerHTML += ProductCard;
+  buttonsProducts();
+};
 
 const renderProducts = (products) => {
-    ProductsList.innerHTML = "";
-    products.forEach((product) => {
-        renderProduct(product);
-    });
-}
-
-
-
-const btnsDelete = document.querySelectorAll(".btnDelete");
-btnsDelete.forEach((btnDelete) => {
+  ProductsList.innerHTML = "";
+  products.forEach((product) => {
+    renderProduct(product);
+  });
+};
+const buttonsProducts = () => {
+  const btnsDelete = document.querySelectorAll(".btnDelete");
+  btnsDelete.forEach((btnDelete) => {
     btnDelete.addEventListener("click", (e) => {
-        e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+      console.log("delete");
+      e.target.parentElement.parentElement.parentElement.parentElement.remove();
     });
-});
+  });
 
-const btnsSumar = document.querySelectorAll("#sumarCantidad");
-const cantidad = document.getElementById("cantidad");
-btnsSumar.forEach((btnSumar) => {
+  const btnsSumar = document.querySelectorAll(".sumarCantidad");
+  const cantidad = document.getElementById("cantidad");
+  console.log(btnsSumar);
+  btnsSumar.forEach((btnSumar) => {
     btnSumar.addEventListener("click", (e) => {
-        
-        e.target.parentElement.children[1].innerHTML = parseInt(e.target.parentElement.children[1].innerHTML) + 1;
+      console.log("restar");
+      e.target.parentElement.children[1].innerHTML =
+        parseInt(e.target.parentElement.children[1].innerHTML) + 1;
     });
-});
+  });
 
-const btnsRestar = document.querySelectorAll("#restarCantidad");
-btnsRestar.forEach((btnRestar) => {
+  const btnsRestar = document.querySelectorAll(".restarCantidad");
+  btnsRestar.forEach((btnRestar) => {
     btnRestar.addEventListener("click", (e) => {
-        if (e.target.parentElement.children[1].innerHTML > 0) {
-            e.target.parentElement.children[1].innerHTML = parseInt(e.target.parentElement.children[1].innerHTML) - 1;
-        }
+      if (e.target.parentElement.children[1].innerHTML > 0) {
+        e.target.parentElement.children[1].innerHTML =
+          parseInt(e.target.parentElement.children[1].innerHTML) - 1;
+      }
     });
-});
+  });
+};
 
-
-const sortBy = (criterio,productos) =>{
-    productos.sort((a,b) => {
-        if (a[criterio] > b[criterio]) {
-            return 1;
-        }
-        if (a[criterio] < b[criterio]) {
-            return -1;
-        }
-        return 0;
+const sortBy = (criterio, productos) => {
+  productos.sort((a, b) => {
+    if (a[criterio] > b[criterio]) {
+      return 1;
     }
-    )
-    renderProducts(productos);
-
-
-}
-
-
+    if (a[criterio] < b[criterio]) {
+      return -1;
+    }
+    return 0;
+  });
+  renderProducts(productos);
+};
 
 const optionOrder = document.getElementById("orderBy");
 optionOrder.addEventListener("change", (e) => {
-    sortBy(e.target.value,productsToys);
+  sortBy(e.target.value, productsToys);
 });
 // sortBy("stock",productsToys);
 
 renderProducts(productsToys);
-
