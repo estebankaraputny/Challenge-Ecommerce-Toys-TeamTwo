@@ -86,7 +86,7 @@ const ProductCard = `
     </div>
     <div class="d-flex flex-row align-items-center">
       <div style="width: 50px;">
-        <h5 class="fw-normal mb-0">${product.stock}</h5>
+        <a id="restarCantidad" class="btn">-</a><h5 class="fw-normal mb-0" id="cantidad">${product.stock}</h5><a id="sumarCantidad" class="btn">+</a>
       </div>
       <div style="width: 80px;">
         <h5 class="mb-0">$${product.price}</h5>
@@ -111,3 +111,27 @@ const renderProducts = (products) => {
 
 renderProducts(productsToys);
 
+const btnsDelete = document.querySelectorAll(".btnDelete");
+btnsDelete.forEach((btnDelete) => {
+    btnDelete.addEventListener("click", (e) => {
+        e.target.parentElement.parentElement.parentElement.parentElement.remove();
+    });
+});
+
+const btnsSumar = document.querySelectorAll("#sumarCantidad");
+const cantidad = document.getElementById("cantidad");
+btnsSumar.forEach((btnSumar) => {
+    btnSumar.addEventListener("click", (e) => {
+        
+        e.target.parentElement.children[1].innerHTML = parseInt(e.target.parentElement.children[1].innerHTML) + 1;
+    });
+});
+
+const btnsRestar = document.querySelectorAll("#restarCantidad");
+btnsRestar.forEach((btnRestar) => {
+    btnRestar.addEventListener("click", (e) => {
+        if (e.target.parentElement.children[1].innerHTML > 0) {
+            e.target.parentElement.children[1].innerHTML = parseInt(e.target.parentElement.children[1].innerHTML) - 1;
+        }
+    });
+});
