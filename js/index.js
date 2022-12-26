@@ -80,16 +80,18 @@ let card = ``;
 const renderCards = () => {
     productsToys.map((event) => {
        return (card += `
-        <div class="card" style="width: 18rem;">
-            <img src="${event.imageProduct}" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">${event.titleProduct}</h5>
-                <p class="card-price">$${event.price}</p>
-                <div class="gradient">
-                    <a href="#" class="btn">Agregar al carrito</a>
+       <a href="#" class="card-direccion"> 
+            <div class="card" style="width: 18rem;" id="cardToy">
+                <img src="${event.imageProduct}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${event.titleProduct}</h5>
+                    <p class="card-price">$${event.price}</p>
+                    <div class="gradient">
+                        <a href="#" class="btn">Agregar al carrito</a>
+                    </div>
                 </div>
             </div>
-      </div>
+       </a>
                 `);
     });
     contentCards.innerHTML = card;
@@ -97,22 +99,85 @@ const renderCards = () => {
 renderCards();
 
 
-// const contentCards = document.getElementById("contentCards");
-// let div = ``;
+const searchToys = document.getElementById("inputSearch");
 
-// const pokemonesFull = (arrayPokemones) => {
-//   const pokemones = arrayPokemones.map((pokemon) => {
-//     return (div += `
-//             <div class="pokeCard">
-//                 <div class="contentImage">
-//                     <img src="${pokemon.sprites.front_default}" alt="" class="imageOfPokemon"></img>
-//                 </div>
-//                 <h2 class="namePokemon">${pokemon.name}</h2>
-//                 <p class="idPokemon">ID: ${pokemon.id}</p>
-//             </div>
-//         `);
-//   });
-//   contentCards.innerHTML = div;
-// };
+// console.log(searchToys);
+
+searchToys.addEventListener("keyup", (event) =>{
+    const cardsToys = document.querySelectorAll("#cardToy")
+    let toysHidden = [];
+    
+    console.log(event.target.value.toLowerCase())
+
+
+    if (event.target.matches("#inputSearch")){
+        cardsToys.forEach(toy =>{
+            toy.textContent.toLowerCase().includes(event.target.value.toLowerCase())
+            ? toy.classList.remove("hidden")
+            : toy.classList.add("hidden")
+
+
+            if(toy.classList.contains("hidden")){
+                toysHidden.push(toy)
+            }
+        })
+    }
+    const messageError = document.getElementById("messageError");
+    let message = ``;
+    
+    if (toysHidden.length === cardsToys.length){
+        message += `
+        <div class="card__mensajeDeError">
+            <img src="./assent/image/undraw_outer_space_re_u9vd.svg" alt="Imagen del espacio" class="img__error">
+            <div class="mensaje__error">
+                <h2>No hay productos que coincidan con tu búsqueda.</h2>
+                <ul>
+                    <li>Revisá la ortografía de la palabra.</li>
+                    <li>Utilizá palabras más genéricas o menos palabras.</li>
+                    <li>Prueba navegar por nuestro menú de categorías.</li>
+                    <li>Vuelve a la página principal para seguir buscando.</li>
+                </ul>
+            </div>
+        </div>
+        `
+    }
+    messageError.innerHTML = message; //Mostrara este mensaje si es que no se encuentra ningun producto
+
+});
+
+
+
+// COMIENZA LA FUNCIONALIDAD DEL CARRITO 
+
+
+const containerCartProducts = document.querySelector('.container__cartProducts')
+const btnCart = document.querySelector('.content__cartIcon')
+console.log(containerCartProducts)
+
+
+btnCart.addEventListener('click', () => {
+    // console.log("funciona")
+    containerCartProducts.classList.toggle('hidden')
+});
+
+// const cardSelect = document.querySelector(".card")
+
+
+
+
+
+// CODIGO DE DESCUENTO 
+
+// const generateCode = () => {
+//     const code = Math.floor(Math.random() * 1000000);
+//    //genero el porcentaje de descuento (entre 10 y 70%)
+//     const percentageDiscount = Math.floor(Math.random() * 60 + 10);
+//     alert(`Su codigo de descuento es: ${code}, Con un descuento del: ${percentageDiscount}%`);
+//     localStorage.setItem("code", code);
+//     localStorage.setItem("percentageDiscount", percentageDiscount);
+//   };
+
+
+
 
 
