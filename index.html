@@ -19,7 +19,7 @@
           </div>
           <div class="content__search">
             <form role="search">
-              <input type="search" placeholder="Buscar" aria-label="Buscar" class="input__search">
+              <input type="search" placeholder="Buscar" aria-label="Buscar" class="input__search" id="inputSearch">
               <button type="submit" class="boton__search">Buscar</button>
             </form>
           </div>
@@ -64,47 +64,110 @@
           </div>
           <div class="content__icons">
             <a href="" class="icons__nav"><i class="bi bi-person-circle"></i></a>
-            <a href="" class="icons__nav"><i class="bi bi-cart2"></i></a>
+            <div class="content__cartIcon">
+              <a class="icons__nav cart"><i class="bi bi-cart2"></i></a>
+            </div>
+          </div>
+          <div class="container__cartProducts hidden">
+            <div class="cart__products">
+              <p class="cantidad">1</p>
+              <h3 class="name-product">Pelota</h3>
+              <p class="price-product">$500</p>
+            </div>
+            <div class="content__total">
+              <p class="cantidad-pagar"><span class="total">Total:</span>$500</p>
+            </div>
+            <div class="desglose">
+              <a href="#">Ver más</a>
+            </div>
           </div>
         </nav>
       </div>
-       
+      <div class="content__carrusel">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="./assent/image/portada-3.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="./assent/image/portada-1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="./assent/image/portada-2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="./assent/image/portada-4.jpg" class="d-block w-100" alt="...">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="content__messageErr" id="messageError">
+      </div>
+       <div class="content__cards" id="contentCards">
+
+       </div>
     </main>
     <!-- Inicia Pie de Página  -->
     <footer class="pie__pagina">
-      <div class="content__copy">
-        <p>©Copyright 2022 Iniciatec</p> 
+      <div class="content__info">
+        <div class="name-and-logo">
+          <img src="./assent/image/logo-iniciatoysstore.png" alt="logo de la pagina IniciaToys" class="logo">
+          <h2 class="name__page">IniciaToy´s Store</h2>
+        </div>
+        <p class="parrafo__footer">Buenos Aires, Argentina</p>
+        <p class="parrafo__footer">©Copyright 2022 Iniciatec</p> 
+      </div>
+      <div class="metodos__dePago">
+        <h2 class="title__metodo">Metodos de Pago</h2>
+        <ul class="listaLogosPago">
+          <li><img src="./assent/image/visa.png" alt="logo de visa" class="logo-pagar"></li>
+          <li><img src="./assent/image/logo-masterCard.webp" alt="logo de mastercard" class="logo-pagar"></li>
+          <li><img src="./assent/image/logo-mercadopago.png" alt="logo de mercado pago" class="logo-pagar"></li>
+        </ul>
       </div>
       <div class="content__redes">
-        <div class="dev">
-          <p>Esteban Karaputny</p>
-          <div>
-            <a href="https://www.linkedin.com/in/esteban-karaputny-9149171ab/"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/estebankaraputny"><i class="fa-brands fa-github"></i></a>
+        <div >
+          <h2 class="title__redes">Redes</h2>
+        </div>
+        <div class="redes">
+          <div class="dev">
+            <p>Esteban Karaputny</p>
+            <div>
+              <a href="https://www.linkedin.com/in/esteban-karaputny-9149171ab/"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://github.com/estebankaraputny"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <div class="dev">
+            <p>Cesar Ferreyra</p>
+            <div>
+              <a href="www.linkedin.com/in/cesar-ferreyra-vadnal"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://github.com/CesarFerrey"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <div class="dev">
+            <p>Franco Guerra</p>
+            <div>
+              <a href="https://www.linkedin.com/in/franco-luis-guerra/"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://github.com/FrancoLguerra"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+          <div class="dev">
+            <p>Brisa Alvarez</p>
+            <div>
+              <a href="https://www.linkedin.com/mwlite/in/brisa-%C3%A1lvarez-5a211622a"><i class="fa-brands fa-linkedin"></i></a>
+              <a href="https://github.com/bbrialvarez"><i class="fa-brands fa-github"></i></a>
+            </div>
           </div>
         </div>
-        <div class="dev">
-          <p>Cesar Ferreyra</p>
-          <div>
-            <a href="www.linkedin.com/in/cesar-ferreyra-vadnal"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/CesarFerrey"><i class="fa-brands fa-github"></i></a>
-          </div>
-        </div>
-        <div class="dev">
-          <p>Franco Guerra</p>
-          <div>
-            <a href="https://www.linkedin.com/in/franco-luis-guerra/"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/FrancoLguerra"><i class="fa-brands fa-github"></i></a>
-          </div>
-        </div>
-        <div class="dev">
-          <p>Brisa Alvarez</p>
-          <div>
-            <a href="https://www.linkedin.com/mwlite/in/brisa-%C3%A1lvarez-5a211622a"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="https://github.com/bbrialvarez"><i class="fa-brands fa-github"></i></a>
-          </div>
-        </div>
-    </div>
+      </div>
     </footer>
 </body> 
 <!-- JavaScript Bundle with Popper -->

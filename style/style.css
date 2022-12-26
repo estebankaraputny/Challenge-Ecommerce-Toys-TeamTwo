@@ -1,4 +1,4 @@
-*, ul, ol{
+*, body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -75,7 +75,6 @@
     color: var(--negro)
 }
 
-
 .options{
     padding: 5px 10px;
     background-color: var(--celeste-claro);
@@ -103,8 +102,16 @@
 
 /* COMIENZA MAIN  */
 
-.content__section{
+
+
+
+.content__body{
     height: 100vh;
+}
+
+
+.section__products{
+    min-height: 100vh;
 }
 
 .content__barraCategory{
@@ -131,16 +138,62 @@
     margin: 5px;
 }
 
+
+
+/* COMIENZA CARRITO */
+
 .content__icons{
     width: 20%;
     display: flex;
     justify-content: space-evenly;
+    position: relative;
+}
+
+
+.container__cartProducts{
+    /* position: absolute; */
+    background-color: var(--blanco);
+    height: 400px;
+    width: 200px;
+    top: 10%;
+    right: 5%;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .icons__nav{
     color: var(--blanco);
     font-size: 20px;
 }
+
+
+.cart__products{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cantidad{
+    border: 1px solid #000;
+    padding: 5px;
+    margin: 0;
+}
+
+.name-product{
+    font-size: 1rem;
+    margin: 0;
+}
+
+.price-product{
+    font-size: 1rem;
+    margin: 0;
+}
+
+
 
 /* COMIENZAR FOOTER  */
 
@@ -151,7 +204,49 @@
     justify-content: space-around;
     align-items: center;
     color: var(--blanco);
+    padding: 1rem;
 }
+
+.name-and-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.name__page{
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.parrafo__footer{
+    font-weight: 600
+}
+
+.title__metodo{
+    font-size: 1rem;
+    padding: 1rem;
+}
+
+.metodo__dePago{
+    height: 100%;
+}
+
+.listaLogosPago{
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.logo-pagar{
+    width: 2rem;
+    height: 2rem;
+    background-color: var(--blanco);
+    border-radius: 5px ;
+}
+
+
 
 .content__redes{
     width: 30%;
@@ -162,15 +257,157 @@
     flex-wrap: wrap;
 }
 
+.title__redes{
+    font-size: 1rem;
+}
+
+.redes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
+}
+
+
 
 .fa-brands{
     color: var(--blanco);
-    font-size:20px ;
+    font-size:1.3rem ;
 }
 
 .dev{
     width: 50%;
+    text-align: left;
 }
+
+
+/* COMIENZA SECCION DE PRODUCTOS  */
+
+
+.carousel{
+    height: 5%;
+}
+
+
+.content__cards{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.card{
+    margin: 1rem;
+    overflow: hidden;
+    transform: translate(0);
+    transition: 0.25s;
+}
+
+.card:hover{
+    transform: scale(1.03);
+}
+
+.card::before{
+    content: "";
+    position: absolute;
+    transform: rotate(-12deg);
+    z-index: -1;
+}
+
+.card-direccion{
+    text-decoration: none;
+}
+
+.card-title{
+    font-size: 1rem;
+    color: var(--negro);
+}
+
+.card-price{
+    font-size: 1.5rem;
+    color: var(--turquesa-claro);
+    font-weight: 500;
+}
+
+.gradient {
+    background: linear-gradient(-45deg, var(--turquesa-claro), var(--turquesa-medio), var(--turquesa-oscuro), var(--azul-oscuro));
+    background-size: 400% 400%;
+    background-position: 0% 10%;
+    border-radius: 3px;
+    cursor: pointer;
+    text-align:center ;
+    
+}
+
+
+.gradient:hover{
+    animation: gradient 8s ease infinite;
+    text-align:center ;
+    color: var(--blanco);
+
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 10%;
+    }
+    
+    50%{
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+
+.btn{
+    color: var(--blanco);
+    width: 100%;
+}
+
+
+.hidden{
+    display: none;
+}
+
+
+/* ESTILOS DEL MENSAJE DE ERROR POR PRODUCTO NO ENCONTRADO  */
+
+.content__messageErr{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.card__mensajeDeError{
+    width: 70%;
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: 0 0 15px var(--negro);
+}
+
+
+.img__error{
+    width: 20rem;
+    height: 20rem;
+}
+
+
+.mensaje__error{
+    width: 50%;
+}
+
+
+
+
+
 
 /* COMIENZA RESPONSIVE  */
 @media (max-width: 700px){
