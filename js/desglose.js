@@ -69,6 +69,8 @@ const productsToys = [
   },
 ];
 
+localStorage.setItem("productsToys", JSON.stringify(productsToys));
+
 const ProductsList = document.getElementById("productsList");
 const renderProduct = (product) => {
   const ProductCard = ` 
@@ -88,12 +90,12 @@ const renderProduct = (product) => {
     </div>
     <div class="d-flex flex-row align-items-center">
       <div style="width: 50px;">
-        <button type="button" class="btn restarCantidad">-</button><h5 class="fw-normal mb-0" id="cantidad">${product.stock}</h5><a  class="btn sumarCantidad " id="">+</a>
+        <button type="button" class="btn restarCantidad">-</button><h5 class="fw-normal mb-0" id="cantidad">${product.stock}</h5><a  class="btn sumarCantidad " >+</a>
       </div>
       <div style="width: 80px;">
         <h5 class="mb-0">$${product.price}</h5>
       </div>
-      <a href="#!" style="color: #cecece;" class="btnDelete" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+      <a href="#!" style="color: #cecece;" id="${product.idProduct}" class="btnDelete" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
       <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
     </svg></a>
     </div>
@@ -106,7 +108,8 @@ const renderProduct = (product) => {
   buttonsProducts();
 };
 
-const renderProducts = (products) => {
+const renderProducts = () => {
+  const products = JSON.parse(localStorage.getItem("productsToys"));
   ProductsList.innerHTML = "";
   products.forEach((product) => {
     renderProduct(product);
@@ -117,18 +120,48 @@ const buttonsProducts = () => {
   btnsDelete.forEach((btnDelete) => {
     btnDelete.addEventListener("click", (e) => {
       console.log("delete");
-      e.target.parentElement.parentElement.parentElement.parentElement.remove();
+      e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+      let products = JSON.parse(localStorage.getItem("productsToys"));
+      let productsToys = products.filter((product) => {
+        console.log(
+          "product.idProduct",
+          product.idProduct,
+          "e.target.id",
+          e.target.parentElement.parentElement.id
+        );
+        if (product.idProduct != e.target.parentElement.parentElement.id) {
+          return product;
+        }
+      });
+      localStorage.removeItem("productsToys");
+      console.log(productsToys);
+      localStorage.setItem("productsToys", JSON.stringify(productsToys));
     });
   });
 
   const btnsSumar = document.querySelectorAll(".sumarCantidad");
   const cantidad = document.getElementById("cantidad");
-  console.log(btnsSumar);
+
   btnsSumar.forEach((btnSumar) => {
     btnSumar.addEventListener("click", (e) => {
-      console.log("restar");
+      let products = JSON.parse(localStorage.getItem("productsToys"));
       e.target.parentElement.children[1].innerHTML =
         parseInt(e.target.parentElement.children[1].innerHTML) + 1;
+      let productsModificados = products.map((product) => {
+        if (
+          product.idProduct ==
+          e.target.parentElement.parentElement.id
+        ) {
+          products[product.idProduct - 1].stock =
+            parseInt(e.target.parentElement.children[1].innerHTML);
+
+        }
+        return product;
+       
+      });
+      localStorage.removeItem("productsToys");
+      localStorage.setItem("productsToys", JSON.stringify(products));
+      //modifico la cantidad de productos en el local storage
     });
   });
 
@@ -156,10 +189,25 @@ const sortBy = (criterio, productos) => {
   renderProducts(productos);
 };
 
+//ordenar productos por valor seleccionado(precio,nombre,stock)
 const optionOrder = document.getElementById("orderBy");
 optionOrder.addEventListener("change", (e) => {
   sortBy(e.target.value, productsToys);
 });
 // sortBy("stock",productsToys);
 
-renderProducts(productsToys);
+//generar codigo de descuento para la compra
+
+const generateCode = () => {
+  const code = Math.floor(Math.random() * 1000000);
+  //genero el porcentaje de descuento (entre 10 y 70%)
+  const percentageDiscount = Math.floor(Math.random() * 60 + 10);
+  alert(
+    `Su codigo de descuento es: ${code}. Con un descuento del: ${percentageDiscount}%`
+  );
+  localStorage.setItem("code", code);
+  localStorage.setItem("percentageDiscount", percentageDiscount);
+};
+
+renderProducts();
+generateCode();
