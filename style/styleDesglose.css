@@ -1,0 +1,14 @@
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+    }
+
+    #pay{
+        width: 100%;
+    }
+
+    #productsList{
+        margin-right: 0px;
+        width: 80%;
+    }
