@@ -69,6 +69,8 @@ const productsToys = [
   },
 ];
 
+localStorage.setItem("productsToys", JSON.stringify(productsToys));
+
 const ProductsList = document.getElementById("productsList");
 const renderProduct = (product) => {
   const ProductCard = ` 
@@ -93,7 +95,7 @@ const renderProduct = (product) => {
       <div style="width: 80px;">
         <h5 class="mb-0">$${product.price}</h5>
       </div>
-      <a href="#!" style="color: #cecece;" class="btnDelete" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+      <a href="#!" style="color: #cecece;" class="btnDelete" id="${product.idProduct}" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
       <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
     </svg></a>
     </div>
@@ -113,13 +115,27 @@ const renderProducts = (products) => {
   });
 };
 const buttonsProducts = () => {
+  
   const btnsDelete = document.querySelectorAll(".btnDelete");
   btnsDelete.forEach((btnDelete) => {
     btnDelete.addEventListener("click", (e) => {
-      console.log("delete");
-      e.target.parentElement.parentElement.parentElement.parentElement.remove();
-    });
-  });
+      let products = JSON.parse(localStorage.getItem("productsToys"));
+      e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
+      let productsSinEliminado = [];
+      products.forEach((product) => {
+        console.log( e.target.parentElement.parentElement);
+        if (product.idProduct != e.target.parentElement.parentElement.id) {
+          productsSinEliminado.push(product);
+        }
+        console.log("delete");
+        
+        localStorage.removeItem("productsToys");
+        localStorage.setItem("productsToys", JSON.stringify(productsSinEliminado));});
+        
+      });
+     
+  })
+ 
 
   const btnsSumar = document.querySelectorAll(".sumarCantidad");
   const cantidad = document.getElementById("cantidad");
