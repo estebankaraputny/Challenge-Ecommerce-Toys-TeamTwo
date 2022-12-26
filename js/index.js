@@ -85,13 +85,29 @@ const productsToys = [
 ]
 
 
-// const developers = [
-//     {
-//         name: Cesar,
-//         github:,
-//         linkdin:
-//     }
-// ]
+const developers = [
+    {
+        name: "Esteban Karaputny",
+        github:"https://github.com/estebankaraputny",
+        linkdin: "https://www.linkedin.com/in/esteban-karaputny-9149171ab/"
+    },
+    {
+        name: "Brisa Alvarez",
+        github:"https://github.com/bbrialvarez",
+        linkdin:"https://www.linkedin.com/mwlite/in/brisa-%C3%A1lvarez-5a211622a"
+    },
+    {
+        name: "Cesar Ferreyra",
+        github:"https://github.com/CesarFerrey",
+        linkdin: "www.linkedin.com/in/cesar-ferreyra-vadnal"
+    },
+    {
+        name: "Franco Guerra",
+        github:"https://github.com/FrancoLguerra",
+        linkdin: "https://www.linkedin.com/in/franco-luis-guerra/"
+    }
+]
+
 
 
 // EFECT TOGGLE IN BUTTON MENU 
@@ -122,9 +138,7 @@ const renderCards = () => {
                 <div class="card-body">
                     <h5 class="card-title">${event.titleProduct}</h5>
                     <p class="card-price">$${event.price}</p>
-                    <div class="gradient">
-                        <a href="#" class="btn">Agregar al carrito</a>
-                    </div>
+                    <a href="#" class="btn btn-addToCart gradient">Agregar al carrito</a>
                 </div>
             </div>
        </a>
@@ -144,7 +158,7 @@ searchToys.addEventListener("keyup", (event) =>{
     let toysHidden = [];
     
     console.log(event.target.value.toLowerCase())
-
+    
 
     if (event.target.matches("#inputSearch")){
         cardsToys.forEach(toy =>{
@@ -152,7 +166,7 @@ searchToys.addEventListener("keyup", (event) =>{
             ? toy.classList.remove("hidden")
             : toy.classList.add("hidden")
 
-
+            
             if(toy.classList.contains("hidden")){
                 toysHidden.push(toy)
             }
@@ -196,17 +210,49 @@ btnCart.addEventListener('click', () => {
     containerCartProducts.classList.toggle('hidden')
 });
 
-// const cardSelect = document.querySelector(".card")
 
 
+const productList = document.querySelector(".content__cards")
+// const buttonCard = document.querySelector(".btn-addToCart");
 
+console.log(productList);
+
+productList.addEventListener("click", (event) =>{
+    // console.log(event.target)
+    if(event.target.classList.contains("btn-addToCart")){
+        const product = event.target.parentElement;
+        console.log(product.querySelector("h5").textContent)
+    }
+})
+
+// RENDERIZAR DEV EN EL FOOTER 
+
+const contentRedes = document.getElementById("redesDev");
+let div = ``;
+
+const renderRedesFooter = () => {
+    developers.map((dev) =>{
+        return (
+            div += `
+            <div class="dev">
+                <p>${dev.name}</p>
+                <div>
+                    <a href="${dev.linkdin}"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="${dev.github}"><i class="fa-brands fa-github"></i></a>
+                </div>
+          </div> `
+        );
+    });
+    contentRedes.innerHTML = div;
+}
+renderRedesFooter()
 
 
 // CODIGO DE DESCUENTO 
 
 // const generateCode = () => {
-//     const code = Math.floor(Math.random() * 1000000);
-//    //genero el porcentaje de descuento (entre 10 y 70%)
+    //     const code = Math.floor(Math.random() * 1000000);
+    //    //genero el porcentaje de descuento (entre 10 y 70%)
 //     const percentageDiscount = Math.floor(Math.random() * 60 + 10);
 //     alert(`Su codigo de descuento es: ${code}, Con un descuento del: ${percentageDiscount}%`);
 //     localStorage.setItem("code", code);
