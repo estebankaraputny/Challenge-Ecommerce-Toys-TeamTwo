@@ -70,6 +70,11 @@ const productsToys = [
 ];
 
 localStorage.setItem("productsToys", JSON.stringify(productsToys));
+//cargar dinamicamente los valores a pagar en el carrito
+const totalPagar = document.getElementById("totalPagar");
+const subtotalPagar = document.getElementById("subtotalPagar");
+const impuestosPagar = document.getElementById("impuestosPagar");
+const totalBtnPagar = document.getElementById("totalBtnPagar");
 
 const ProductsList = document.getElementById("productsList");
 const renderProduct = (product) => {
@@ -90,12 +95,16 @@ const renderProduct = (product) => {
     </div>
     <div class="d-flex flex-row align-items-center">
       <div style="width: 50px;">
-        <button type="button" class="btn restarCantidad">-</button><h5 class="fw-normal mb-0" id="cantidad">${product.stock}</h5><a  class="btn sumarCantidad " id="">+</a>
+        <button type="button" class="btn restarCantidad">-</button><h5 class="fw-normal mb-0" id="cantidad">${
+          product.stock
+        }</h5><a  class="btn sumarCantidad " id="">+</a>
       </div>
       <div style="width: 80px;">
-        <h5 class="mb-0">$${product.price}</h5>
+        <h5 class="mb-0">$${product.price * product.stock}</h5>
       </div>
-      <a href="#!" style="color: #cecece;" class="btnDelete" id="${product.idProduct}" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+      <a href="#!" style="color: #cecece;" class="btnDelete" id="${
+        product.idProduct
+      }" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
       <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
     </svg></a>
     </div>
@@ -104,18 +113,48 @@ const renderProduct = (product) => {
 </div>
 
 </div>`;
+
   ProductsList.innerHTML += ProductCard;
   buttonsProducts();
 };
 
 const renderProducts = (products) => {
   ProductsList.innerHTML = "";
-  products.forEach((product) => {
-    renderProduct(product);
-  });
+  //vacio los valores a pagar para cargarlos nuevamente
+  totalPagar.innerHTML = 0;
+  subtotalPagar.innerHTML = 0;
+  totalBtnPagar.innerHTML = 0;
+
+  if (products.length == 0) {
+    ProductsList.innerHTML = `<div class="alert alert-danger alertCarritoVacio" role="alert">
+    No hay productos en el carrito <a href="../index.html"><button class="btn btn-secondary" >Volver</button></a></div> `;
+  } else {
+    products.forEach((product) => {
+      renderProduct(product);
+      //cargo los valores actualizados para pagar
+
+      //al valor anterior le sumo el nuevo valor, parseo a entero para que no me sume strings
+      totalPagar.innerHTML = `${
+        parseInt(totalPagar.innerHTML) + product.price * product.stock
+      }`;
+      //totalPagar.innerHTML += `${product.price * product.stock +20}`;
+      subtotalPagar.innerHTML =
+        parseInt(subtotalPagar.innerHTML) + product.price * product.stock;
+      totalBtnPagar.innerHTML =
+        parseInt(totalBtnPagar.innerHTML) + product.price * product.stock;
+    });
+  }
+  //agrego simbolos de pesos a los valores y sumo el valor de los impuestos.
+  totalPagar.innerHTML = `$${
+    parseInt(totalPagar.innerHTML) + 20
+  }`;
+  totalBtnPagar.innerHTML = `$${
+    parseInt(totalBtnPagar.innerHTML) + 20
+  }`;
+  subtotalPagar.innerHTML = `$${  parseInt(subtotalPagar.innerHTML) }`;
 };
+
 const buttonsProducts = () => {
-  
   const btnsDelete = document.querySelectorAll(".btnDelete");
   btnsDelete.forEach((btnDelete) => {
     btnDelete.addEventListener("click", (e) => {
@@ -123,19 +162,22 @@ const buttonsProducts = () => {
       e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
       let productsSinEliminado = [];
       products.forEach((product) => {
-        console.log( e.target.parentElement.parentElement);
+        console.log(e.target.parentElement.parentElement);
         if (product.idProduct != e.target.parentElement.parentElement.id) {
           productsSinEliminado.push(product);
         }
         console.log("delete");
-        
+
         localStorage.removeItem("productsToys");
-        localStorage.setItem("productsToys", JSON.stringify(productsSinEliminado));});
-        
+        localStorage.setItem(
+          "productsToys",
+          JSON.stringify(productsSinEliminado)
+          
+        );
+        renderProducts(productsSinEliminado);
       });
-     
-  })
- 
+    });
+  });
 
   const btnsSumar = document.querySelectorAll(".sumarCantidad");
   const cantidad = document.getElementById("cantidad");
@@ -177,5 +219,24 @@ optionOrder.addEventListener("change", (e) => {
   sortBy(e.target.value, productsToys);
 });
 // sortBy("stock",productsToys);
+
+//funcionalidad para vaciar el carrito desde el boton
+const btnVaciarCarrito = document.getElementById("btnVaciarCarrito");
+btnVaciarCarrito.addEventListener("click", (e) => {
+  localStorage.removeItem("productsToys");
+  renderProducts([]);
+});
+
+//mueztro modal cuando se hace click en el boton de pagar
+// const btnPagar = document.getElementById("pay");
+// btnPagar.addEventListener("click", (e) => {
+//   const modal = document.getElementById("modal");
+//   modal.style.display = "block";
+
+
+
+
+// });
+
 
 renderProducts(productsToys);
