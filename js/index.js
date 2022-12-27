@@ -418,7 +418,7 @@ renderRedesFooter()
 
 
 
-// PAGE DETAILS ENVIAR 
+// PAGE DETAILS ENVIAR ID PARA SU RENDERIZACION
 let idProduct = document.querySelectorAll("#idProduct");
 
 let directionProduct = document.querySelectorAll(".card-direccion")
