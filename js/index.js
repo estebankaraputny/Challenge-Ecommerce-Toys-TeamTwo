@@ -1,3 +1,4 @@
+
 // ARRAY DE JUGETES 
 const productsToys = [
     {
@@ -10,7 +11,9 @@ const productsToys = [
         price: 100
     },
     {
+
         titleProduct: "Helicoptero",
+
         descriptionProduct: "Helicoptero a control remoto",
         stock: 4,
         category: "Juguetes control remoto",
@@ -54,6 +57,7 @@ const productsToys = [
         idProduct: 6,
         price: 600
     },
+
 ]
 
 
