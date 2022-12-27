@@ -145,13 +145,13 @@ const renderProducts = (products) => {
     });
   }
   //agrego simbolos de pesos a los valores y sumo el valor de los impuestos.
-  totalPagar.innerHTML = `${
+  totalPagar.innerHTML = `$${
     parseInt(totalPagar.innerHTML) + 20
   }`;
   totalBtnPagar.innerHTML = `$${
     parseInt(totalBtnPagar.innerHTML) + 20
   }`;
-  subtotalPagar.innerHTML = `${  parseInt(subtotalPagar.innerHTML) }`;
+  subtotalPagar.innerHTML = `$${  parseInt(subtotalPagar.innerHTML) }`;
 };
 
 const buttonsProducts = () => {
@@ -226,5 +226,17 @@ btnVaciarCarrito.addEventListener("click", (e) => {
   localStorage.removeItem("productsToys");
   renderProducts([]);
 });
+
+//mueztro modal cuando se hace click en el boton de pagar
+// const btnPagar = document.getElementById("pay");
+// btnPagar.addEventListener("click", (e) => {
+//   const modal = document.getElementById("modal");
+//   modal.style.display = "block";
+
+
+
+
+// });
+
 
 renderProducts(productsToys);
