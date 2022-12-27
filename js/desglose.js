@@ -120,6 +120,11 @@ const renderProduct = (product) => {
 
 const renderProducts = (products) => {
   ProductsList.innerHTML = "";
+  //vacio los valores a pagar para cargarlos nuevamente
+  totalPagar.innerHTML = 0;
+  subtotalPagar.innerHTML = 0;
+  totalBtnPagar.innerHTML = 0;
+
   if (products.length == 0) {
     ProductsList.innerHTML = `<div class="alert alert-danger alertCarritoVacio" role="alert">
     No hay productos en el carrito <a href="../index.html"><button class="btn btn-secondary" >Volver</button></a></div> `;
@@ -140,13 +145,13 @@ const renderProducts = (products) => {
     });
   }
   //agrego simbolos de pesos a los valores y sumo el valor de los impuestos.
-  totalPagar.innerHTML = `$${
+  totalPagar.innerHTML = `${
     parseInt(totalPagar.innerHTML) + 20
   }`;
   totalBtnPagar.innerHTML = `$${
     parseInt(totalBtnPagar.innerHTML) + 20
   }`;
-  subtotalPagar.innerHTML = `$${  parseInt(subtotalPagar.innerHTML) }`;
+  subtotalPagar.innerHTML = `${  parseInt(subtotalPagar.innerHTML) }`;
 };
 
 const buttonsProducts = () => {
@@ -167,7 +172,9 @@ const buttonsProducts = () => {
         localStorage.setItem(
           "productsToys",
           JSON.stringify(productsSinEliminado)
+          
         );
+        renderProducts(productsSinEliminado);
       });
     });
   });
