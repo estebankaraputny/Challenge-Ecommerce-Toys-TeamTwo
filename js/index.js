@@ -130,18 +130,19 @@ let card = ``;
 
 
 const renderCards = () => {
-    productsToys.map((event) => {
+    productsToys.map((product) => {
        return (card += `
-       <a href="#" class="card-direccion"> 
-            <div class="card" style="width: 18rem;" id="cardToy">
-                <img src="${event.imageProduct}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">${event.titleProduct}</h5>
-                    <p class="card-price">$${event.price}</p>
-                    <a href="#" class="btn btn-addToCart gradient">Agregar al carrito</a>
-                </div>
+       <div class="card" style="width: 18rem;" id="cardToy">
+            <div class="card-body">
+                <a href="./pages/details.html" class="card-direccion"> 
+                        <img src="${product.imageProduct}" class="card-img-top" alt="...">
+                        <span class="hidden" id="idProduct">${product.idProduct}</span>
+                        <h5 class="card-title">${product.titleProduct}</h5>
+                        <p class="card-price">$${product.price}</p>
+                </a>
+                <button class="btn btn-addToCart gradient">Agregar al carrito</button>
             </div>
-       </a>
+        </div>
                 `);
     });
     contentCards.innerHTML = card;
@@ -199,31 +200,185 @@ searchToys.addEventListener("keyup", (event) =>{
 
 // COMIENZA LA FUNCIONALIDAD DEL CARRITO 
 
-
-const containerCartProducts = document.querySelector('.container__cartProducts')
-const btnCart = document.querySelector('.content__cartIcon')
+// Carrito 
+const containerCartProducts = document.querySelector('.container__cartProducts');
 console.log(containerCartProducts)
+
+// Container de los productos
+const productsCart = document.querySelector(".products-cart");
+
+// Icono del carrito 
+const btnCart = document.querySelector('.content__cartIcon');
+
+// Productos del carrito 
+// const cartProducts = document.querySelector('.cart-products');
+
 
 
 btnCart.addEventListener('click', () => {
     // console.log("funciona")
-    containerCartProducts.classList.toggle('hidden')
+    containerCartProducts.classList.toggle('hidden');
 });
 
 
+// Todos los productos de la tienda
+const productList = document.querySelector(".content__cards");
+// console.log(productList);
 
-const productList = document.querySelector(".content__cards")
-// const buttonCard = document.querySelector(".btn-addToCart");
 
-console.log(productList);
+// Array de productos agregados al carrito 
+let products = [];
+
+// Contador del precio final 
+const valorTotal = document.querySelector(".total__pagar");
+
+
+// Mensaje cuando el carrito esta vacio 
+const cartEmpty = document.querySelector('.cart__empty');
+
+
+// AGREGAR UN PRODUCTO AL CARRITO   
+
 
 productList.addEventListener("click", (event) =>{
     // console.log(event.target)
-    if(event.target.classList.contains("btn-addToCart")){
+    
+    if(event.target.classList.contains("btn-addToCart")) {
         const product = event.target.parentElement;
-        console.log(product.querySelector("h5").textContent)
+        
+        const infoProduct = {
+            title : product.querySelector("h5").textContent,
+            price : Number(product.querySelector("p").textContent.slice(1)),
+            quantityProduct : 1,
+            imageProduct : product.querySelector("img").src
+        };
+        
+        console.log(product.querySelector("img"))
+        // Sumar la cantidad si el producto existe 
+
+        const productExists = products.some(
+            product => product.title === infoProduct.title
+        );
+        
+        if(productExists) {
+            const productsItem = products.map(product => {
+                if(product.title === infoProduct.title) {
+                    product.quantityProduct++;
+                    return product;
+                } else {
+                    return product;
+                }
+            });
+            products = [...productsItem];
+        } else{
+            products = [...products, infoProduct];
+        }
+
+        renderCart();
     }
-})
+    // console.log(products)
+});
+
+
+//ELIMINAR PRODUCTOS DEL CARRITO
+
+
+productsCart.addEventListener('click', event => {
+
+    console.log(event.target.classList.contains("icon-close"))
+
+    if (event.target.classList.contains('icon-close')) {
+      const product = event.target;
+      const title = product.querySelector('h3').textContent;
+  
+      products = products.filter(
+        product => product.title !== title
+      );
+  
+      console.log(product);
+  
+      renderCart();
+    }
+});
+
+
+// products.forEach(product => {
+//     const contentProducts = document.createElement("div");
+//     contentProducts.classList.add("cart-products");
+//     contentProducts.innerHTML = `
+//         <img src="./assent/image/logo-iniciatoysstore.png" alt="imagen del producto" class="image__productCart">
+//         <p class="cantidad">${product.quantityProduct}</p>
+//         <h3 class="name-product">${product.title}</h3>
+//         <p class="price-product">$${product.price}</p>
+//         <i class="bi bi-x-lg icon-close"></i>
+//     `
+//     productsCart.appendChild(contentProducts);
+//     totalPrice = totalPrice + (product.quantityProduct * product.price);
+// });
+
+
+// productsCart.addEventListener('click', event => {
+//     if (event.target.classList.contains('icon__close')) {
+//       const product = event.target;
+//       const title = product.querySelector('h3').textContent;
+  
+//       products = products.filter(
+//         product => product.title !== title
+//       );
+  
+//       console.log(product);
+  
+//       renderCart();
+//     }
+// });
+
+
+
+//RENDERIZAMOS LOS PRODUCTOS AL CARRITO
+
+const renderCart = () =>{
+
+    if (products.length === 0) {
+		cartEmpty.classList.remove('hidden');
+		productsCart.classList.add('hidden');
+	    valorTotal.classList.add('hidden');
+	} else {
+		cartEmpty.classList.add('hidden');
+		productsCart.classList.remove('hidden');
+		valorTotal.classList.remove('hidden');
+	};
+
+
+
+    productsCart.innerHTML= ``;
+    let totalPrice = 0;
+
+
+    products.forEach(product => {
+        const contentProducts = document.createElement("div");
+        contentProducts.classList.add("cart-products");
+        contentProducts.innerHTML = `
+            <img src="${product.imageProduct}" alt="imagen del producto" class="image__productCart">
+            <p class="cantidad">${product.quantityProduct}</p>
+            <h3 class="name-product">${product.title}</h3>
+            <p class="price-product">$${product.price}</p>
+            <i class="bi bi-x-lg icon-close"></i>
+        `
+        productsCart.appendChild(contentProducts);
+        totalPrice = totalPrice + (product.quantityProduct * product.price);
+    });
+
+    valorTotal.innerText = `$${totalPrice}`;
+
+    console.log(valorTotal);
+
+}
+
+
+
+
+
+
 
 // RENDERIZAR DEV EN EL FOOTER 
 
@@ -263,3 +418,16 @@ renderRedesFooter()
 
 
 
+// PAGE DETAILS ENVIAR 
+let idProduct = document.querySelectorAll("#idProduct");
+
+let directionProduct = document.querySelectorAll(".card-direccion")
+
+
+for(let i = 0; i < idProduct.length; i++ ){
+    console.log(idProduct[i].outerText)
+    
+    directionProduct[i].addEventListener("click", () =>{
+      localStorage.setItem("idOfProduct", idProduct[i].outerText)
+    });
+  }
