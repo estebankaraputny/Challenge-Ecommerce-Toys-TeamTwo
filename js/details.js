@@ -32,9 +32,9 @@ console.log(idProducts)
                   <div class="details">
                   <h3>CUOTAS:</h3>
                   <ul class="listaCuotas">
-                    <li> En 3 cuotas de: $ ${cuota3} </li>
-                    <li> En 6 cuotas de: $ ${cuota6}</li>
-                    <li> En 12 cuotas de: $ ${cuota12}</li>
+                    <li> En 3 cuotas de: $ ${parseInt(cuota3)} </li>
+                    <li> En 6 cuotas de: $ ${parseInt(cuota6)}</li>
+                    <li> En 12 cuotas de: $ ${parseInt(cuota12)}</li>
                   </ul>
                   <div class="metodos__dePago">
                     <h3 class="details">Metodos de Pago:</h3>

@@ -12,52 +12,56 @@
 <body>
     <!-- Inicia Barra de Navegación  -->
     <header>
-       <nav  class="barra__navegacion">
-          <div class="content__logo">
-            <img src="../assent/image/logo-iniciatoysstore.png" alt="logo de la pagina" class="logo">
-          </div>
-          <div class="content__search">
-            <form role="search">
-              <input type="search" placeholder="Buscar" aria-label="Buscar" class="input__search">
-              <button type="submit" class="boton__search">Buscar</button>
-            </form>
-          </div>
-          <div class="content__links">
-            <ul class="content__botones">
-              <li>
-                <a href="../index.html" class="options">Home</a>
-              </li>
-              <li>
-                <a href="../index.html" class="options">Products</a>
-              </li>
-              <li>
-                <a href="./abount.html" class="options">Abount Us</a>
-              </li>
-            </ul>
-          </div>
-       </nav>
+      <nav  class="barra__navegacion">
+        <div class="content__logo">
+          <img src="../assent/image/logo-iniciatoysstore.png" alt="logo de la pagina" class="logo">
+         </div>
+         
+         <button class="boton__menu" id="botonMenu">
+           <i class="bi bi-list"></i>
+         </button>
+         <div class="content__links" id="contentLinks">
+           <ul class="content__botones">
+             <li class="options">
+               <a href="../index.html"  class="options-links" >Home</a>
+             </li>
+             <li  class="options">
+               <a href="../pages/abount.html" class="options-links">About Us</a>
+             </li>
+             <div class="content__icons">
+               <a href="" class="icons__nav"><i class="bi bi-person-circle"></i></a>
+               <div class="content__cartIcon">
+                 <a class="icons__nav cart"><i class="bi bi-cart2"></i></a>
+               </div>
+             </div>
+           </ul>
+         </div>
+         <!-- CONTENIDO DEL CARRITO -->
+         
+         <div class="container__cartProducts hidden">
+           <!-- PRODUCTOS -->
+           <div class="products-cart">
+             
+           </div>
+
+           <!-- TOTAL A PAGAR -->
+           <div class="content-total-and-button">
+             <div class="content__total">
+               <h2 class="total">Total:</h2> 
+               <p class="total__pagar">$0</p>
+             </div>
+             <div class="desglose">
+               <a href="./pages/desglose.html" class="boton__desglose">Ver más</a>
+             </div>
+           
+           <p class="cart__empty hidden">No hay productos en tu carrito</p>
+         </div>
+           </div>
+      </nav>
     </header>
     <!-- Inicia Sección de Productos  -->
     <main class="content__section">
-      <div>
-        <nav class="content__barraCategory">
-          <div class="content__list">
-            <ul class="list__category">
-              <li class="nav-item options__category">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Category
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Niños</a></li>
-                  <li><a class="dropdown-item" href="#">Niñas</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">1 a 3 años</a></li>
-                  <li><a class="dropdown-item" href="#">4 a 8 años</a></li>
-                  <li><a class="dropdown-item" href="#">8 a 12 años</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+     
           <div class="content__icons">
             <a href="" class="icons__nav"><i class="bi bi-person-circle"></i></a>
             <a href="" class="icons__nav"><i class="bi bi-cart2"></i></a>
