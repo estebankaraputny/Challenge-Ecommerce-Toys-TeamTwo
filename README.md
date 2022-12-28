@@ -80,7 +80,6 @@ En este sitio se muestra en forma de cards todos los productos disponibles
 #### Desglose de Compra
 En esta pagina se pueden ver los productos seleccionados en forma de lista. También se agrega una seccion de pago
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/desglose.png?alt=media&token=babe57d9-e9f4-4a83-a94f-193b55bc0d95">
 
 ###### Producto :teddy_bear::
 Muestra una miniatura del producto, el precio, la cantidad y una opcion para eliminar el producto
@@ -88,5 +87,34 @@ Muestra una miniatura del producto, el precio, la cantidad y una opcion para eli
 <img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/productoDesglose.png?alt=media&token=a62509a6-0588-4fe7-a829-dc2c5b73c588">
 
 ###### Vaciar Carrito :broom::
+Elimina todos los productos del carrito de una sola vez
 
 <img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/vaciarCarrito.png?alt=media&token=348b67ee-c7ae-4c8d-ae4c-9edc27099e41">
+
+
+###### Ingresar Cupon :ticket::
+En esta seccion se puede ingresar un cupon para recibir descuentos en su compra
+
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/ingresarCupon.png?alt=media&token=3470a32e-b397-4e2d-969e-f0d218f34216">
+
+###### Ordenar Productos :books::
+Seleccionando una de las opciones de la lista desplegada, los productos del carrito seran ordenados segun ese criterio
+
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/ordenarProductos.png?alt=media&token=24bb5911-3855-4e51-a0b5-14ec3db419bd">
+
+###### Metodo de pago :credit_card: :
+En esta seccion se puede cargar una tarjeta de credito para efectuar el pago. En ella tambien se muestran los montos a pagar, si hay descuento lo muestra en pesos. Y un boton para confirmar el pago
+
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/medioDePago.png?alt=media&token=cb806f9a-b7c3-45b9-96b7-c7289625f6c0">
+
+###### Confirmación de pago :white_check_mark::
+Una vez realizado el pago se mostrará una ventana informando que fue exitosa 
+
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/pagoExitoso.png?alt=media&token=67c47c85-00a1-47b9-94b9-31a4df485502">
+
+###### Aviso carrito vacio:bangbang::
+Si el carrito no posee articulos, aparecerá un avis en la pantalla con un boton que permite regresar a la seccion donde se encuentran los productos
+
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/avisoCarritoVacio.png?alt=media&token=9f7abd62-bb05-4b63-972b-4ef178f0c5b4">
+
+
