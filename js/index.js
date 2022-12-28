@@ -233,11 +233,11 @@ searchToys.addEventListener("keyup", (event) =>{
 
 
 
+
 // COMIENZA LA FUNCIONALIDAD DEL CARRITO 
 
 // Carrito 
 const containerCartProducts = document.querySelector('.container__cartProducts');
-console.log(containerCartProducts)
 
 // Container de los productos
 const productsCart = document.querySelector(".products-cart");
@@ -251,14 +251,12 @@ const btnCart = document.querySelector('.content__cartIcon');
 
 
 btnCart.addEventListener('click', () => {
-    // console.log("funciona")
     containerCartProducts.classList.toggle('hidden');
 });
 
 
 // Todos los productos de la tienda
 const productList = document.querySelector(".content__cards");
-// console.log("Products List",productList);
 
 
 // Array de productos agregados al carrito 
@@ -276,11 +274,9 @@ const cartEmpty = document.querySelector('.cart__empty');
 
 
 productList.addEventListener("click", (event) =>{
-    // console.log(event.target)
     
     if(event.target.classList.contains("btn-addToCart")) {
         const product = event.target.parentElement;
-        // this.leerDatosProducto(product);
         const infoProduct = {
             title : product.querySelector("h5").textContent,
             price : Number(product.querySelector("p").textContent.slice(1)),
@@ -289,8 +285,6 @@ productList.addEventListener("click", (event) =>{
             // imageProduct : product.querySelector("img").src 
         };
         
-        
-        // localStorage.setItem("info Products", infoProduct);
         
         // Sumar la cantidad si el producto existe 
 
@@ -312,14 +306,34 @@ productList.addEventListener("click", (event) =>{
             products = [...products, infoProduct];
         }
 
+        localStorage.setItem('carrito', JSON.stringify(products));
         renderCart();
+        saveProductsInLocal(products, obtenerProductosStorage);
     }
 
-    // console.log(products)
-
-
-
 });
+
+
+//GUARDAD DATOS DEL CARRITO EN localStorage
+const obtenerProductosStorage = () => {
+    let productsLocalStorage;
+
+    if(localStorage.getItem("carrito") === null){
+        productsLocalStorage = [];
+    } else {
+        productsLocalStorage = JSON.parse(localStorage.getItem("carrito", ))
+    }
+    return productsLocalStorage
+
+};
+
+const saveProductsInLocal = (products) => {
+    let productos; 
+    productos = obtenerProductosStorage();
+    productos.push(products)
+    localStorage.setItem("carrito", JSON.stringify(productos));
+};
+
 
 
 //ELIMINAR PRODUCTOS DEL CARRITO
@@ -327,17 +341,24 @@ productList.addEventListener("click", (event) =>{
 
 productsCart.addEventListener('click', event => {
     let producto, productoId;
-    
+        const productIdElement = document.getElementById("idProduct");         
+
     if (event.target.classList.contains('icon-close')) {
-            producto = event.target.parentElement.remove();
-            productoId = producto.querySelector("span").textContent;
-  
-            products = products.filter(
-            productoId => productoId !== productoId
-      );
+            producto = event.target.parentElement;
 
+            productoId = productIdElement.textContent;
 
-      renderCart();
+            producto.remove();
+
+            products = products.filter(producto => producto.id !== productoId);
+
+            let carrito = JSON.parse(localStorage.getItem('carrito'));
+
+            carrito = carrito.filter(item => item.id !== productoId);
+
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            
+            renderCart();
     }
 });
 
@@ -354,10 +375,102 @@ botonVaciar.addEventListener("click", (event) =>{
 
 
 
+//RENDERIZAMOS LOS PRODUCTOS AL CARRITO
+
+
+const renderCart = () =>{
+    
+    const productosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    // const products = productosCarrito;
+    console.log(productosCarrito);
+    productsCart.innerHTML = "";
+    let totalPrice = 0;
+
+
+    productosCarrito.forEach(product => {
+        const contentProducts = document.createElement("div");
+        contentProducts.classList.add("cart-products");
+        contentProducts.innerHTML = `
+            <!-- <img src="${product.imageProduct}" alt="imagen del producto" class="image__productCart"> -->
+            <p class="cantidad">${product.quantityProduct}</p>
+            <h3 class="name-product">${product.title}</h3>
+            <p class="price-product">$${product.price}</p>
+            <i class="bi bi-x-lg icon-close"></i>
+        `
+        productsCart.appendChild(contentProducts);
+        totalPrice = totalPrice + (product.quantityProduct * product.price);
+    });
+
+    valorTotal.innerText = `$${totalPrice}`;
+
+    console.log(valorTotal);
+
+};
+
+
+
+// RENDERIZAR DEV EN EL FOOTER 
+
+const contentRedes = document.getElementById("redesDev");
+let div = ``;
+
+const renderRedesFooter = () => {
+    developers.map((dev) =>{
+        return (
+            div += `
+            <div class="dev">
+                <p>${dev.name}</p>
+                <div>
+                    <a href="${dev.linkdin}"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="${dev.github}"><i class="fa-brands fa-github"></i></a>
+                </div>
+          </div> `
+        );
+    });
+    contentRedes.innerHTML = div;
+};
+renderRedesFooter();
 
 
 
 
+
+// PAGE DETAILS ENVIAR ID PARA SU RENDERIZACION
+let idProduct = document.querySelectorAll("#idProduct");
+
+let directionProduct = document.querySelectorAll(".card-direccion")
+
+
+for(let i = 0; i < idProduct.length; i++ ){
+    console.log(idProduct[i].outerText)
+    
+    directionProduct[i].addEventListener("click", () =>{
+      localStorage.setItem("idOfProduct", idProduct[i].outerText)
+    });
+}
+
+
+
+
+
+// CODIGO DE DESCUENTO 
+  
+  // const generateCode = () => {
+      //     const code = Math.floor(Math.random() * 1000000);
+      //    //genero el porcentaje de descuento (entre 10 y 70%)
+  //     const percentageDiscount = Math.floor(Math.random() * 60 + 10);
+  //     alert(`Su codigo de descuento es: ${code}, Con un descuento del: ${percentageDiscount}%`);
+  //     localStorage.setItem("code", code);
+  //     localStorage.setItem("percentageDiscount", percentageDiscount);
+//   };
+  
+
+
+
+  
+
+  
+// REVISAR CODIGO, FUNCION DEL CARRITO CONTEO 
 
 
 // products.forEach(product => {
@@ -389,103 +502,3 @@ botonVaciar.addEventListener("click", (event) =>{
 //       renderCart();
 //     }
 // });
-
-
-
-//RENDERIZAMOS LOS PRODUCTOS AL CARRITO
-
-const renderCart = () =>{
-
-    if (products.length === 0) {
-		cartEmpty.classList.remove('hidden');
-		productsCart.classList.add('hidden');
-	    valorTotal.classList.add('hidden');
-	} else {
-		cartEmpty.classList.add('hidden');
-		productsCart.classList.remove('hidden');
-		valorTotal.classList.remove('hidden');
-	};
-
-
-
-    productsCart.innerHTML= ``;
-    let totalPrice = 0;
-
-
-    products.forEach(product => {
-        const contentProducts = document.createElement("div");
-        contentProducts.classList.add("cart-products");
-        contentProducts.innerHTML = `
-            <!-- <img src="${product.imageProduct}" alt="imagen del producto" class="image__productCart"> -->
-            <p class="cantidad">${product.quantityProduct}</p>
-            <h3 class="name-product">${product.title}</h3>
-            <p class="price-product">$${product.price}</p>
-            <i class="bi bi-x-lg icon-close"></i>
-        `
-        productsCart.appendChild(contentProducts);
-        totalPrice = totalPrice + (product.quantityProduct * product.price);
-    });
-
-    valorTotal.innerText = `$${totalPrice}`;
-
-    console.log(valorTotal);
-
-}
-
-
-
-
-
-
-
-// RENDERIZAR DEV EN EL FOOTER 
-
-const contentRedes = document.getElementById("redesDev");
-let div = ``;
-
-const renderRedesFooter = () => {
-    developers.map((dev) =>{
-        return (
-            div += `
-            <div class="dev">
-                <p>${dev.name}</p>
-                <div>
-                    <a href="${dev.linkdin}"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="${dev.github}"><i class="fa-brands fa-github"></i></a>
-                </div>
-          </div> `
-        );
-    });
-    contentRedes.innerHTML = div;
-}
-renderRedesFooter()
-
-
-// CODIGO DE DESCUENTO 
-
-// const generateCode = () => {
-    //     const code = Math.floor(Math.random() * 1000000);
-    //    //genero el porcentaje de descuento (entre 10 y 70%)
-//     const percentageDiscount = Math.floor(Math.random() * 60 + 10);
-//     alert(`Su codigo de descuento es: ${code}, Con un descuento del: ${percentageDiscount}%`);
-//     localStorage.setItem("code", code);
-//     localStorage.setItem("percentageDiscount", percentageDiscount);
-//   };
-
-
-
-
-
-// PAGE DETAILS ENVIAR ID PARA SU RENDERIZACION
-let idProduct = document.querySelectorAll("#idProduct");
-
-let directionProduct = document.querySelectorAll(".card-direccion")
-
-
-for(let i = 0; i < idProduct.length; i++ ){
-    console.log(idProduct[i].outerText)
-    
-    directionProduct[i].addEventListener("click", () =>{
-      localStorage.setItem("idOfProduct", idProduct[i].outerText)
-    });
-  }
