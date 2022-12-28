@@ -23,8 +23,12 @@
     section{
         margin-top: 0px;
         margin-bottom: 50%;
+        width: 100%;
     }
 
     #btnVaciarCarrito{
         margin-right: 1%;
+    }
+    .btnsSuperiores{
+        width: 100%;
     }

@@ -182,26 +182,6 @@ const buttonsProducts = () => {
     });
   });
 
-  // const btnsSumar = document.querySelectorAll(".sumarCantidad");
-  // const cantidad = document.getElementById("cantidad");
-  // console.log(btnsSumar);
-  // btnsSumar.forEach((btnSumar) => {
-  //   btnSumar.addEventListener("click", (e) => {
-  //     console.log("restar");
-  //     e.target.parentElement.children[1].innerHTML =
-  //       parseInt(e.target.parentElement.children[1].innerHTML) + 1;
-  //   });
-  // });
-
-  // const btnsRestar = document.querySelectorAll(".restarCantidad");
-  // btnsRestar.forEach((btnRestar) => {
-  //   btnRestar.addEventListener("click", (e) => {
-  //     if (e.target.parentElement.children[1].innerHTML > 0) {
-  //       e.target.parentElement.children[1].innerHTML =
-  //         parseInt(e.target.parentElement.children[1].innerHTML) - 1;
-  //     }
-  //   });
-  // });
 };
 
 const sortBy = (criterio, productos) => {
