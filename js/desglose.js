@@ -6,7 +6,7 @@
 //  *idProduct<number>
 //  *price<number>
 
-const productsToys = [
+const productsToysDesglose = [
   {
     titleProduct: "Pelota",
     descriptionProduct: "Pelota de goma",
@@ -69,7 +69,9 @@ const productsToys = [
   },
 ];
 
-localStorage.setItem("productsToys", JSON.stringify(productsToys));
+localStorage.setItem("productsToys", JSON.stringify(productsToysDesglose));
+localStorage.setItem("cuponDescuento", "123456");
+localStorage.setItem("descuento", 0.4);
 //cargar dinamicamente los valores a pagar en el carrito
 const totalPagar = document.getElementById("totalPagar");
 const subtotalPagar = document.getElementById("subtotalPagar");
@@ -216,7 +218,7 @@ const sortBy = (criterio, productos) => {
 
 const optionOrder = document.getElementById("orderBy");
 optionOrder.addEventListener("change", (e) => {
-  sortBy(e.target.value, productsToys);
+  sortBy(e.target.value, productsToysDesglose);
 });
 // sortBy("stock",productsToys);
 
@@ -238,5 +240,29 @@ btnVaciarCarrito.addEventListener("click", (e) => {
 
 // });
 
+//funcionalidad para ingresar cupon de descuento
+const btnCupon = document.getElementById("cuponDescuento");
+btnCupon.addEventListener("click", (e) => {
+  console.log("cupon");
+  const cupon = document.getElementById("cupon").value;
+  const cuponLocal = localStorage.getItem("cuponDescuento");
+  console.log(cupon,"cupon ingresado");
+  console.log(cuponLocal,"cupon local");
+  if (cupon == cuponLocal) {
+    const descuento = document.getElementById("descuentoPagar");
+    const descuentoLocal = localStorage.getItem("descuento");
+    const totalPagar = document.getElementById("totalPagar");
+    const totalPagarSin$ = parseInt(totalPagar.innerHTML.slice(1));
+    descuento.innerHTML = `$${totalPagarSin$ * descuentoLocal}`;
+    totalPagar.innerHTML = `$${totalPagarSin$ - totalPagarSin$ * descuentoLocal}`;
+    totalBtnPagar.innerHTML = `$${totalPagarSin$ - totalPagarSin$ * descuentoLocal}`;
+    localStorage.removeItem("cuponDescuento");
+  }
+  else{
+    alert("cupon incorrecto");
+  }
 
-renderProducts(productsToys);
+})
+
+
+renderProducts(productsToysDesglose);
