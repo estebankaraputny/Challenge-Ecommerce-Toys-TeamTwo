@@ -157,22 +157,28 @@ botonMenu.addEventListener("click",() =>{
 const contentCards = document.getElementById("contentCards");
 let card = ``;
 
+        //  
+                
+                
+                
+        // 
 
 const renderCards = () => {
     productsToys.map((product) => {
        return (card += `
-       <div class="card" style="width: 18rem;" id="cardToy">
-            <div class="card-body">
-                <a href="./pages/details.html" class="card-direccion"> 
-                        <img src="${product.imageProduct}" class="card-img-top" alt="...">
-                        <span class="hidden" id="idProduct">${product.idProduct}</span>
-                        <h5 class="card-title">${product.titleProduct}</h5>
-                        <p class="card-price">$${product.price}</p>
-                </a>
-                <button class="btn btn-addToCart gradient" id="buttonAddCart">Agregar al carrito</button>
-            </div>
+                
+        <div class="card" style="width: 18rem; id="cardToy">
+                <img src="${product.imageProduct}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <span class="hidden" id="idProduct">${product.idProduct}</span>
+                    <h5 class="card-title">${product.titleProduct}</h5>
+                    <p class="card-price">$${product.price}</p>
+                    <button class="btn btn-addToCart gradient" id="buttonAddCart">Agregar al carrito</button>
+                    <a href="./pages/details.html" class="btn card-direccion gradient">Ver más</a>
+                </div>
         </div>
-                `);
+        
+        `);
     });
     contentCards.innerHTML = card;
 }
@@ -274,12 +280,13 @@ productList.addEventListener("click", (event) =>{
     
     if(event.target.classList.contains("btn-addToCart")) {
         const product = event.target.parentElement;
-        
+        // this.leerDatosProducto(product);
         const infoProduct = {
             title : product.querySelector("h5").textContent,
             price : Number(product.querySelector("p").textContent.slice(1)),
             quantityProduct : 1,
-            imageProduct : product.querySelector("img").src
+            id : product.querySelector("#idProduct").textContent
+            // imageProduct : product.querySelector("img").src 
         };
         
         
@@ -315,27 +322,42 @@ productList.addEventListener("click", (event) =>{
 });
 
 
-
 //ELIMINAR PRODUCTOS DEL CARRITO
 
 
 productsCart.addEventListener('click', event => {
-
-    // console.log(event.target.classList.contains("icon-close"))
-
+    let producto, productoId;
+    
     if (event.target.classList.contains('icon-close')) {
-      const product = event.target;
-      const title = product.querySelector('h3').textContent;
+            producto = event.target.parentElement.remove();
+            productoId = producto.querySelector("span").textContent;
   
-      products = products.filter(
-        product => product.title !== title
+            products = products.filter(
+            productoId => productoId !== productoId
       );
-  
-      console.log("eliminando producto");
-  
+
+
       renderCart();
     }
 });
+
+// VACIAR CARRITO 
+
+const botonVaciar = document.getElementById("vaciarCarrito");
+
+botonVaciar.addEventListener("click", (event) =>{
+    while(event.firstChild){
+        products.removeChild(event.firstChild);
+    }
+    return false
+})
+
+
+
+
+
+
+
 
 
 // products.forEach(product => {
@@ -394,7 +416,7 @@ const renderCart = () =>{
         const contentProducts = document.createElement("div");
         contentProducts.classList.add("cart-products");
         contentProducts.innerHTML = `
-            <img src="${product.imageProduct}" alt="imagen del producto" class="image__productCart">
+            <!-- <img src="${product.imageProduct}" alt="imagen del producto" class="image__productCart"> -->
             <p class="cantidad">${product.quantityProduct}</p>
             <h3 class="name-product">${product.title}</h3>
             <p class="price-product">$${product.price}</p>

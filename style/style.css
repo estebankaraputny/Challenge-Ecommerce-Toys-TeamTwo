@@ -140,7 +140,7 @@
 .content__list{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 100%;
     padding: 1rem;
 }
 
@@ -173,8 +173,8 @@
 
 .container__cartProducts{
     position: absolute;
-    top: 5%;
-    right: 3rem;
+    top: 7%;
+    right: 1rem;
     background-color: #fff;
     width: 25rem;
     z-index: 2;
@@ -270,7 +270,6 @@
 }
 
 .desglose{
-    width: 100%;
     text-align: center;
 }
 
@@ -282,10 +281,22 @@
     color: var(--negro);
 }
 
-
 .boton__desglose:hover{
     background-color:var(--celeste-claro);
     color: var(--blanco);
+}
+
+
+.vaciar-carrito{
+    border: none;
+}
+
+
+.content-botones-carrito{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 /* COMIENZAR FOOTER  */
 
@@ -409,8 +420,18 @@
     z-index: -1;
 }
 
+.card-body{
+    
+}
+
 .card-direccion{
     text-decoration: none;
+}
+
+.card-img-top{
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .card-title{
