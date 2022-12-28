@@ -1,6 +1,20 @@
 # IniciaToys Store
 
 <img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/IniciaToysStoreLogo.png?alt=media&token=9a07ccf3-eb42-4e30-85c2-9eaa8d7c4699" alt="bootstrap" width="200" height="200"/>
+
+## Equipo
+
+Esteban Karaputny  [:octocat:](https://github.com/estebankaraputny) [<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/iconoLinkedin.png?alt=media&token=e2001962-41de-44fd-b87c-d8f3fd01ebab"  width="20" height="20" >]([https://github.com/estebankaraputny](https://www.linkedin.com/in/esteban-karaputny-9149171ab/))
+
+Cesar Ferreyra  [:octocat:](https://github.com/CesarFerrey) [<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/iconoLinkedin.png?alt=media&token=e2001962-41de-44fd-b87c-d8f3fd01ebab"  width="20" height="20" >](www.linkedin.com/in/cesar-ferreyra-vadnal)
+
+Brisa Alvarez  [:octocat:](https://github.com/bbrialvarez) [<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/iconoLinkedin.png?alt=media&token=e2001962-41de-44fd-b87c-d8f3fd01ebab"  width="20" height="20" >](https://www.linkedin.com/mwlite/in/brisa-%C3%A1lvarez-5a211622a)
+ 
+Franco Luis Guerra  [:octocat:](https://github.com/FrancoLguerra) [<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/iconoLinkedin.png?alt=media&token=e2001962-41de-44fd-b87c-d8f3fd01ebab"  width="20" height="20" >](https://www.linkedin.com/in/franco-luis-guerra/)
+
+
+---
+---
 <h3>Requisitos previos:</h3>
 
 - [VS Code](https://code.visualstudio.com/download "VS Code")(con extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer "Live Server"))
@@ -23,8 +37,24 @@
 ------
 -----
 
+### Construido con
+
+* HTML
+* CSS
+* JS
+
+---
+---
+
+### Recursos Adicionales
+
+* [Firebase](https://firebase.google.com/)
+* [Canva](https://www.canva.com/)
+* [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
 
 
+---
+---
 #### Nav:
 ###### Category📋:
 Al hacer click se deplegará una lista de categorias, al seleccionar una de ellas, haciendo click, se mostrarán solo los productos de dicha categoria
@@ -116,5 +146,8 @@ Una vez realizado el pago se mostrará una ventana informando que fue exitosa
 Si el carrito no posee articulos, aparecerá un avis en la pantalla con un boton que permite regresar a la seccion donde se encuentran los productos
 
 <img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/avisoCarritoVacio.png?alt=media&token=9f7abd62-bb05-4b63-972b-4ef178f0c5b4">
+
+---
+---
 
 
