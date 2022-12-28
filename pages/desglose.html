@@ -85,9 +85,14 @@
                       <hr>
       
                       <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div>
-                          <p class="mb-1">Shopping cart</p>
+                        <div class="d-flex ">
                           <button class="btn btn-primary" id="btnVaciarCarrito">Vaciar Carrito</button>
+                          <input type="text" id="cupon" placeholder="Ej: 123456">
+                          <button class="btn btn-primary" id="cuponDescuento" >Ingresar cupon</button>
+                          <!-- Button trigger modal   data-bs-toggle="modal" data-bs-target="#cuponModal" -->
+
+
+
                         </div>
                         <div>
                           <p class="mb-0"><span class="text-muted">Sort by:</span> 
@@ -167,7 +172,13 @@
                             <p class="mb-2">Shipping</p>
                             <p class="mb-2">$20.00</p>
                           </div>
+
+                          <div  class="d-flex justify-content-between">
+                            <p class="mb-2">Descuento</p>
+                            <p class="mb-2" id="descuentoPagar">0</p>
+                          </div>
       
+                          
                           <div class="d-flex justify-content-between mb-4">
                             <p class="mb-2">Total(Incl. taxes)</p>
                             <p id="totalPagar" class="mb-2">0</p>
@@ -219,6 +230,25 @@
           </div>
         </div>
       </div>
+      <!-- Modal Cupon -->
+      <!-- <div class="modal fade" id="cuponModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+         <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        <div class="modal-body">
+          <label for="cupon">Ingrese su codigo de descuento</label>
+         <input type="text" name="cupon" id="cupon" placeholder="Ej:123456">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" id="btnEnviarCupon" class="btn btn-primary">Ingresar</button>
+        </div>
+        </div>
+       </div>
+      </div> -->
        
     </main>
     <!-- Inicia Pie de Página  -->
