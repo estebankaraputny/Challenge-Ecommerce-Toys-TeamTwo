@@ -97,9 +97,8 @@ const renderProduct = (product) => {
     </div>
     <div class="d-flex flex-row align-items-center">
       <div style="width: 50px;">
-        <button type="button" class="btn restarCantidad">-</button><h5 class="fw-normal mb-0" id="cantidad">${
-          product.stock
-        }</h5><a  class="btn sumarCantidad " id="">+</a>
+        <h5 class="fw-normal mb-0" id="cantidad">${product.stock}</h5>
+
       </div>
       <div style="width: 80px;">
         <h5 class="mb-0">$${product.price * product.stock}</h5>
@@ -119,6 +118,8 @@ const renderProduct = (product) => {
   ProductsList.innerHTML += ProductCard;
   buttonsProducts();
 };
+        // <button type="button" class="btn restarCantidad">-</button>
+        // <a  class="btn sumarCantidad " id="">+</a>
 
 const renderProducts = (products) => {
   ProductsList.innerHTML = "";
@@ -181,26 +182,26 @@ const buttonsProducts = () => {
     });
   });
 
-  const btnsSumar = document.querySelectorAll(".sumarCantidad");
-  const cantidad = document.getElementById("cantidad");
-  console.log(btnsSumar);
-  btnsSumar.forEach((btnSumar) => {
-    btnSumar.addEventListener("click", (e) => {
-      console.log("restar");
-      e.target.parentElement.children[1].innerHTML =
-        parseInt(e.target.parentElement.children[1].innerHTML) + 1;
-    });
-  });
+  // const btnsSumar = document.querySelectorAll(".sumarCantidad");
+  // const cantidad = document.getElementById("cantidad");
+  // console.log(btnsSumar);
+  // btnsSumar.forEach((btnSumar) => {
+  //   btnSumar.addEventListener("click", (e) => {
+  //     console.log("restar");
+  //     e.target.parentElement.children[1].innerHTML =
+  //       parseInt(e.target.parentElement.children[1].innerHTML) + 1;
+  //   });
+  // });
 
-  const btnsRestar = document.querySelectorAll(".restarCantidad");
-  btnsRestar.forEach((btnRestar) => {
-    btnRestar.addEventListener("click", (e) => {
-      if (e.target.parentElement.children[1].innerHTML > 0) {
-        e.target.parentElement.children[1].innerHTML =
-          parseInt(e.target.parentElement.children[1].innerHTML) - 1;
-      }
-    });
-  });
+  // const btnsRestar = document.querySelectorAll(".restarCantidad");
+  // btnsRestar.forEach((btnRestar) => {
+  //   btnRestar.addEventListener("click", (e) => {
+  //     if (e.target.parentElement.children[1].innerHTML > 0) {
+  //       e.target.parentElement.children[1].innerHTML =
+  //         parseInt(e.target.parentElement.children[1].innerHTML) - 1;
+  //     }
+  //   });
+  // });
 };
 
 const sortBy = (criterio, productos) => {
