@@ -270,19 +270,19 @@ productsCart.addEventListener('click', event => {
 
     // console.log(event.target.classList.contains("icon-close"))
 
-    // if (event.target.classList.contains('icon-close')) {
-    //   const product = event.target;
-    //   const title = product.querySelector('h3').textContent;
+    if (event.target.classList.contains('icon-close')) {
+      const product = event.target;
+      const title = product.querySelector('h3').textContent;
   
-    //   products = products.filter(
-    //     product => product.title !== title
-    //   );
+      products = products.filter(
+        product => product.title !== title
+      );
   
       console.log("eliminando producto");
   
       renderCart();
     }
-);
+});
 
 
 // products.forEach(product => {
