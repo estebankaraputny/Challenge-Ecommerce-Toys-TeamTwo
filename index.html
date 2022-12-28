@@ -18,12 +18,7 @@
          <div class="content__logo">
            <img src="./assent/image/logo-iniciatoysstore.png" alt="logo de la pagina" class="logo">
           </div>
-          <div class="content__search">
-            <form role="search">
-              <input type="search" placeholder="Buscar" aria-label="Buscar" class="input__search" id="inputSearch">
-              <button type="submit" class="boton__search">Buscar</button>
-            </form>
-          </div>
+          
           <button class="boton__menu" id="botonMenu">
             <i class="bi bi-list"></i>
           </button>
@@ -33,47 +28,18 @@
                 <a href="./index.html"  class="options-links" >Home</a>
               </li>
               <li  class="options">
-                <a href="#contentCards" class="options-links">Products</a>
-              </li>
-              <li  class="options">
                 <a href="./pages/abount.html" class="options-links">About Us</a>
               </li>
+              <div class="content__icons">
+                <a href="" class="icons__nav"><i class="bi bi-person-circle"></i></a>
+                <div class="content__cartIcon">
+                  <a class="icons__nav cart"><i class="bi bi-cart2"></i></a>
+                </div>
+              </div>
             </ul>
           </div>
-       </nav>
-    </header>
-    <!-- Inicia Sección de Productos  -->
-    <main class="section__products">
-      <div>
-        <nav class="content__barraCategory">
-          <div class="content__list">
-            <ul class="list__category">
-              <li class="nav-item options__category">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Category
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Niños</a></li>
-                  <li><a class="dropdown-item" href="#">Niñas</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">1 a 3 años</a></li>
-                  <li><a class="dropdown-item" href="#">4 a 8 años</a></li>
-                  <li><a class="dropdown-item" href="#">8 a 12 años</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-          <div class="content__icons">
-            <a href="" class="icons__nav"><i class="bi bi-person-circle"></i></a>
-            <div class="content__cartIcon">
-              <a class="icons__nav cart"><i class="bi bi-cart2"></i></a>
-            </div>
-          </div>
-
-
-
-
           <!-- CONTENIDO DEL CARRITO -->
+          
           <div class="container__cartProducts hidden">
             <!-- PRODUCTOS -->
             <div class="products-cart">
@@ -93,9 +59,10 @@
             <p class="cart__empty hidden">No hay productos en tu carrito</p>
           </div>
             </div>
-
-        </nav>
-      </div>
+       </nav>
+    </header>
+    <!-- Inicia Sección de Productos  -->
+    <main class="section__products">
       <!-- CARRUSEL  -->
       <div class="content__carrusel">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -123,13 +90,88 @@
           </button>
         </div>
       </div>
-      <div class="content__messageErr" id="messageError">
+      <div>
+        <nav class="content__barraSearch">
+          <div class="content__search">
+            <form role="search">
+              <input type="search" placeholder="Buscar" aria-label="Buscar" class="input__search" id="inputSearch">
+              <button type="submit" class="boton__search"><i class="bi bi-search"></i></button>
+            </form>
+          </div>
+        </nav>
       </div>
-
-      <!-- CARDS  -->
-       <div class="content__cards" id="contentCards">
-
-       </div>
+      <div class="section__categoryAndProducts">
+        <div class="content__list">
+            <div>
+              <p>Categorias</p>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">Deportes</label>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">Juegos de Mesa</label>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">Figuras de Acción</label>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">Control remoto</label>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">Profesión</label>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">Iluminación</label>
+            </div>
+            <span class="division"></span>
+            <div>
+              <p>Género</p>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">Niñas</label>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">Niños</label>
+            </div>
+            <span class="division"></span>
+            <div>
+              <p>Edad</p>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">1 a 11 meses</label>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">1 a 6 años</label>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">7 a 10 años</label>
+            </div>
+            <div>
+              <input id="category" value="category" type="checkbox">
+              <label for="">10 a 12 años</label>
+            </div>
+        </div>
+        <div>
+          <div class="content__messageErr" id="messageError">
+          </div>
+    
+          <!-- CARDS  -->
+           <div class="content__cards" id="contentCards">
+    
+           </div>
+        </div>
+      </div>
     </main>
     <!-- Inicia Pie de Página  -->
     <footer class="pie__pagina">

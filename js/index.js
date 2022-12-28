@@ -116,7 +116,7 @@ const renderCards = () => {
                         <h5 class="card-title">${product.titleProduct}</h5>
                         <p class="card-price">$${product.price}</p>
                 </a>
-                <button class="btn btn-addToCart gradient">Agregar al carrito</button>
+                <button class="btn btn-addToCart gradient" id="buttonAddCart">Agregar al carrito</button>
             </div>
         </div>
                 `);
@@ -199,7 +199,7 @@ btnCart.addEventListener('click', () => {
 
 // Todos los productos de la tienda
 const productList = document.querySelector(".content__cards");
-// console.log(productList);
+// console.log("Products List",productList);
 
 
 // Array de productos agregados al carrito 
@@ -229,7 +229,9 @@ productList.addEventListener("click", (event) =>{
             imageProduct : product.querySelector("img").src
         };
         
-        console.log(product.querySelector("img"))
+        
+        // localStorage.setItem("info Products", infoProduct);
+        
         // Sumar la cantidad si el producto existe 
 
         const productExists = products.some(
@@ -252,8 +254,13 @@ productList.addEventListener("click", (event) =>{
 
         renderCart();
     }
+
     // console.log(products)
+
+
+
 });
+
 
 
 //ELIMINAR PRODUCTOS DEL CARRITO
@@ -261,21 +268,21 @@ productList.addEventListener("click", (event) =>{
 
 productsCart.addEventListener('click', event => {
 
-    console.log(event.target.classList.contains("icon-close"))
+    // console.log(event.target.classList.contains("icon-close"))
 
-    if (event.target.classList.contains('icon-close')) {
-      const product = event.target;
-      const title = product.querySelector('h3').textContent;
+    // if (event.target.classList.contains('icon-close')) {
+    //   const product = event.target;
+    //   const title = product.querySelector('h3').textContent;
   
-      products = products.filter(
-        product => product.title !== title
-      );
+    //   products = products.filter(
+    //     product => product.title !== title
+    //   );
   
-      console.log(product);
+      console.log("eliminando producto");
   
       renderCart();
     }
-});
+);
 
 
 // products.forEach(product => {

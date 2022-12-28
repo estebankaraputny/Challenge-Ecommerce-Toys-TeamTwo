@@ -24,10 +24,11 @@
 /* COMIENZA HEADER  */
 
 .barra__navegacion{
-    background-color: var(--turquesa-claro);
+    background-color: var(--azul-oscuro);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 4rem;
 }
 
 
@@ -42,7 +43,7 @@
 }
 
 .content__links{
-    width: 35%;
+    width: 40%;
 }
 
 
@@ -72,12 +73,14 @@
 .boton__search{
     background-color: var(--celeste-claro);
     padding: 5px;
+    width: 5%;
     border: none;
     border-radius: 3px;
     color: var(--negro)
 }
 
 .options{
+    width: 6rem;
     padding: 5px 10px;
     background-color: var(--celeste-claro);
     border-radius:3px ;
@@ -105,21 +108,28 @@
 /* COMIENZA MAIN  */
 
 
-
-
 .content__body{
     height: 100vh;
 }
 
 
+
+.section__categoryAndProducts{
+    display: flex;
+    flex-direction: row;
+    background-color: #e7e7e7;
+    height: 100%;
+}
+
 .section__products{
     min-height: 100vh;
 }
 
-.content__barraCategory{
-    background-color: var(--azul-oscuro);
+.content__barraSearch{
+    background-color: var(--turquesa-claro);
+    padding: .5rem;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -129,8 +139,15 @@
 }
 .content__list{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     width: 30%;
+    padding: 1rem;
+}
+
+.division{
+    /* border-top: #000 solid 1px; */
+    width: 100%;
+    padding: .5rem;
 }
 
 .options__category{
@@ -156,11 +173,11 @@
 
 .container__cartProducts{
     position: absolute;
-    top: 10%;
-    right: .5rem;
+    top: 5%;
+    right: 3rem;
     background-color: #fff;
     width: 25rem;
-    z-index: 1;
+    z-index: 2;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
     border-radius: 10px;
     padding: .5rem;
@@ -312,6 +329,8 @@
     list-style: none;
     display: flex;
     justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
 }
 
 .logo-pagar{
@@ -365,8 +384,7 @@
 
 
 .content__cards{
-    width: 95%;
-    margin: auto;
+    width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -374,7 +392,7 @@
 
 
 .card{
-    margin: 1rem;
+    margin: .5rem;
     overflow: hidden;
     transform: translate(0);
     transition: 0.25s;
@@ -398,6 +416,7 @@
 .card-title{
     font-size: 1rem;
     color: var(--negro);
+    margin: .5rem 0;
 }
 
 .card-price{
@@ -452,7 +471,6 @@
 /* ESTILOS DEL MENSAJE DE ERROR POR PRODUCTO NO ENCONTRADO  */
 
 .content__messageErr{
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items:center;
