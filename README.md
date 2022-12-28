@@ -150,4 +150,13 @@ Si el carrito no posee articulos, aparecerá un avis en la pantalla con un boton
 ---
 ---
 
+#### About
+En esta pagina encontrarán información de los miembros del equipo encargado de realizar este e-commerce. Tambien se visualiza un formulario de contacto
+
+---
+---
+#### Details
+Muestra en detalle el producto seleccionado haciendo click en la tarjeta (no en el boton agregar producto) de la pagina principal
+
+
 
