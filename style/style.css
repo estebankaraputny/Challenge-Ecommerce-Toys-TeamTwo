@@ -116,13 +116,12 @@
 
 .section__categoryAndProducts{
     display: flex;
-    flex-direction: row;
     background-color: #e7e7e7;
     height: 100%;
 }
 
 .section__products{
-    min-height: 100vh;
+    min-height: 100%;
 }
 
 .content__barraSearch{
@@ -140,7 +139,7 @@
 .content__list{
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 20%;
     padding: 1rem;
 }
 
@@ -173,8 +172,8 @@
 
 .container__cartProducts{
     position: absolute;
-    top: 5%;
-    right: 3rem;
+    top: 7%;
+    right: 1rem;
     background-color: #fff;
     width: 25rem;
     z-index: 2;
@@ -270,7 +269,6 @@
 }
 
 .desglose{
-    width: 100%;
     text-align: center;
 }
 
@@ -282,10 +280,22 @@
     color: var(--negro);
 }
 
-
 .boton__desglose:hover{
     background-color:var(--celeste-claro);
     color: var(--blanco);
+}
+
+
+.vaciar-carrito{
+    border: none;
+}
+
+
+.content-botones-carrito{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
 }
 /* COMIENZAR FOOTER  */
 
@@ -384,7 +394,8 @@
 
 
 .content__cards{
-    width: 100%;
+    width: 80%;
+    height: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -392,6 +403,7 @@
 
 
 .card{
+    height: 450px;
     margin: .5rem;
     overflow: hidden;
     transform: translate(0);
@@ -409,8 +421,18 @@
     z-index: -1;
 }
 
+/* .card-body{
+    
+} */
+
 .card-direccion{
     text-decoration: none;
+}
+
+.card-img-top{
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .card-title{
@@ -460,6 +482,7 @@
 .btn{
     color: var(--blanco);
     width: 100%;
+    margin-bottom: 5px;
 }
 
 
@@ -470,15 +493,16 @@
 
 /* ESTILOS DEL MENSAJE DE ERROR POR PRODUCTO NO ENCONTRADO  */
 
+
 .content__messageErr{
+    height: 50%;
     display: flex;
     justify-content: center;
     align-items:center;
 }
 
 .card__mensajeDeError{
-    width: 70%;
-    height: 50%;
+    width: 95%;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
