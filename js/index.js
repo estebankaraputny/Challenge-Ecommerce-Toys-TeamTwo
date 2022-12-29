@@ -153,7 +153,10 @@ botonMenu.addEventListener("click",() =>{
 // RENDERIZAR PRODUCTOS 
 
 const contentCards = document.getElementById("contentCards");
-let card = ``;
+let card = `
+    <div class="content__messageErr" id="messageError">
+    </div>
+`;
 
         //  
                 
@@ -187,11 +190,11 @@ renderCards();
 
 
 const searchToys = document.getElementById("inputSearch");
+const cardsToys = document.querySelectorAll(".card");
 
 // console.log(searchToys);
 
 searchToys.addEventListener("keyup", (event) =>{
-    const cardsToys = document.querySelectorAll("#cardToy")
     let toysHidden = [];
     
     // console.log(event.target.value.toLowerCase())
