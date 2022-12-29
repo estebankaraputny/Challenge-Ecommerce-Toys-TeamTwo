@@ -152,8 +152,6 @@ botonMenu.addEventListener("click",() =>{
 
 // RENDERIZAR PRODUCTOS 
 
-
-
 const contentCards = document.getElementById("contentCards");
 let card = ``;
 
@@ -185,6 +183,9 @@ const renderCards = () => {
 renderCards();
 
 
+// FILTRO POR BUSQUEDA
+
+
 const searchToys = document.getElementById("inputSearch");
 
 // console.log(searchToys);
@@ -193,12 +194,12 @@ searchToys.addEventListener("keyup", (event) =>{
     const cardsToys = document.querySelectorAll("#cardToy")
     let toysHidden = [];
     
-    console.log(event.target.value.toLowerCase())
+    // console.log(event.target.value.toLowerCase())
     
 
     if (event.target.matches("#inputSearch")){
         cardsToys.forEach(toy =>{
-            toy.textContent.toLowerCase().includes(event.target.value.toLowerCase())
+            toy.textContent.toLowerCase().replace(" ", "-").includes(event.target.value.toLowerCase().replace(" ", "-"))
             ? toy.classList.remove("hidden")
             : toy.classList.add("hidden")
 
@@ -259,6 +260,8 @@ btnCart.addEventListener('click', () => {
 const productList = document.querySelector(".content__cards");
 
 
+console.log("product", productList);
+
 // Array de productos agregados al carrito 
 let products = [];
 
@@ -302,8 +305,11 @@ productList.addEventListener("click", (event) =>{
                 }
             });
             products = [...productsItem];
+            // console.log("producto1", product);
         } else{
             products = [...products, infoProduct];
+            // console.log("producto2",product);
+
         }
 
         localStorage.setItem('carrito', JSON.stringify(products));
@@ -336,6 +342,8 @@ const saveProductsInLocal = (products) => {
 
 
 
+
+
 //ELIMINAR PRODUCTOS DEL CARRITO
 
 
@@ -354,13 +362,19 @@ productsCart.addEventListener('click', event => {
 
             let carrito = JSON.parse(localStorage.getItem('carrito'));
 
+            console.log("359", carrito);
+
+            localStorage.removeItem('carrito')
             carrito = carrito.filter(item => item.id !== productoId);
 
+            console.log("361", carrito);
             localStorage.setItem('carrito', JSON.stringify(carrito));
             
             renderCart();
     }
 });
+
+
 
 // VACIAR CARRITO 
 
