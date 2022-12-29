@@ -19,3 +19,12 @@
         align-items: center;
         justify-content: space-around;
     }
+
+    section{
+        margin-top: 0px;
+        margin-bottom: 50%;
+    }
+
+    #btnVaciarCarrito{
+        margin-right: 1%;
+    }
