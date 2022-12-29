@@ -11,6 +11,7 @@
     #productsList{
         margin-right: 0px;
         width: 80%;
+        height: 45em;
     }
 
     .alertCarritoVacio{
@@ -103,4 +104,13 @@
         justify-content: center;
         align-items: center;
      
+    }
+
+    .pay-body{
+  padding-left: 0%;
+
+    }
+
+.pay-header{
+       padding: 0%;
     }
