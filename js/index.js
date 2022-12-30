@@ -194,7 +194,7 @@ if (window.location.pathname === "/index.html") {
             <div class="card" style="width: 18rem; id="cardToy">
                     <img src="${product.imageProduct}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        <span class="hidden" id="idProduct">${product.idProduct}</span>
+                        <span class="hidden span" id="${product.idProduct}"></span>
                         <h5 class="card-title">${product.titleProduct}</h5>
                         <p class="card-price">$${product.price}</p>
                         <button class="btn btn-addToCart gradient" id="buttonAddCart">Agregar al carrito</button>
@@ -287,7 +287,7 @@ if (window.location.pathname === "/index.html") {
     const productList = document.querySelector(".content__cards");
     
     
-    console.log("product", productList);
+    // console.log("product", productList);
     
     // Array de productos agregados al carrito 
     let products = [];
@@ -311,10 +311,10 @@ if (window.location.pathname === "/index.html") {
                 title : product.querySelector("h5").textContent,
                 price : Number(product.querySelector("p").textContent.slice(1)),
                 quantityProduct : 1,
-                id : product.querySelector("#idProduct").textContent
+                id : product.querySelector("span").id
                 // imageProduct : product.querySelector("img").src 
             };
-            
+            // console.log("id cuando agrego", product.querySelector("span").id);
             
             // Sumar la cantidad si el producto existe 
     
@@ -367,7 +367,6 @@ if (window.location.pathname === "/index.html") {
     const saveProductsInLocal = (products) => {
         let productos; 
         productos = obtenerProductosStorage();
-        productos.push(products)
         localStorage.setItem("carrito", JSON.stringify(productos));
     };
     
@@ -375,35 +374,55 @@ if (window.location.pathname === "/index.html") {
     
     
     
+    function eliminarProducto(id){
+        const buscarProducto = products.find(productoId => productoId.id === id);
+        console.log(buscarProducto);
+    }
+
+
+
+
+
+
+
+    
+    
     //ELIMINAR PRODUCTOS DEL CARRITO
     
-    
-    productsCart.addEventListener('click', event => {
-        let producto, productoId;
-            const productIdElement = document.getElementById("idProduct");         
-    
-        if (event.target.classList.contains('icon-close')) {
-                producto = event.target.parentElement;
-    
-                productoId = productIdElement.textContent;
-    
-                producto.remove();
-    
-                products = products.filter(producto => producto.id !== productoId);
-    
-                let carrito = JSON.parse(localStorage.getItem('carrito'));
-    
-                console.log("359", carrito);
-    
-                localStorage.removeItem('carrito')
-                carrito = carrito.filter(item => item.id !== productoId);
-    
-                console.log("361", carrito);
-                localStorage.setItem('carrito', JSON.stringify(carrito));
-                
-                renderCart();
-        }
-    });
+    // productsCart.forEach((product) => {
+        productsCart.addEventListener('click', event => {
+            let producto, productoId;
+
+            const productIdElement = document.querySelector(".span").id  
+            eliminarProducto(productIdElement)
+            // console.log(productIdElement);
+            // console.log(event.target.querySelector("h3"));
+            
+
+            
+            // if (event.target.classList.contains('icon-close')) {
+            //         producto = event.target.parentElement;
+        
+            //         productoId = productIdElement;
+        
+            //         producto.remove();
+        
+            //         products = products.filter(producto => producto.id !== productoId);
+        
+            //         let carrito = JSON.parse(localStorage.getItem('carrito'));
+        
+            //         console.log("359", carrito);
+        
+            //         localStorage.removeItem('carrito')
+            //         carrito = carrito.filter(item => item.id !== productoId);
+        
+            //         console.log("361", carrito);
+            //         localStorage.setItem('carrito', JSON.stringify(carrito));
+                    
+            //         renderCart();
+            // }
+        });
+    // });
     
     
     
@@ -444,17 +463,19 @@ if (window.location.pathname === "/index.html") {
             `
             productsCart.appendChild(contentProducts);
             totalPrice = totalPrice + (product.quantityProduct * product.price);
+            
         });
-    
+        
         valorTotal.innerText = `$${totalPrice}`;
     
         console.log(valorTotal);
     
     };
     
-
 } else{
 };        
+
+
 
 
 // RENDERIZAR DEV EN EL FOOTER 
