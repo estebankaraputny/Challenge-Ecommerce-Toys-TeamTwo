@@ -196,6 +196,8 @@ if (window.location.pathname === "/index.html") {
                     <div class="card-body">
                         <span class="hidden span" id="${product.idProduct}"></span>
                         <h5 class="card-title">${product.titleProduct}</h5>
+                        <h5 class="category d-none">${product.category}</h5>
+
                         <p class="card-price">$${product.price}</p>
                         <button class="btn btn-addToCart gradient" id="buttonAddCart">Agregar al carrito</button>
                         <a href="./pages/details.html" class="btn card-direccion gradient">Ver más</a>
@@ -241,7 +243,7 @@ if (window.location.pathname === "/index.html") {
       if (toysHidden.length === cardsToys.length){
           message += `
           <div class="card__mensajeDeError">
-              <img src="./assent/image/undraw_outer_space_re_u9vd.svg" alt="Imagen del espacio" class="img__error">
+              <img src="./assets/image/undraw_outer_space_re_u9vd.svg" alt="Imagen del espacio" class="img__error">
               <div class="mensaje__error">
                   <h2>No hay productos que coincidan con tu búsqueda.</h2>
                   <ul>
@@ -343,6 +345,8 @@ if (window.location.pathname === "/index.html") {
             renderCart();
             saveProductsInLocal(products, obtenerProductosStorage);
         }
+
+        swal("GENIAL","Producto agregado con éxito al carrito", "success");
     
     });
     
@@ -517,10 +521,65 @@ for(let i = 0; i < idProduct.length; i++ ){
       localStorage.setItem("idOfProduct", idProduct[i].outerText)
     });
 }
+//Checkbox
+const data_base = productsToys.map((eventos) => eventos);
+
+const category_generador = () => {
+  const cont_check_cards = document.getElementById("cont_check_cards");
+  const categories = data_base.map((categories) => categories.category);
+
+  const filter_category = categories.filter(
+    (value, index) => categories.indexOf(value) === index
+  );
+
+  const categoryGenerador = filter_category.map(
+    (category) => `
+  
+    <div>
+    <input id="c1" name="category" value="${category}" type="checkbox">
+    <label for="category">${category}</label>
+  </div>
+    `
+  );
+  categoryGenerador.map(insertar=>cont_check_cards.insertAdjacentHTML("beforeend",insertar))
+
+};
+category_generador();
 
 
-
-
+const cards_category=()=>{
+    const cont_check_cards = document.getElementById("cont_check_cards");
+    const elemt_category= document.getElementsByClassName('category');
+  
+    cont_check_cards.addEventListener("click",(select)=>{
+      const input_checkbox=document.querySelectorAll('input[type="checkbox"]');
+      const input_checket= [];
+      input_checkbox.forEach((input)=>{
+        if(input.checked){
+          input_checket.push(input.value);
+  
+        }
+      })
+      for(let i=0;i< elemt_category.length;i++){
+        if(input_checket.includes(elemt_category[i].textContent)){
+          elemt_category[i].parentElement.parentElement.classList.remove("d-none");
+  
+        }else{
+          elemt_category[i].parentElement.parentElement.classList.add("d-none");
+  
+        }
+      }
+      if(input_checket.length===0){
+        for(let i=0;i< elemt_category.length;i++){
+          elemt_category[i].parentElement.parentElement.classList.remove("d-none");
+  
+        }
+      }
+      
+    });
+  
+  }
+  cards_category();
 
 // CODIGO DE DESCUENTO 
   

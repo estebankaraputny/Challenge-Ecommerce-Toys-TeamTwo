@@ -39,9 +39,9 @@ console.log(idProducts)
                   <div class="metodos__dePago">
                     <h3 class="details">Metodos de Pago:</h3>
                     <ul class="listaLogosPago">
-                      <li><img src="../assent/image/visa.png" alt="logo de visa" class="logo-pagar"></li>
-                      <li><img src="../assent/image/logo-masterCard.webp" alt="logo de mastercard" class="logo-pagar"></li>
-                      <li><img src="../assent/image/logo-mercadopago.png" alt="logo de mercado pago" class="logo-pagar"></li>
+                      <li><img src="../assets/image/visa.png" alt="logo de visa" class="logo-pagar"></li>
+                      <li><img src="../assets/image/logo-masterCard.webp" alt="logo de mastercard" class="logo-pagar"></li>
+                      <li><img src="../assets/image/logo-mercadopago.png" alt="logo de mercado pago" class="logo-pagar"></li>
                     </ul>
                   </div>
                   </div>
@@ -67,3 +67,16 @@ console.log(idProducts)
     }
 
     detailsDom()
+
+
+    //Agrega producto al carrito
+   const addproduct=document.querySelector('.btn_Add');
+   addproduct.addEventListener("click",(event)=>{
+
+   
+
+
+
+   })
+
+
