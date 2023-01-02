@@ -345,6 +345,8 @@ if (window.location.pathname === "/index.html") {
             renderCart();
             saveProductsInLocal(products, obtenerProductosStorage);
         }
+
+        swal("GENIAL","Producto agregado con éxito al carrito", "success");
     
     });
     
