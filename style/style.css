@@ -593,3 +593,39 @@
         width: 70%;
     }
 }
+/*    Details    */
+.container{
+    align-items: center;
+    display:grid;
+    grid-template-columns: 5fr 5fr;
+    border-radius:5px;
+    margin-bottom: 20px;
+}
+.container_details{
+    background-color:#c3d3d6;
+
+}
+
+.details{
+    background-color: #d5e4d9;
+    border-radius: 5px;
+    margin: 5px;
+    text-align: center;
+    margin-bottom: 10px;
+
+}
+.btn_Add{
+    border-radius: 5px;
+    align-content: center;
+
+    background-color: var(--verde-claro);
+    padding: .7rem;
+    border-radius: 30px;
+    text-decoration: none;
+    color: var(--negro);
+    width: 100%;
+    text-align: center;
+}
+.listaCuotas{
+    list-style: none;
+}
