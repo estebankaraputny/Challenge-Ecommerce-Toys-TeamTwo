@@ -241,7 +241,7 @@ if (window.location.pathname === "/index.html") {
       if (toysHidden.length === cardsToys.length){
           message += `
           <div class="card__mensajeDeError">
-              <img src="./assent/image/undraw_outer_space_re_u9vd.svg" alt="Imagen del espacio" class="img__error">
+              <img src="./assets/image/undraw_outer_space_re_u9vd.svg" alt="Imagen del espacio" class="img__error">
               <div class="mensaje__error">
                   <h2>No hay productos que coincidan con tu búsqueda.</h2>
                   <ul>
