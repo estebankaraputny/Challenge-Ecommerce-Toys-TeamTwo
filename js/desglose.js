@@ -212,16 +212,31 @@ btnVaciarCarrito.addEventListener("click", (e) => {
   renderProducts([]);
 });
 
-//mueztro modal cuando se hace click en el boton de pagar
-// const btnPagar = document.getElementById("pay");
-// btnPagar.addEventListener("click", (e) => {
-//   const modal = document.getElementById("modal");
-//   modal.style.display = "block";
+// //muestro modal cuando se hace click en el boton de pagar y redirijo a la pagina de principal
+const btnPagar = document.getElementById("pay");
+btnPagar.addEventListener("click", (e) => {
+  e.preventDefault();
+  setTimeout(function(){
+    window.location = '/index.html';
+}, 3000);
+  
+  
 
+  
 
+  } );
 
+//confirmo que los datos de el formulario de tarjeta esten completos, para habilitar el boton de pago
+const btnConfirmarTarjeta = document.getElementById("confirmarTarjeta"); 
 
-// });
+btnConfirmarTarjeta.addEventListener("click", (e) => {
+  e.preventDefault();
+  
+    btnPagar.disabled = false;
+  
+ 
+
+});
 
 //funcionalidad para ingresar cupon de descuento
 const btnCupon = document.getElementById("cuponDescuento");
