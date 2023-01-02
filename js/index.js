@@ -496,8 +496,30 @@ for(let i = 0; i < idProduct.length; i++ ){
       localStorage.setItem("idOfProduct", idProduct[i].outerText)
     });
 }
+//Checkbox
+const data_base = productsToys.map((eventos) => eventos);
 
+const category_generador = () => {
+  const cont_check_cards = document.getElementById("cont_check_cards");
+  const categories = data_base.map((categories) => categories.category);
 
+  const filter_category = categories.filter(
+    (value, index) => categories.indexOf(value) === index
+  );
+
+  const categoryGenerador = filter_category.map(
+    (category) => `
+  
+    <div>
+    <input id="c1" name="category" value="${category}" type="checkbox">
+    <label for="category">${category}</label>
+  </div>
+    `
+  );
+  categoryGenerador.map(insertar=>cont_check_cards.insertAdjacentHTML("beforeend",insertar))
+
+};
+category_generador();
 
 
 
