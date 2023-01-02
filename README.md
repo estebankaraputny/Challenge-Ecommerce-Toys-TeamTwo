@@ -157,6 +157,7 @@ En esta pagina encontrarán información de los miembros del equipo encargado de
 ---
 #### Details
 Muestra en detalle el producto seleccionado haciendo click en la tarjeta (no en el boton agregar producto) de la pagina principal
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/productoDetalle.png?alt=media&token=02795dd5-81cc-49e9-9cd6-d68107717aec" width="200" height="200">
 
 
 
