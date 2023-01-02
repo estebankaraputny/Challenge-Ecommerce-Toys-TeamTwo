@@ -374,10 +374,10 @@ if (window.location.pathname === "/index.html") {
     
     
     
-    function eliminarProducto(id){
-        const buscarProducto = products.find(productoId => productoId.id === id);
-        console.log(buscarProducto);
-    }
+    // function eliminarProducto(id){
+    //     const buscarProducto = products.find(productoId => productoId.id === id);
+    //     console.log(buscarProducto);
+    // }
 
 
 
@@ -394,33 +394,33 @@ if (window.location.pathname === "/index.html") {
             let producto, productoId;
 
             const productIdElement = document.querySelector(".span").id  
-            eliminarProducto(productIdElement)
-            // console.log(productIdElement);
-            // console.log(event.target.querySelector("h3"));
+            // eliminarProducto(productIdElement)
+            console.log(productIdElement);
+            console.log(event.target.querySelector("h3"));
             
 
             
-            // if (event.target.classList.contains('icon-close')) {
-            //         producto = event.target.parentElement;
+            if (event.target.classList.contains('icon-close')) {
+                    producto = event.target.parentElement;
         
-            //         productoId = productIdElement;
+                    productoId = productIdElement;
         
-            //         producto.remove();
+                    producto.remove();
         
-            //         products = products.filter(producto => producto.id !== productoId);
+                    products = products.filter(producto => producto.id !== productoId);
         
-            //         let carrito = JSON.parse(localStorage.getItem('carrito'));
+                    let carrito = JSON.parse(localStorage.getItem('carrito'));
         
-            //         console.log("359", carrito);
+                    console.log("359", carrito);
         
-            //         localStorage.removeItem('carrito')
-            //         carrito = carrito.filter(item => item.id !== productoId);
+                    localStorage.removeItem('carrito')
+                    carrito = carrito.filter(item => item.id !== productoId);
         
-            //         console.log("361", carrito);
-            //         localStorage.setItem('carrito', JSON.stringify(carrito));
+                    console.log("361", carrito);
+                    localStorage.setItem('carrito', JSON.stringify(carrito));
                     
-            //         renderCart();
-            // }
+                    renderCart();
+            }
         });
     // });
     
