@@ -97,11 +97,11 @@ const renderProduct = (product) => {
     </div>
     <div class="d-flex flex-row align-items-center">
       <div style="width: 50px;">
-        <h5 class="fw-normal mb-0" id="cantidad">${product.stock}</h5>
+        <h5 class="fw-normal mb-0 " id="cantidad" style="text-align:center;">${product.stock} </h5>
 
       </div>
       <div style="width: 80px;">
-        <h5 class="mb-0">$${product.price * product.stock}</h5>
+        <h5 class="mb-0 " style=";">$${product.price * product.stock}</h5>
       </div>
       <a href="#!" style="color: #cecece;" class="btnDelete" id="${
         product.idProduct
@@ -194,11 +194,13 @@ const sortBy = (criterio, productos) => {
     }
     return 0;
   });
+
   renderProducts(productos);
 };
 
 const optionOrder = document.getElementById("orderBy");
 optionOrder.addEventListener("change", (e) => {
+  let productsToysDesglose = JSON.parse(localStorage.getItem("productsToys"));
   sortBy(e.target.value, productsToysDesglose);
 });
 // sortBy("stock",productsToys);
@@ -210,16 +212,31 @@ btnVaciarCarrito.addEventListener("click", (e) => {
   renderProducts([]);
 });
 
-//mueztro modal cuando se hace click en el boton de pagar
-// const btnPagar = document.getElementById("pay");
-// btnPagar.addEventListener("click", (e) => {
-//   const modal = document.getElementById("modal");
-//   modal.style.display = "block";
+// //muestro modal cuando se hace click en el boton de pagar y redirijo a la pagina de principal
+const btnPagar = document.getElementById("pay");
+btnPagar.addEventListener("click", (e) => {
+  e.preventDefault();
+  setTimeout(function(){
+    window.location = '/index.html';
+}, 3000);
+  
+  
 
+  
 
+  } );
 
+//confirmo que los datos de el formulario de tarjeta esten completos, para habilitar el boton de pago
+const btnConfirmarTarjeta = document.getElementById("confirmarTarjeta"); 
 
-// });
+btnConfirmarTarjeta.addEventListener("click", (e) => {
+  e.preventDefault();
+  
+    btnPagar.disabled = false;
+  
+ 
+
+});
 
 //funcionalidad para ingresar cupon de descuento
 const btnCupon = document.getElementById("cuponDescuento");
