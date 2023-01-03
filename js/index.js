@@ -383,13 +383,7 @@ if (window.location.pathname === "/index.html") {
     //     console.log(buscarProducto);
     // }
 
-
-
-
-
-
-
-    
+ 
     
     //ELIMINAR PRODUCTOS DEL CARRITO
     
@@ -397,10 +391,9 @@ if (window.location.pathname === "/index.html") {
         productsCart.addEventListener('click', event => {
             let producto, productoId;
 
-            const productIdElement = document.querySelector(".span").id  
+            const productIdElement = document.querySelectorAll(".idCart").id
             // eliminarProducto(productIdElement)
             console.log(productIdElement);
-            console.log(event.target.querySelector("h3"));
             
 
             
@@ -415,12 +408,9 @@ if (window.location.pathname === "/index.html") {
         
                     let carrito = JSON.parse(localStorage.getItem('carrito'));
         
-                    console.log("359", carrito);
-        
                     localStorage.removeItem('carrito')
                     carrito = carrito.filter(item => item.id !== productoId);
-        
-                    console.log("361", carrito);
+
                     localStorage.setItem('carrito', JSON.stringify(carrito));
                     
                     renderCart();
@@ -464,6 +454,7 @@ if (window.location.pathname === "/index.html") {
                 <h3 class="name-product">${product.title}</h3>
                 <p class="price-product">$${product.price}</p>
                 <i class="bi bi-x-lg icon-close"></i>
+                <span class="hidden idCart" id="${product.id}"></span>
             `
             productsCart.appendChild(contentProducts);
             totalPrice = totalPrice + (product.quantityProduct * product.price);
@@ -478,6 +469,7 @@ if (window.location.pathname === "/index.html") {
     
 } else{
 };        
+
 
 
 
