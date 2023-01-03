@@ -389,18 +389,17 @@ if (window.location.pathname === "/index.html") {
     
     // productsCart.forEach((product) => {
         productsCart.addEventListener('click', event => {
-            let producto, productoId;
 
-            const productIdElement = document.querySelectorAll(".idCart").id
+            const productIdElement = document.querySelectorAll(".idCart");
             // eliminarProducto(productIdElement)
             console.log(productIdElement);
             
 
             
-            if (event.target.classList.contains('icon-close')) {
-                    producto = event.target.parentElement;
+            if (event.target.classList.contains('icon-close')){
+                    let producto = event.target.parentElement;
         
-                    productoId = productIdElement;
+                    let productoId = productIdElement.id;
         
                     producto.remove();
         
@@ -422,14 +421,14 @@ if (window.location.pathname === "/index.html") {
     
     // VACIAR CARRITO 
     
-    const botonVaciar = document.getElementById("vaciarCarrito");
+    // const botonVaciar = document.getElementById("vaciarCarrito");
     
-    botonVaciar.addEventListener("click", (event) =>{
-        while(event.firstChild){
-            products.removeChild(event.firstChild);
-        }
-        return false
-    })
+    // botonVaciar.addEventListener("click", (event) =>{
+    //     while(event.firstChild){
+    //         products.removeChild(event.firstChild);
+    //     }
+    //     return false
+    // })
     
     
     
