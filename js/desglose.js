@@ -71,7 +71,7 @@ const productsToysDesglose = [
 
 localStorage.setItem("productsToys", JSON.stringify(productsToysDesglose));
 localStorage.setItem("cuponDescuento", "123456");
-localStorage.setItem("descuento", 0.4);
+localStorage.setItem("descuento", 0.25);
 //cargar dinamicamente los valores a pagar en el carrito
 const totalPagar = document.getElementById("totalPagar");
 const subtotalPagar = document.getElementById("subtotalPagar");
@@ -178,6 +178,7 @@ const buttonsProducts = () => {
           
         );
         renderProducts(productsSinEliminado);
+        calcularDescuento();
       });
     });
   });
@@ -210,15 +211,18 @@ const btnVaciarCarrito = document.getElementById("btnVaciarCarrito");
 btnVaciarCarrito.addEventListener("click", (e) => {
   localStorage.removeItem("productsToys");
   renderProducts([]);
+  calcularDescuento();
 });
 
 // //muestro modal cuando se hace click en el boton de pagar y redirijo a la pagina de principal
 const btnPagar = document.getElementById("pay");
 btnPagar.addEventListener("click", (e) => {
   e.preventDefault();
+  if(document.getElementById("cardName").value != "" && document.getElementById("cardNumber").value != "" && document.getElementById("expiration").value != "" && document.getElementById("cvv").value != "" ){
+    $('#exampleModalCenter').modal("show");
   setTimeout(function(){
     window.location = '/index.html';
-}, 3000);
+}, 3000);}
   
   
 
@@ -227,16 +231,17 @@ btnPagar.addEventListener("click", (e) => {
   } );
 
 //confirmo que los datos de el formulario de tarjeta esten completos, para habilitar el boton de pago
-const btnConfirmarTarjeta = document.getElementById("confirmarTarjeta"); 
+// const btnConfirmarTarjeta = document.getElementById("confirmarTarjeta"); 
 
-btnConfirmarTarjeta.addEventListener("click", (e) => {
-  e.preventDefault();
+// btnConfirmarTarjeta.addEventListener("click", (e) => {
+//   e.preventDefault();
   
-    btnPagar.disabled = false;
+//     btnPagar.disabled = false;
   
+//     $('#exampleModalCenter').modal("show");
  
 
-});
+// });
 
 //funcionalidad para ingresar cupon de descuento
 const btnCupon = document.getElementById("cuponDescuento");
@@ -247,14 +252,8 @@ btnCupon.addEventListener("click", (e) => {
   console.log(cupon,"cupon ingresado");
   console.log(cuponLocal,"cupon local");
   if (cupon == cuponLocal) {
-    const descuento = document.getElementById("descuentoPagar");
-    const descuentoLocal = localStorage.getItem("descuento");
-    const totalPagar = document.getElementById("totalPagar");
-    const totalPagarSin$ = parseInt(totalPagar.innerHTML.slice(1));
-    descuento.innerHTML = `$${totalPagarSin$ * descuentoLocal}`;
-    totalPagar.innerHTML = `$${totalPagarSin$ - totalPagarSin$ * descuentoLocal}`;
-    totalBtnPagar.innerHTML = `$${totalPagarSin$ - totalPagarSin$ * descuentoLocal}`;
     localStorage.removeItem("cuponDescuento");
+    calcularDescuento();
   }
   else{
     alert("cupon incorrecto");
@@ -262,5 +261,17 @@ btnCupon.addEventListener("click", (e) => {
 
 })
 
+const calcularDescuento = () => {
+  const descuento = document.getElementById("descuentoPagar");
+  if(localStorage.getItem("cuponDescuento") == null){
+    const descuentoLocal = localStorage.getItem("descuento");
+    const subtotalPagar = document.getElementById("subtotalPagar");
+    const subtotalPagarSin$ = parseInt(subtotalPagar.innerHTML.slice(1));
+    descuento.innerHTML = `<small>(${descuentoLocal * 100}%)</small> $${subtotalPagarSin$ * descuentoLocal} `;
+    totalPagar.innerHTML = `$${subtotalPagarSin$ - subtotalPagarSin$ * descuentoLocal}`;
+    totalBtnPagar.innerHTML = `$${subtotalPagarSin$ - subtotalPagarSin$ * descuentoLocal + 20}`;}
+    else{
+      descuento.innerHTLM = "$0";}
+}
 
 renderProducts(productsToysDesglose);
