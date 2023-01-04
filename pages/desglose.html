@@ -17,7 +17,7 @@
     </div>
     <div class="details">
         
-        <img src="../assent/image/monstruo1-removebg-preview.png" style="width:150px; height: 200px;">
+        <img src="../assets/image/monstruo1-removebg-preview.png" style="width:150px; height: 200px;">
     </div>
 </div>
 
@@ -26,7 +26,7 @@
     
   </div>
   <div class="details">
-    <img src="../assent/image/monstruo2.png" alt="" style="width:300px; height: 200px;">
+    <img src="../assets/image/monstruo2.png" alt="" style="width:300px; height: 200px;">
      </div>
 </div>
 
@@ -37,7 +37,7 @@
     </div>
     <div class="details">
         
-        <img src="../assent/image/mostruo3.png" style="width:50%; height: 50%;">
+        <img src="../assets/image/mostruo3.png" style="width:50%; height: 50%;">
     </div>
 </div>
     <!-- Inicia Barra de Navegación  -->
@@ -156,36 +156,35 @@
       
                           <form class="mt-4">
                             <div class="form-outline form-white mb-4">
-                              <input type="text" id="typeName" class="form-control " siez="17"
+                              <input type="text" id="cardName" class="form-control " siez="17"
                                 placeholder="Cardholder's Name" required/>
                               <label class="form-label" for="typeName">Cardholder's Name</label>
                             </div>
       
                             <div class="form-outline form-white mb-4">
-                              <input type="text" id="typeText1" class="form-control " siez="17"
+                              <input type="number" id="cardNumber" class="form-control " size="17"
                                 placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" required/>
-                              <label class="form-label" for="typeText1">Card Number</label>
+                              <label class="form-label" for="cardNumber" >Card Number</label>
                             </div>
       
                             <div class="row mb-4">
                               <div class="col-md-6">
                                 <div class="form-outline form-white">
-                                  <input type="text" id="typeExp" class="form-control "
-                                    placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" required />
+                                  <input type="date" id="expiration" class="form-control "
+                                    placeholder="MM/YYYY" size="7" id="" minlength="7" maxlength="7" required />
                                   <label class="form-label" for="typeExp">Expiration</label>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-outline form-white">
-                                  <input required type="password" id="typeText2" class="form-control "
+                                  <input required type="password" id="cvv" class="form-control "
                                     placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
                                   <label class="form-label" for="typeText">Cvv</label>
                                 </div>
                               </div>
                             </div>
-                            <button type="submit" class="btn btn-secondary" id="confirmarTarjeta">Confirmar</button>
+                            <!-- <button type="submit" class="btn btn-secondary" id="confirmarTarjeta">Confirmar</button> -->
       
-                          </form>
                          
       
                           <hr class="my-4">
@@ -211,14 +210,16 @@
                             <p id="totalPagar" class="mb-2">0</p>
                           </div>
       
-                          <button type="button" id="pay" class="btn btn-info btn-block btn-lg" data-toggle="modal" data-target="#exampleModalCenter" disabled>
+                          <button type="submit" id="pay" class="btn btn-info btn-block btn-lg" >
                             <div class="d-flex justify-content-around" >
                                 <span>Pagar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                   <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                 </svg></span>
                               <span id="totalBtnPagar">0</span>
                             </div>
-                          </button>                               
+                          </button> 
+                          
+                        </form>                              
                         </div>
                       </div>
       
@@ -242,7 +243,7 @@
               </button>
             </div>
             <div class="modal-body d-flex justify-content-center">
-              <img src="../assent/image/checked.png" alt="verificado" style="width: 200; height: 200;">
+              <img src="../assets/image/checked.png" alt="verificado" style="width: 200; height: 200;">
              
             </div>
             <div class="modal-footer">
@@ -258,7 +259,7 @@
     <footer class="pie__pagina">
       <div class="content__info">
         <div class="name-and-logo">
-          <img src="../assent/image/logo-iniciatoysstore.png" alt="logo de la pagina IniciaToys" class="logo">
+          <img src="../assets/image/logo-iniciatoysstore.png" alt="logo de la pagina IniciaToys" class="logo">
           <h2 class="name__page">IniciaToy´s Store</h2>
         </div>
         <p class="parrafo__footer">Buenos Aires, Argentina</p>
@@ -267,9 +268,9 @@
       <div class="metodos__dePago">
         <h2 class="title__metodo">Metodos de Pago</h2>
         <ul class="listaLogosPago">
-          <li><img src="../assent/image/visa.png" alt="logo de visa" class="logo-pagar"></li>
-          <li><img src="../assent/image/logo-masterCard.webp" alt="logo de mastercard" class="logo-pagar"></li>
-          <li><img src="../assent/image/logo-mercadopago.png" alt="logo de mercado pago" class="logo-pagar"></li>
+          <li><img src="../assets/image/visa.png" alt="logo de visa" class="logo-pagar"></li>
+          <li><img src="../assets/image/logo-masterCard.webp" alt="logo de mastercard" class="logo-pagar"></li>
+          <li><img src="../assets/image/logo-mercadopago.png" alt="logo de mercado pago" class="logo-pagar"></li>
         </ul>
       </div>
       <div class="content__redes">
