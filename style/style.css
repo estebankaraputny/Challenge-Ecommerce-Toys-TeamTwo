@@ -377,7 +377,7 @@ cursor: pointer;
 transition: all 500ms ease;
 }
 .lbl-modal:hover{
-background-color: #2c2a28;
+background-color: #2c2a28ee;
 color: white;
 }
 #btn-modal{
