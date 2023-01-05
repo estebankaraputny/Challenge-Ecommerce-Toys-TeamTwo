@@ -394,7 +394,6 @@ if (window.location.pathname === "/index.html") {
             // eliminarProducto(productIdElement)
             console.log(productIdElement);
             
-
             
             if (event.target.classList.contains('icon-close')){
                     let producto = event.target.parentElement;
