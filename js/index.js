@@ -465,54 +465,9 @@ if (window.location.pathname === "/index.html") {
         console.log(valorTotal);
     
     };
+  
     
-} else{
-};        
-
-
-
-
-
-// RENDERIZAR DEV EN EL FOOTER 
-
-const contentRedes = document.getElementById("redesDev");
-let div = ``;
-
-const renderRedesFooter = () => {
-    developers.map((dev) =>{
-        return (
-            div += `
-            <div class="dev">
-                <p>${dev.name}</p>
-                <div>
-                    <a href="${dev.linkdin}"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="${dev.github}"><i class="fa-brands fa-github"></i></a>
-                </div>
-          </div> `
-        );
-    });
-    contentRedes.innerHTML = div;
-};
-renderRedesFooter();
-
-
-
-
-
-// PAGE DETAILS ENVIAR ID PARA SU RENDERIZACION
-let idProduct = document.querySelectorAll("#idProduct");
-
-let directionProduct = document.querySelectorAll(".card-direccion")
-
-
-for(let i = 0; i < idProduct.length; i++ ){
-    console.log(idProduct[i].outerText)
-    
-    directionProduct[i].addEventListener("click", () =>{
-      localStorage.setItem("idOfProduct", idProduct[i].outerText)
-    });
-}
-//Checkbox
+    //Checkbox
 const data_base = productsToys.map((eventos) => eventos);
 
 const category_generador = () => {
@@ -571,6 +526,55 @@ const cards_category=()=>{
   
   }
   cards_category();
+
+
+} else{
+};        
+
+
+
+
+
+// RENDERIZAR DEV EN EL FOOTER 
+
+const contentRedes = document.getElementById("redesDev");
+let div = ``;
+
+const renderRedesFooter = () => {
+    developers.map((dev) =>{
+        return (
+            div += `
+            <div class="dev">
+                <p>${dev.name}</p>
+                <div>
+                    <a href="${dev.linkdin}"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="${dev.github}"><i class="fa-brands fa-github"></i></a>
+                </div>
+          </div> `
+        );
+    });
+    contentRedes.innerHTML = div;
+};
+renderRedesFooter();
+
+
+
+
+
+// PAGE DETAILS ENVIAR ID PARA SU RENDERIZACION
+let idProduct = document.querySelectorAll("#idProduct");
+
+let directionProduct = document.querySelectorAll(".card-direccion")
+
+
+for(let i = 0; i < idProduct.length; i++ ){
+    console.log(idProduct[i].outerText)
+    
+    directionProduct[i].addEventListener("click", () =>{
+      localStorage.setItem("idOfProduct", idProduct[i].outerText)
+    });
+}
+
 
 // CODIGO DE DESCUENTO 
   

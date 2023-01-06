@@ -655,10 +655,10 @@
     padding-right: 100px;
     font-weight: 500;
 }
-.card-img-top{
+/* .card-img-top{
     width: 60px;
     height: 200px;
-}
+} */
 div.about-us{
     display: grid;
     grid-template-columns: 60% 40%;
