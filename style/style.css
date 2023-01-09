@@ -608,7 +608,13 @@
     padding: 0.2rem;
     color: rgb(94, 94, 94);
 }
-
+.input-category{
+    display: none;
+}
+input[type="checkbox"]:checked + label {
+color: #6082b6;
+font-weight:bolder;
+}
 
 
 /* COMIENZA RESPONSIVE  */
@@ -1076,5 +1082,4 @@ color: #ffffff;
 font-size: 50px;
 
 }
-
 
