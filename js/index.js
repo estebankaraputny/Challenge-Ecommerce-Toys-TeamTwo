@@ -272,8 +272,13 @@ btnCart.addEventListener('click', () => {
     // console.log("product", productList);
     
     // Array de productos agregados al carrito 
-    let products = [];
+    const carro=JSON.parse(localStorage.getItem('carrito'));
+   
     
+    let products=(carro!=null)?
+    carro: [];
+
+
     // Contador del precio final 
     const valorTotal = document.querySelector(".total__pagar");
 
@@ -326,6 +331,7 @@ productList.addEventListener("click", (event) =>{
             }
     
             swal("GENIAL","Producto agregado con éxito al carrito", "success");
+            localStorage.removeItem('carrito');
             localStorage.setItem('carrito', JSON.stringify(products));
             renderCart();
           //  saveProductsInLocal(products, obtenerProductosStorage);
@@ -360,6 +366,7 @@ const btnDelete=()=>{
                     })
                     localStorage.removeItem('carrito')
                     localStorage.setItem('carrito',JSON.stringify(productsAux))
+                    products=productsAux;
                     renderCart()
     })
             
@@ -379,6 +386,7 @@ const botonVaciar = document.getElementById("vaciarCarrito");
         localStorage.removeItem('carrito')
         valorTotal.innerText=`$0`
         contadorProduct.innerText = "0";
+        products=[];
         renderCart()
 })
     
@@ -394,14 +402,14 @@ const renderCart = () =>{
     // const products = productosCarrito;
     console.log(productosCarrito);
     productsCart.innerHTML = "";
-    if(productosCarrito.length === 0){
+    if(productosCarrito === null){
         productsCart.innerHTML = `
             <p class="cart-empty">No hay productos en tu carrito</p>
         `
     };
     let totalPrice = 0;
     let productTotal = 0;
-    
+    if(productosCarrito!=null){
     
         productosCarrito.forEach(product => {
             console.log(product.imageProduct)
@@ -419,14 +427,15 @@ const renderCart = () =>{
             totalPrice = totalPrice + (product.quantityProduct * product.price);
             productTotal = productTotal + product.quantityProduct;
         });
-        
+    }
         valorTotal.innerText = `$${totalPrice}`;
         contadorProduct.innerText = productTotal;
     
         console.log(valorTotal);
         btnDelete()
 
-    };
+    }
+;
   
 
 
@@ -492,6 +501,8 @@ const cards_category=()=>{
   cards_category();
 
 
+  renderCart();
+
 } else{
 };        
 
@@ -520,7 +531,6 @@ const renderRedesFooter = () => {
     contentRedes.innerHTML = div;
 };
 renderRedesFooter();
-
 
 
 
