@@ -526,8 +526,8 @@ const category_generador = () => {
     (category) => `
   
     <div>
-    <input id="c1" name="category" value="${category}" type="checkbox">
-    <label for="category">${category}</label>
+    <input id="c1" name="category" value="${category}" type="checkbox" class="input-category">
+    <label for="category" class="check-category">${category}</label>
   </div>
     `
   );
