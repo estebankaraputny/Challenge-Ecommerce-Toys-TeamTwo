@@ -336,15 +336,6 @@ productList.addEventListener("click", (event) =>{
     
     
     
-    
-    
-    
-    // function eliminarProducto(id){
-    //     const buscarProducto = products.find(productoId => productoId.id === id);
-    //     console.log(buscarProducto);
-    // }
- 
-    
 //ELIMINAR PRODUCTOS DEL CARRITO
     
 
