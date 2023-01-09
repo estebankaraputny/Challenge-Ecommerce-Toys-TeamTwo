@@ -422,54 +422,7 @@ const renderCart = () =>{
         btnDelete()
 
     };
-    
-} else{
-};        
-
-
-
-
-// RENDERIZAR DEV EN EL FOOTER 
-
-const contentRedes = document.getElementById("redesDev");
-let div = ``;
-
-const renderRedesFooter = () => {
-    developers.map((dev) =>{
-        return (
-            div += `
-            <div class="dev">
-                <p>${dev.name}</p>
-                <div>
-                    <a href="${dev.linkdin}"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="${dev.github}"><i class="fa-brands fa-github"></i></a>
-                </div>
-          </div> `
-        );
-    });
-    contentRedes.innerHTML = div;
-};
-renderRedesFooter();
-
-
-
-
-
-// PAGE DETAILS ENVIAR ID PARA SU RENDERIZACION
-let idProduct = document.querySelectorAll(".span");
-
-
-console.log(idProduct)
-
-let buttonDirection = document.querySelectorAll(".card-direccion")
-
-
-for(let i = 0; i < idProduct.length; i++ ){
-    // console.log(idProduct[i].id)
-    buttonDirection[i].addEventListener("click", () =>{
-      localStorage.setItem("idOfProduct", idProduct[i].id)
-    });
-}
+  
 
 
 
@@ -532,6 +485,57 @@ const cards_category=()=>{
   
   }
   cards_category();
+
+
+} else{
+};        
+
+
+
+
+
+// RENDERIZAR DEV EN EL FOOTER 
+
+const contentRedes = document.getElementById("redesDev");
+let div = ``;
+
+const renderRedesFooter = () => {
+    developers.map((dev) =>{
+        return (
+            div += `
+            <div class="dev">
+                <p>${dev.name}</p>
+                <div>
+                    <a href="${dev.linkdin}"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="${dev.github}"><i class="fa-brands fa-github"></i></a>
+                </div>
+          </div> `
+        );
+    });
+    contentRedes.innerHTML = div;
+};
+renderRedesFooter();
+
+
+
+
+
+// PAGE DETAILS ENVIAR ID PARA SU RENDERIZACION
+let idProduct = document.querySelectorAll(".span");
+
+
+console.log(idProduct)
+
+let buttonDirection = document.querySelectorAll(".card-direccion")
+
+
+for(let i = 0; i < idProduct.length; i++ ){
+    // console.log(idProduct[i].id)
+    buttonDirection[i].addEventListener("click", () =>{
+      localStorage.setItem("idOfProduct", idProduct[i].id)
+    });
+}
+
 
 // CODIGO DE DESCUENTO 
   
