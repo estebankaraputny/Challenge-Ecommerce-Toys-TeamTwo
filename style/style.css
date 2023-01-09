@@ -612,9 +612,14 @@
     display: none;
 }
 input[type="checkbox"]:checked + label {
-color: #6082b6;
-font-weight:bolder;
+    color:#36454f;
+    font-weight:bolder;
 }
+.check-category:hover{
+    color: #6082b6;
+    font-weight:bold;
+}
+
 
 
 /* COMIENZA RESPONSIVE  */
