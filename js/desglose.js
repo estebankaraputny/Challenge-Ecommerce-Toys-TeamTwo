@@ -81,7 +81,7 @@ const totalBtnPagar = document.getElementById("totalBtnPagar");
 const ProductsList = document.getElementById("productsList");
 const renderProduct = (product) => {
   const ProductCard = ` 
-<div class="card mb-3 mb-lg-0">
+<div class="card mb-3 mb-lg-0 productos-desglose sinPadding">
 <div class="card-body">
   <div  class="d-flex justify-content-between">
     <div class="d-flex flex-row align-items-center">
@@ -91,7 +91,7 @@ const renderProduct = (product) => {
           class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
       </div>
       <div class="ms-3">
-        <h5>${product.title}</h5>
+        <h5 class="tituloProducto">${product.title}</h5>
         <p class="small mb-0">${product.descriptionProduct}</p>
       </div>
     </div>
@@ -128,7 +128,7 @@ const renderProducts = (products) => {
   subtotalPagar.innerHTML = 0;
   totalBtnPagar.innerHTML = 0;
 
-  if (products.length == 0 || products == null) {
+  if (products == null || products.length == 0) {
     ProductsList.innerHTML = `<div class="alert alert-danger alertCarritoVacio" role="alert">
     No hay productos en el carrito <a href="../index.html"><button class="btn btn-secondary" >Volver</button></a></div> `;
   } else {
