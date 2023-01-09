@@ -249,7 +249,7 @@
 
 .container__cartProducts{
     position: absolute;
-    top: 10%;
+    top: 4rem;
     right: 1rem;
     background-color: #fff;
     width: 25rem;
