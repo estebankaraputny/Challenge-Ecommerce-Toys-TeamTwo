@@ -276,6 +276,9 @@ btnCart.addEventListener('click', () => {
     
     // Contador del precio final 
     const valorTotal = document.querySelector(".total__pagar");
+
+    //contador de productos en el carrito
+    const contadorProduct = document.querySelector("#contadorProducto");
     
     
     // Mensaje cuando el carrito esta vacio 
@@ -384,6 +387,7 @@ const botonVaciar = document.getElementById("vaciarCarrito");
      botonVaciar.addEventListener("click", (event) =>{
         localStorage.removeItem('carrito')
         valorTotal.innerText=`$0`
+        contadorProduct.innerText = "0";
         renderCart()
 })
     
@@ -393,11 +397,19 @@ const botonVaciar = document.getElementById("vaciarCarrito");
     
 const renderCart = () =>{
         
-        const productosCarrito = JSON.parse(localStorage.getItem('carrito')) ;
-        // const products = productosCarrito;
-        console.log(productosCarrito);
-        productsCart.innerHTML = "";
-        let totalPrice = 0;
+
+    
+    const productosCarrito = JSON.parse(localStorage.getItem('carrito')) ;
+    // const products = productosCarrito;
+    console.log(productosCarrito);
+    productsCart.innerHTML = "";
+    if(productosCarrito.length === 0){
+        productsCart.innerHTML = `
+            <p class="cart-empty">No hay productos en tu carrito</p>
+        `
+    };
+    let totalPrice = 0;
+    let productTotal = 0;
     
     
         productosCarrito.forEach(product => {
@@ -414,9 +426,11 @@ const renderCart = () =>{
             `
             productsCart.appendChild(contentProducts);
             totalPrice = totalPrice + (product.quantityProduct * product.price);
+            productTotal = productTotal + product.quantityProduct;
         });
         
         valorTotal.innerText = `$${totalPrice}`;
+        contadorProduct.innerText = productTotal;
     
         console.log(valorTotal);
         btnDelete()

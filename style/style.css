@@ -24,6 +24,9 @@
 /* COMIENZA HEADER  */
 
 .barra__navegacion{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
     background-color: var(--azul-oscuro);
     display: flex;
     justify-content: space-between;
@@ -195,6 +198,7 @@
 
 .section__products{
     min-height: 100%;
+    padding-top: 5%;
 }
 
 .content__barraSearch{
@@ -245,7 +249,7 @@
 
 .container__cartProducts{
     position: absolute;
-    top: 7%;
+    top: 10%;
     right: 1rem;
     background-color: #fff;
     width: 25rem;
@@ -276,6 +280,16 @@
     font-size: 25px;
 }
 
+
+.contador-productos{
+    position: relative;
+    top: 10px;
+    right: 10px;
+    background-color: var(--blanco);
+    padding: 3px;
+    border-radius: 100px;
+    font-size: 0.7rem;
+}
 
 /* .products-cart{
     
@@ -375,6 +389,14 @@
     align-items: center;
     width: 100%;
 }
+
+
+.cart-empty{
+    padding: 20px;
+    text-align: center;
+}
+
+
 /* COMIENZAR FOOTER  */
 
 
@@ -515,13 +537,13 @@
 
 .card-title{
     font-size: 1rem;
-    color: var(--negro);
+    color: #494949;
     margin: .5rem 0;
 }
 
 .card-price{
     font-size: 1.5rem;
-    color: var(--turquesa-claro);
+    color: var(--azul-oscuro);
     font-weight: 500;
 }
 
@@ -679,6 +701,37 @@
     }
 }
 
+.informacion-adicional{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+    text-align: center;
+}
+.content-item-info{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagen-info-adicional{
+    width: 150px;
+    height: 150px;
+}
+
+.title-info-adicional{
+    color: rgb(82, 82, 82);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.parrafo-info-adicional{
+    font-size: 0.9rem;
+}
 
 
 /* COMIENZA PAGINA DE DETALLES */
@@ -687,7 +740,7 @@
     height: 100vh;
     display: flex;
     justify-content: center;
-    padding: 2%;
+    padding: 8% 2% 2% 2%;
 }
 
 .container{
@@ -716,6 +769,10 @@
     flex-direction: column;
     height: 100%;
     padding: 2rem;
+}
+
+.nav-location{
+    color: var(--turquesa-medio);
 }
 
 .title-details{
@@ -756,7 +813,7 @@
     margin: 2rem 0;
     background-color: #f8f8f8;
     border-radius: 5px;
-    padding: 0.3rem;
+    padding: 0.8rem;
     font-size: 0.8rem;
     color: #494949;
 }
@@ -947,8 +1004,7 @@ h2.title-iniciatec{
     background-color: #ffffff;
     padding: 12%;
     box-shadow: 5px 5px 7px #000000d5;
-    
-    
+    margin: 1rem;
 }
 .icon-form{
     display: flex;
@@ -1002,6 +1058,7 @@ outline: 0px;
 }
 form textarea{
 height: 140px;
+resize: none;
 }
 
 body .modal{

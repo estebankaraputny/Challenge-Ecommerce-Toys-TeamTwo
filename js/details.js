@@ -133,7 +133,7 @@ console.log(idProducts)
                 <img src="${productsToys[i].imageProduct}" width="500px" class="img-detailsProduct">
             </div>
             <div class="container_details">
-                  <span>Home / ${productsToys[i].category} / ${productsToys[i].titleProduct} </span>
+                  <span class="nav-location">Home / ${productsToys[i].category} / ${productsToys[i].titleProduct} </span>
   
                   <div class="details">
                   <h3 class="title-details">${productsToys[i].titleProduct}</h3>
