@@ -743,8 +743,33 @@
     width: 100%;
     text-align: center;
 }
-.listaCuotas{
-    list-style: none;
+
+.btn_Add:hover {
+    background-color: var(--celeste-claro);
+}
+
+.icon-info{
+    color: rgb(133, 133, 133);
+}
+
+.mensaje-info{
+    margin: 2rem 0;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: 0.3rem;
+    font-size: 0.8rem;
+    color: #494949;
+}
+
+.title-pagos{
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+.logos-pagos{
+    display: flex;
+    justify-content: space-evenly;
 }
 
 /* PAGINA ABOUT  */
