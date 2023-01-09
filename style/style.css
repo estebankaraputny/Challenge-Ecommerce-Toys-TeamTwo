@@ -85,11 +85,10 @@
     display: inline-block;
     padding: 15px 30px;
     color: var(--blanco);
-    font-size: 24px;
+    font-size: 20px;
     text-decoration: none;
     overflow: hidden;
     transition: 0.2s;
-    margin: 5px;
 }
 
 .options-links:hover{
@@ -262,7 +261,12 @@
 
 .icons__nav{
     color: var(--blanco);
-    font-size: 20px;
+    font-size: 25px;
+}
+
+.icons__nav:hover{
+    color: var(--celeste-claro);
+    font-size: 25px;
 }
 
 
@@ -678,39 +682,100 @@
         width: 70%;
     }
 }
-/*    Details    */
+
+
+
+/* COMIENZA PAGINA DE DETALLES */
+.main-details{
+    background-color: #e7e7e7;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+}
+
 .container{
+    display:flex;
     align-items: center;
-    display:grid;
-    grid-template-columns: 5fr 5fr;
+    justify-content: center;
     border-radius:5px;
-    margin-bottom: 20px;
+    background-color:var(--blanco);
+    min-height: 80%;
 }
+
+.container-img{
+    height: 100%;
+    width: 60%;
+}
+
+.img-detailsProduct{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
 .container_details{
-    background-color:#c3d3d6;
-
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 2rem;
 }
 
-.details{
-    background-color: #d5e4d9;
-    border-radius: 5px;
-    margin: 5px;
-    text-align: center;
-    margin-bottom: 10px;
-
+.title-details{
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-top: 1rem;
 }
+
+.price-details{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.precio-cuota{
+    font-weight: 600;
+}
+
+
 .btn_Add{
-    border-radius: 5px;
-    align-content: center;
-
+    border: 0;
     background-color: var(--verde-claro);
     padding: .7rem;
-    border-radius: 30px;
     text-decoration: none;
     color: var(--negro);
     width: 100%;
     text-align: center;
 }
-.listaCuotas{
-    list-style: none;
+
+.btn_Add:hover {
+    background-color: var(--celeste-claro);
 }
+
+.icon-info{
+    color: rgb(133, 133, 133);
+}
+
+.mensaje-info{
+    margin: 2rem 0;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    padding: 0.3rem;
+    font-size: 0.8rem;
+    color: #494949;
+}
+
+.title-pagos{
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+.logos-pagos{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+/* COMIENZA PAGINA DESGLOSE CARRITO  */
+

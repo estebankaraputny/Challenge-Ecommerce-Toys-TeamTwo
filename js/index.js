@@ -159,27 +159,6 @@ let card = `
 `;
 
 
-// const renderCards = () => {
-    
-//     productsToys.map((product) => {
-//        return (card += `
-                
-//         <div class="card" style="width: 18rem; id="cardToy">
-//                 <img src="${product.imageProduct}" class="card-img-top" alt="...">
-//                 <div class="card-body">
-//                     <span class="hidden" id="idProduct">${product.idProduct}</span>
-//                     <h5 class="card-title">${product.titleProduct}</h5>
-//                     <p class="card-price">$${product.price}</p>
-//                     <button class="btn btn-addToCart gradient" id="buttonAddCart">Agregar al carrito</button>
-//                     <a href="./pages/details.html" class="btn card-direccion gradient">Ver más</a>
-//                 </div>
-//         </div>
-        
-//         `);
-//     });
-//     contentCards.innerHTML = card;
-// }
-// renderCards();
 
 
 // SE EJECUTA LA FUNCION RENDER CARDS SI LA URL TERMINA EN INDEX.HTML 
@@ -211,7 +190,7 @@ if (window.location.pathname === "/index.html") {
     renderCards();
     
     
-    // FILTRO POR BUSQUEDA
+// FILTRO POR BUSQUEDA
     
     
     const searchToys = document.getElementById("inputSearch");
@@ -264,7 +243,7 @@ if (window.location.pathname === "/index.html") {
     
     
     
-    // COMIENZA LA FUNCIONALIDAD DEL CARRITO 
+// COMIENZA LA FUNCIONALIDAD DEL CARRITO 
     
     // Carrito 
     const containerCartProducts = document.querySelector('.container__cartProducts');
@@ -280,13 +259,13 @@ if (window.location.pathname === "/index.html") {
     
     
     
-    btnCart.addEventListener('click', () => {
+btnCart.addEventListener('click', () => {
         
         containerCartProducts.classList.toggle('hidden');
-    });
+});
     
     
-    // Todos los productos de la tienda
+// Todos los productos de la tienda
     const productList = document.querySelector(".content__cards");
     
     
@@ -303,10 +282,10 @@ if (window.location.pathname === "/index.html") {
     const cartEmpty = document.querySelector('.cart__empty');
     
     
-    // AGREGAR UN PRODUCTO AL CARRITO   
+// AGREGAR UN PRODUCTO AL CARRITO   
     
     
-    productList.addEventListener("click", (event) =>{
+productList.addEventListener("click", (event) =>{
         
         if(event.target.classList.contains("btn-addToCart")) {
             const product = event.target.parentElement;
@@ -343,72 +322,44 @@ if (window.location.pathname === "/index.html") {
     
             }
     
+            swal("GENIAL","Producto agregado con éxito al carrito", "success");
             localStorage.setItem('carrito', JSON.stringify(products));
             renderCart();
           //  saveProductsInLocal(products, obtenerProductosStorage);
         }
 
-        swal("GENIAL","Producto agregado con éxito al carrito", "success");
     
-    });
-    
+});
     
     
     
     
-    
-    //GUARDAD DATOS DEL CARRITO EN localStorage
-   /* const obtenerProductosStorage = () => {
-        let productsLocalStorage;
-    
-        if(localStorage.getItem("carrito") === null){
-            productsLocalStorage = [];
-        } else {
-            productsLocalStorage = JSON.parse(localStorage.getItem("carrito", ))
-        }
-        return productsLocalStorage
-    
-    };
-    */
-   /* const saveProductsInLocal = (products) => {
-        let productos; 
-        productos = obtenerProductosStorage();
-        localStorage.setItem("carrito", JSON.stringify(productos));
-    };
-    
-    
-    */
     
     
     // function eliminarProducto(id){
     //     const buscarProducto = products.find(productoId => productoId.id === id);
     //     console.log(buscarProducto);
     // }
-
  
     
-    //ELIMINAR PRODUCTOS DEL CARRITO
+//ELIMINAR PRODUCTOS DEL CARRITO
     
-    // productsCart.forEach((product) => {
 
-        //  productsCart.addEventListener('click', event => {
-            const btnDelete=()=>{
-                const productIdElement = document.querySelectorAll(".icon-close");
-                let productsAux=[];
-          //  console.log(productIdElement)
-            productIdElement.forEach((product)=>{
+
+
+const btnDelete=()=>{
+    const productIdElement = document.querySelectorAll(".icon-close");
+    let productsAux=[];
+    productIdElement.forEach((product)=>{
 
 
                 product.addEventListener('click',event=>{
-                //    console.log(product)
-
+            
                     let productStorage=JSON.parse(localStorage.getItem('carrito'))
                     productStorage.forEach((productStorage)=>{
-                      //  console.log(event.target.parentElement)
-                       // console.log(productStorage.id)
-                        
+                      
                         let productCar=event.target.parentElement;
-                        //console.log(productCar.querySelector('span').id)
+                        
                         if(productCar.querySelector('span').id!=productStorage.id){
                             productsAux.push(productStorage)
                         }
@@ -416,63 +367,31 @@ if (window.location.pathname === "/index.html") {
                     localStorage.removeItem('carrito')
                     localStorage.setItem('carrito',JSON.stringify(productsAux))
                     renderCart()
-                })
+    })
             
            
 
-            })
+  })
 
-        }
-        
-    //     }/*
-    //         eliminarProducto(productIdElement)
-    //         console.log(productIdElement);
-            
-            
-    //         if (event.target.classList.contains('icon-close')){
-    //                 let producto = event.target.parentElement;
-        
-    //                 let productoId = productIdElement.id;
-        
-    //                 producto.remove();
-        
-    //                 products = products.filter(producto => producto.id !== productoId);
-        
-    //                 let carrito = JSON.parse(localStorage.getItem('carrito'));
-        
-    //                 localStorage.removeItem('carrito')
-    //                 carrito = carrito.filter(item => item.id !== productoId);
-
-    //                 localStorage.setItem('carrito', JSON.stringify(carrito));
-                    
-    //                 renderCart();
-    //         }
-    //     });*/
-    // });
+}
+          
     
     
+// VACIAR CARRITO 
     
-    // VACIAR CARRITO 
-    
-    const botonVaciar = document.getElementById("vaciarCarrito");
+const botonVaciar = document.getElementById("vaciarCarrito");
     
      botonVaciar.addEventListener("click", (event) =>{
-        // while(event.firstChild){
-        //     products.removeChild(event.firstChild);
-        // }
-        // return false
-
         localStorage.removeItem('carrito')
         valorTotal.innerText=`$0`
         renderCart()
-    })
+})
     
     
+ // RENDERIZAMOS LOS PRODUCTOS AL CARRITO
     
-    // RENDERIZAMOS LOS PRODUCTOS AL CARRITO
     
-    
-    const renderCart = () =>{
+const renderCart = () =>{
         
         const productosCarrito = JSON.parse(localStorage.getItem('carrito')) ;
         // const products = productosCarrito;
@@ -537,18 +456,23 @@ renderRedesFooter();
 
 
 // PAGE DETAILS ENVIAR ID PARA SU RENDERIZACION
-let idProduct = document.querySelectorAll("#idProduct");
+let idProduct = document.querySelectorAll(".span");
 
-let directionProduct = document.querySelectorAll(".card-direccion")
+
 console.log(idProduct)
-console.log(directionProduct)
+
+let buttonDirection = document.querySelectorAll(".card-direccion")
+
 
 for(let i = 0; i < idProduct.length; i++ ){
-    console.log(idProduct[i].outerText)
-    directionProduct[i].addEventListener("click", () =>{
-      localStorage.setItem("idOfProduct", idProduct[i].outerText)
+    // console.log(idProduct[i].id)
+    buttonDirection[i].addEventListener("click", () =>{
+      localStorage.setItem("idOfProduct", idProduct[i].id)
     });
 }
+
+
+
 //Checkbox
 const data_base = productsToys.map((eventos) => eventos);
 
@@ -623,38 +547,5 @@ const cards_category=()=>{
 
 
 
-  
-
-  
-// REVISAR CODIGO, FUNCION DEL CARRITO CONTEO 
 
 
-// products.forEach(product => {
-//     const contentProducts = document.createElement("div");
-//     contentProducts.classList.add("cart-products");
-//     contentProducts.innerHTML = `
-//         <img src="./assent/image/logo-iniciatoysstore.png" alt="imagen del producto" class="image__productCart">
-//         <p class="cantidad">${product.quantityProduct}</p>
-//         <h3 class="name-product">${product.title}</h3>
-//         <p class="price-product">$${product.price}</p>
-//         <i class="bi bi-x-lg icon-close"></i>
-//     `
-//     productsCart.appendChild(contentProducts);
-//     totalPrice = totalPrice + (product.quantityProduct * product.price);
-// });
-
-
-// productsCart.addEventListener('click', event => {
-//     if (event.target.classList.contains('icon__close')) {
-//       const product = event.target;
-//       const title = product.querySelector('h3').textContent;
-  
-//       products = products.filter(
-//         product => product.title !== title
-//       );
-  
-//       console.log(product);
-  
-//       renderCart();
-//     }
-// });
