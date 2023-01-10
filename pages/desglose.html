@@ -53,10 +53,19 @@
          <div class="content__links" id="contentLinks">
            <ul class="content__botones">
              <li class="options">
-               <a href="../index.html"  class="options-links" >Home</a>
+               <a href="../index.html"  class="options-links" >
+                <span id="spanOne"></span>
+                <span id="spanTwo"></span>
+                <span id="spanThree"></span>
+                <span id="spanFour"></span>
+                Home</a>
              </li>
              <li  class="options">
-               <a href="./abount.html" class="options-links">About Us</a>
+               <a href="./about.html" class="options-links">
+                <span id="spanOne"></span>
+                <span id="spanTwo"></span>
+                <span id="spanThree"></span>
+                <span id="spanFour"></span>About Us</a>
              </li>
              <div class="content__icons">
                <a href="" class="icons__nav"><i class="bi bi-person-circle"></i></a>
@@ -66,32 +75,11 @@
              </div>
            </ul>
          </div>
-         <!-- CONTENIDO DEL CARRITO -->
-         
-         <div class="container__cartProducts hidden">
-           <!-- PRODUCTOS -->
-           <div class="products-cart">
-             
-           </div>
-
-           <!-- TOTAL A PAGAR -->
-           <div class="content-total-and-button">
-             <div class="content__total">
-               <h2 class="total">Total:</h2> 
-               <p class="total__pagar">$0</p>
-             </div>
-             <div class="desglose">
-               <a href="../pages/desglose.html" class="boton__desglose">Ver más</a>
-             </div>
-           
-           <p class="cart__empty hidden">No hay productos en tu carrito</p>
-         </div>
-           </div>
       </nav>
    </header>
     <!-- Inicia Sección de Productos  -->
 
-    <main class="section__products d-flex justify-content-center align-items-center">
+    <main class=" d-flex justify-content-center align-items-center">
 
 
       <section class="h-100 h-custom "  style="background-color: #eee;">
@@ -100,10 +88,10 @@
 
           <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col">
-              <div class="card">
-                <div class="card-body p-4">
+              <div class="card boxShadowh">
+                <div class="card-body p-4 " >
       
-                  <div class="row d-flex justify-content-center align-items-center h-100">
+                  <div class="row d-flex justify-content-center align-items-center  -100">
       
                     <div class="col-lg-12 pay-header">
                       <h5 class="mb-3" style="padding-left:8%;"><a href="../index.html" class="text-body"><i
@@ -112,16 +100,16 @@
       
                       <div class="d-flex justify-content-around align-items-center mb-4 btnsSuperiores" >
                         <div class="d-flex " id="">
-                          <button class="btn btn-primary" id="btnVaciarCarrito">Vaciar Carrito</button>
+                          <button class="btn btn-primary btn-desglose" id="btnVaciarCarrito">Vaciar Carrito</button>
                           <input type="text" id="cupon" class="form-control" placeholder="Ej: 123456">
-                          <button class="btn btn-primary" id="cuponDescuento" >Ingresar cupon</button>
+                          <button class="btn btn-primary btn-desglose" id="cuponDescuento" >Ingresar cupon</button>
                           <!-- Button trigger modal   data-bs-toggle="modal" data-bs-target="#cuponModal" -->
 
 
 
                         </div>
                         <div>
-                          <p class="mb-0"><span class="text-muted">Sort by:</span> 
+                          <p class="mb-0"><span class="text-muted">Ordenar:</span> 
                             <select name="orderBy" id="orderBy">
                               <option value="price">Precio</option>
                               <option value="titleProduct">Nombre</option>
@@ -137,15 +125,15 @@
                   </div>
                     <div  class="col-lg-5 pay-body ">
       
-                      <div class="card bg-primary text-white rounded-3 ">
+                      <div class="card bg-primary-desglose text-white rounded-3 ">
                         <div class="card-body ">
                           <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h5 class="mb-0">Card details</h5>
+                            <h5 class="mb-0">Datos de Tarjeta</h5>
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
                               class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
                           </div>
       
-                          <p class="small mb-2">Card type</p>
+                          <p class="small mb-2">Tarjetas</p>
                           <a href="#!" type="submit" class="text-white"><i
                               class="fab fa-cc-mastercard fa-2x me-2"></i></a>
                           <a href="#!" type="submit" class="text-white"><i
@@ -156,36 +144,35 @@
       
                           <form class="mt-4">
                             <div class="form-outline form-white mb-4">
-                              <input type="text" id="typeName" class="form-control " siez="17"
+                              <input type="text" id="cardName" class="form-control " siez="17"
                                 placeholder="Cardholder's Name" required/>
-                              <label class="form-label" for="typeName">Cardholder's Name</label>
+                              <label class="form-label" for="typeName">Nombre del Titular</label>
                             </div>
       
                             <div class="form-outline form-white mb-4">
-                              <input type="text" id="typeText1" class="form-control " siez="17"
+                              <input type="number" id="cardNumber" class="form-control " size="17"
                                 placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" required/>
-                              <label class="form-label" for="typeText1">Card Number</label>
+                              <label class="form-label" for="cardNumber" >Numero de Tarjeta</label>
                             </div>
       
                             <div class="row mb-4">
                               <div class="col-md-6">
                                 <div class="form-outline form-white">
-                                  <input type="text" id="typeExp" class="form-control "
-                                    placeholder="MM/YYYY" size="7" id="exp" minlength="7" maxlength="7" required />
-                                  <label class="form-label" for="typeExp">Expiration</label>
+                                  <input type="date" id="expiration" class="form-control "
+                                    placeholder="MM/YYYY" size="7" id="" minlength="7" maxlength="7" required />
+                                  <label class="form-label" for="typeExp">Expiracion</label>
                                 </div>
                               </div>
                               <div class="col-md-6">
                                 <div class="form-outline form-white">
-                                  <input required type="password" id="typeText2" class="form-control "
+                                  <input required type="password" id="cvv" class="form-control "
                                     placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />
                                   <label class="form-label" for="typeText">Cvv</label>
                                 </div>
                               </div>
                             </div>
-                            <button type="submit" class="btn btn-secondary" id="confirmarTarjeta">Confirmar</button>
+                            <!-- <button type="submit" class="btn btn-secondary" id="confirmarTarjeta">Confirmar</button> -->
       
-                          </form>
                          
       
                           <hr class="my-4">
@@ -207,18 +194,20 @@
       
                           
                           <div class="d-flex justify-content-between mb-4">
-                            <p class="mb-2">Total(Incl. taxes)</p>
+                            <p class="mb-2">Total(Incl. imp)</p>
                             <p id="totalPagar" class="mb-2">0</p>
                           </div>
       
-                          <button type="button" id="pay" class="btn btn-info btn-block btn-lg" data-toggle="modal" data-target="#exampleModalCenter" disabled>
+                          <button type="submit" id="pay" class="btn btn-info btn-block btn-lg btn-desglose" >
                             <div class="d-flex justify-content-around" >
                                 <span>Pagar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                   <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
                                 </svg></span>
                               <span id="totalBtnPagar">0</span>
                             </div>
-                          </button>                               
+                          </button> 
+                          
+                        </form>                              
                         </div>
                       </div>
       

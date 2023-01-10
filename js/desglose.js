@@ -69,9 +69,9 @@ const productsToysDesglose = [
   },
 ];
 
-localStorage.setItem("productsToys", JSON.stringify(productsToysDesglose));
+// localStorage.setItem("productsToys", JSON.stringify(productsToysDesglose));
 localStorage.setItem("cuponDescuento", "123456");
-localStorage.setItem("descuento", 0.4);
+localStorage.setItem("descuento", 0.25);
 //cargar dinamicamente los valores a pagar en el carrito
 const totalPagar = document.getElementById("totalPagar");
 const subtotalPagar = document.getElementById("subtotalPagar");
@@ -81,30 +81,30 @@ const totalBtnPagar = document.getElementById("totalBtnPagar");
 const ProductsList = document.getElementById("productsList");
 const renderProduct = (product) => {
   const ProductCard = ` 
-<div class="card mb-3 mb-lg-0">
+<div class="card mb-3 mb-lg-0 productos-desglose sinPadding">
 <div class="card-body">
   <div  class="d-flex justify-content-between">
     <div class="d-flex flex-row align-items-center">
       <div>
         <img
-          src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-shopping-carts/img4.webp"
+          src="${product.imageProduct}"
           class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
       </div>
       <div class="ms-3">
-        <h5>${product.titleProduct}</h5>
+        <h5 class="tituloProducto">${product.title}</h5>
         <p class="small mb-0">${product.descriptionProduct}</p>
       </div>
     </div>
     <div class="d-flex flex-row align-items-center">
       <div style="width: 50px;">
-        <h5 class="fw-normal mb-0 " id="cantidad" style="text-align:center;">${product.stock} </h5>
+        <h5 class="fw-normal mb-0 " id="cantidad" style="text-align:center;">${product.quantityProduct} </h5>
 
       </div>
       <div style="width: 80px;">
-        <h5 class="mb-0 " style=";">$${product.price * product.stock}</h5>
+        <h5 class="mb-0 " style=";">$${product.price * product.quantityProduct}</h5>
       </div>
       <a href="#!" style="color: #cecece;" class="btnDelete" id="${
-        product.idProduct
+        product.id
       }" ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
       <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
     </svg></a>
@@ -128,23 +128,25 @@ const renderProducts = (products) => {
   subtotalPagar.innerHTML = 0;
   totalBtnPagar.innerHTML = 0;
 
-  if (products.length == 0) {
+  if (products == null || products.length == 0) {
     ProductsList.innerHTML = `<div class="alert alert-danger alertCarritoVacio" role="alert">
     No hay productos en el carrito <a href="../index.html"><button class="btn btn-secondary" >Volver</button></a></div> `;
   } else {
+   
     products.forEach((product) => {
+     
       renderProduct(product);
       //cargo los valores actualizados para pagar
 
       //al valor anterior le sumo el nuevo valor, parseo a entero para que no me sume strings
       totalPagar.innerHTML = `${
-        parseInt(totalPagar.innerHTML) + product.price * product.stock
+        parseInt(totalPagar.innerHTML) + product.price * product.quantityProduct
       }`;
       //totalPagar.innerHTML += `${product.price * product.stock +20}`;
       subtotalPagar.innerHTML =
-        parseInt(subtotalPagar.innerHTML) + product.price * product.stock;
+        parseInt(subtotalPagar.innerHTML) + product.price * product.quantityProduct;
       totalBtnPagar.innerHTML =
-        parseInt(totalBtnPagar.innerHTML) + product.price * product.stock;
+        parseInt(totalBtnPagar.innerHTML) + product.price * product.quantityProduct;
     });
   }
   //agrego simbolos de pesos a los valores y sumo el valor de los impuestos.
@@ -161,23 +163,24 @@ const buttonsProducts = () => {
   const btnsDelete = document.querySelectorAll(".btnDelete");
   btnsDelete.forEach((btnDelete) => {
     btnDelete.addEventListener("click", (e) => {
-      let products = JSON.parse(localStorage.getItem("productsToys"));
+      let products = JSON.parse(localStorage.getItem("carrito"));
       e.target.parentElement.parentElement.parentElement.parentElement.parentElement.remove();
       let productsSinEliminado = [];
       products.forEach((product) => {
         console.log(e.target.parentElement.parentElement);
-        if (product.idProduct != e.target.parentElement.parentElement.id) {
+        if (product.id != e.target.parentElement.parentElement.id) {
           productsSinEliminado.push(product);
         }
         console.log("delete");
 
-        localStorage.removeItem("productsToys");
+        localStorage.removeItem("carrito");
         localStorage.setItem(
-          "productsToys",
+          "carrito",
           JSON.stringify(productsSinEliminado)
           
         );
         renderProducts(productsSinEliminado);
+        calcularDescuento();
       });
     });
   });
@@ -200,7 +203,7 @@ const sortBy = (criterio, productos) => {
 
 const optionOrder = document.getElementById("orderBy");
 optionOrder.addEventListener("change", (e) => {
-  let productsToysDesglose = JSON.parse(localStorage.getItem("productsToys"));
+  let productsToysDesglose = JSON.parse(localStorage.getItem("carrito"));
   sortBy(e.target.value, productsToysDesglose);
 });
 // sortBy("stock",productsToys);
@@ -208,17 +211,20 @@ optionOrder.addEventListener("change", (e) => {
 //funcionalidad para vaciar el carrito desde el boton
 const btnVaciarCarrito = document.getElementById("btnVaciarCarrito");
 btnVaciarCarrito.addEventListener("click", (e) => {
-  localStorage.removeItem("productsToys");
+  localStorage.removeItem("carrito");
   renderProducts([]);
+  calcularDescuento();
 });
 
 // //muestro modal cuando se hace click en el boton de pagar y redirijo a la pagina de principal
 const btnPagar = document.getElementById("pay");
 btnPagar.addEventListener("click", (e) => {
   e.preventDefault();
+  if(document.getElementById("cardName").value != "" && document.getElementById("cardNumber").value != "" && document.getElementById("expiration").value != "" && document.getElementById("cvv").value != "" ){
+    $('#exampleModalCenter').modal("show");
   setTimeout(function(){
     window.location = '/index.html';
-}, 3000);
+}, 3000);}
   
   
 
@@ -227,16 +233,17 @@ btnPagar.addEventListener("click", (e) => {
   } );
 
 //confirmo que los datos de el formulario de tarjeta esten completos, para habilitar el boton de pago
-const btnConfirmarTarjeta = document.getElementById("confirmarTarjeta"); 
+// const btnConfirmarTarjeta = document.getElementById("confirmarTarjeta"); 
 
-btnConfirmarTarjeta.addEventListener("click", (e) => {
-  e.preventDefault();
+// btnConfirmarTarjeta.addEventListener("click", (e) => {
+//   e.preventDefault();
   
-    btnPagar.disabled = false;
+//     btnPagar.disabled = false;
   
+//     $('#exampleModalCenter').modal("show");
  
 
-});
+// });
 
 //funcionalidad para ingresar cupon de descuento
 const btnCupon = document.getElementById("cuponDescuento");
@@ -247,14 +254,8 @@ btnCupon.addEventListener("click", (e) => {
   console.log(cupon,"cupon ingresado");
   console.log(cuponLocal,"cupon local");
   if (cupon == cuponLocal) {
-    const descuento = document.getElementById("descuentoPagar");
-    const descuentoLocal = localStorage.getItem("descuento");
-    const totalPagar = document.getElementById("totalPagar");
-    const totalPagarSin$ = parseInt(totalPagar.innerHTML.slice(1));
-    descuento.innerHTML = `$${totalPagarSin$ * descuentoLocal}`;
-    totalPagar.innerHTML = `$${totalPagarSin$ - totalPagarSin$ * descuentoLocal}`;
-    totalBtnPagar.innerHTML = `$${totalPagarSin$ - totalPagarSin$ * descuentoLocal}`;
     localStorage.removeItem("cuponDescuento");
+    calcularDescuento();
   }
   else{
     alert("cupon incorrecto");
@@ -262,5 +263,18 @@ btnCupon.addEventListener("click", (e) => {
 
 })
 
+const calcularDescuento = () => {
+  const descuento = document.getElementById("descuentoPagar");
+  if(localStorage.getItem("cuponDescuento") == null){
+    const descuentoLocal = localStorage.getItem("descuento");
+    const subtotalPagar = document.getElementById("subtotalPagar");
+    const subtotalPagarSin$ = parseInt(subtotalPagar.innerHTML.slice(1));
+    descuento.innerHTML = `<small>(${descuentoLocal * 100}%)</small> $${subtotalPagarSin$ * descuentoLocal} `;
+    totalPagar.innerHTML = `$${subtotalPagarSin$ - subtotalPagarSin$ * descuentoLocal}`;
+    totalBtnPagar.innerHTML = `$${subtotalPagarSin$ - subtotalPagarSin$ * descuentoLocal + 20}`;}
+    else{
+      descuento.innerHTLM = "$0";}
+}
+const productosCarrito = JSON.parse(localStorage.getItem("carrito"));
 
-renderProducts(productsToysDesglose);
+renderProducts(productosCarrito);

@@ -25,15 +25,27 @@
           <div class="content__links" id="contentLinks">
             <ul class="content__botones">
               <li class="options">
-                <a href="./index.html"  class="options-links" >Home</a>
+                <a href="./index.html"  class="options-links" >
+                  <span id="spanOne"></span>
+                  <span id="spanTwo"></span>
+                  <span id="spanThree"></span>
+                  <span id="spanFour"></span>
+                  Home</a>
               </li>
               <li  class="options">
-                <a href="./pages/abount.html" class="options-links">About Us</a>
+                <a href="./pages/about.html" class="options-links">
+                  <span id="spanOne"></span>
+                  <span id="spanTwo"></span>
+                  <span id="spanThree"></span>
+                  <span id="spanFour"></span>
+                  About Us
+                </a>
               </li>
               <div class="content__icons">
                 <a href="" class="icons__nav"><i class="bi bi-person-circle"></i></a>
                 <div class="content__cartIcon">
                   <a class="icons__nav cart"><i class="bi bi-cart2"></i></a>
+                  <span class="contador-productos" id="contadorProducto">0</span>
                 </div>
               </div>
             </ul>
@@ -54,14 +66,12 @@
               </div>
               <div class="content-botones-carrito">
                 <div class="desglose">
-                  <a href="./pages/desglose.html" class="boton__desglose">Ver más</a>
+                  <a href="./pages/desglose.html" class="boton__desglose">Comprar</a>
                 </div>
                 <div class="vaciar-carrito">
                   <button class="boton__desglose vaciar-carrito" id="vaciarCarrito">Vaciar Carrito</button>
                 </div>
               </div>
-            
-            <p class="cart__empty hidden">No hay productos en tu carrito</p>
           </div>
             </div>
        </nav>
@@ -99,7 +109,7 @@
         <nav class="content__barraSearch">
           <div class="content__search">
             <form role="search">
-              <input type="search" placeholder="Buscar" aria-label="Buscar" class="input__search" id="inputSearch">
+              <input type="search" placeholder="Buscar juguetes, marcas y más..." aria-label="Buscar" class="input__search" id="inputSearch">
               <button type="submit" class="boton__search"><i class="bi bi-search"></i></button>
             </form>
           </div>
@@ -108,42 +118,10 @@
       <div class="section__categoryAndProducts">
         <div class="content__list">
             <div id="cont_check_cards">
-              <p>Categorias</p>
+              <p class="name-category">Categorias</p>
             
             
          
-            </div>
-            <span class="division"></span>
-            <div>
-              <p>Género</p>
-            </div>
-            <div>
-              <input id="category" value="category" type="checkbox">
-              <label for="">Niñas</label>
-            </div>
-            <div>
-              <input id="category" value="category" type="checkbox">
-              <label for="">Niños</label>
-            </div>
-            <span class="division"></span>
-            <div>
-              <p>Edad</p>
-            </div>
-            <div>
-              <input id="category" value="category" type="checkbox">
-              <label for="">1 a 11 meses</label>
-            </div>
-            <div>
-              <input id="category" value="category" type="checkbox">
-              <label for="">1 a 6 años</label>
-            </div>
-            <div>
-              <input id="category" value="category" type="checkbox">
-              <label for="">7 a 10 años</label>
-            </div>
-            <div>
-              <input id="category" value="category" type="checkbox">
-              <label for="">10 a 12 años</label>
             </div>
         </div>
         
@@ -154,6 +132,35 @@
              </div> -->
     
          </div>
+      </div>
+      <div class="informacion-adicional">
+        <div class="content-item-info">
+          <img src="./assets/image/juicy-shopping-on-sale.png" alt=""  class="imagen-info-adicional">
+          <h3 class="title-info-adicional">
+            Elegí los productos que vas a comprar
+          </h3>
+          <p class="parrafo-info-adicional">
+            Si querés más de uno, sumalos a tu carrito.
+          </p>
+        </div>
+        <div class="content-item-info">
+          <img src="./assets/image/juicy-online-shopping.png" alt="" class="imagen-info-adicional">
+          <h3 class="title-info-adicional">
+            Pagá con el medio de pago que quieras
+          </h3>
+          <p class="parrafo-info-adicional">
+            Comprá con seguridad: usamos la tecnología de cobro online.
+          </p>
+        </div>
+        <div class="content-item-info">
+          <img src="./assets/image/lagom-9.png" alt="" class="imagen-info-adicional">
+          <h3 class="title-info-adicional">
+            Recibí el producto que esperás
+          </h3>
+          <p class="parrafo-info-adicional">
+            Elegí los productos que prefieras ¡y listo! Aseguramos su entrega a tu domicilio.
+          </p>
+        </div>
       </div>
     </main>
     <!-- Inicia Pie de Página  -->
