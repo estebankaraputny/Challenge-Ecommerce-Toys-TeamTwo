@@ -62,7 +62,7 @@ Al hacer click se deplegará una lista de categorias, al seleccionar una de ella
 ###### Buscador 🔍: 
 En esta seccion podran introducir el nombre del producto a buscar, haciendo click en el boton buscar mostrará el producto si este existiera.
 
-<img src="https://cdn.discordapp.com/attachments/1016435562560901152/1055984736616591380/image.png">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/buscadorNuevo.png?alt=media&token=e4fcd5ee-1c94-41a9-8ab1-d62a5f8de530" >
 
 
 
@@ -70,17 +70,17 @@ En esta seccion podran introducir el nombre del producto a buscar, haciendo clic
 Haciendo click sobre el icono del carrito se desplegará una lista que contiene el resumen de los productos agregados si estos existieran.
 Para volver a ocultar esta lista solo se debe volver a hacer click sobre el icono 
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/carritoScreenShot.png?alt=media&token=58e547f5-df93-419f-8395-30275e096b1f">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/carritoNuevo.png?alt=media&token=84cfa58c-957b-4060-aabc-962cb556fdb8">
 
 ###### About :technologist::
 Este boton te redirecciona hacia la pagina About 
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/btnAbout.png?alt=media&token=01c5e7ad-e125-4199-87e8-4867fcb243e9">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/btnAboutNuevo.png?alt=media&token=7fcbd2c4-3368-4e06-834f-896636dc598c">
 
 ###### Home 🏠:
 Este boton te redirecciona a la pagina de inicio si no te encuentras en ella
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/btnHome.png?alt=media&token=42fc1f48-10d9-42fd-bb8c-4859209a1ad6">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/btnHomeNuevo.png?alt=media&token=1d5392c1-b3e4-467a-9d79-4086f1dafc51">
 
 ------
 ------
@@ -97,12 +97,12 @@ Un link por cada uno de los participantes de este proyecto, ellos te conducen a 
 ###### Carrusel 🎪:
 En esta parte de la pagina se pueden observar ofertas y anuncios que van "rotando" en un loop
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/carrusel.png?alt=media&token=fce5f115-60da-4740-b8de-d173d6aa07ff">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/carrusel.png?alt=media&token=fce5f115-60da-4740-b8de-d173d6aa07ff" width="400">
 
 ###### Productos 🧸:
-En este sitio se muestra en forma de cards todos los productos disponibles
+En este sitio se muestra en forma de cards todos los productos disponibles, desde donde se puede agregar un producto o ver mas detalles de ese producto
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/productos.png?alt=media&token=efb49571-3354-45b3-82b3-12816eafaeef">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/productosNuevo.png?alt=media&token=8cc29455-4a6d-4011-8fe5-d09c753b9f68" width="400" >
 
 ---
 ---
@@ -114,18 +114,18 @@ En esta pagina se pueden ver los productos seleccionados en forma de lista. Tamb
 ###### Producto :teddy_bear::
 Muestra una miniatura del producto, el precio, la cantidad y una opcion para eliminar el producto
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/productoDesglose.png?alt=media&token=a62509a6-0588-4fe7-a829-dc2c5b73c588">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/productoDesgloseNuevo.png?alt=media&token=12908b57-00bd-4d8f-81c5-0b71045a9aaf">
 
 ###### Vaciar Carrito :broom::
 Elimina todos los productos del carrito de una sola vez
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/vaciarCarrito.png?alt=media&token=348b67ee-c7ae-4c8d-ae4c-9edc27099e41">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/vaciarCarritoNuevo.png?alt=media&token=9dea554e-43cc-4c74-ae42-34e01169dd6b">
 
 
 ###### Ingresar Cupon :ticket::
 En esta seccion se puede ingresar un cupon para recibir descuentos en su compra
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/ingresarCupon.png?alt=media&token=3470a32e-b397-4e2d-969e-f0d218f34216">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/ingresarCuponNuevo.png?alt=media&token=d576239e-8ee1-43c9-9a6f-f3dee7e3a4e5">
 
 ###### Ordenar Productos :books::
 Seleccionando una de las opciones de la lista desplegada, los productos del carrito seran ordenados segun ese criterio
