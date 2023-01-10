@@ -2,7 +2,7 @@
 const productsToys = [
     {
         titleProduct: "Pelota Al Hilm Pro Final Qatar 2022 Edicion Especial N5",
-        descriptionProduct: "Pelota de goma",
+        descriptionProduct: "Pelota de la final de la copa Qatar 2022, Argentina campeón del mundo",
         stock: 10,
         category: "Deportes",
         imageProduct:'https://http2.mlstatic.com/D_NQ_NP_741864-MLA53161544064_012023-O.webp',
