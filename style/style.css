@@ -296,7 +296,8 @@
 } */
 
 .cart-products{
-    width: 90%;
+    width: 95%;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -319,11 +320,12 @@
 .name-product{
     font-size: 1rem;
     margin: 0;
-    width: 40%;
+    width: 50%;
     text-align: center;
 }
 
 .price-product{
+    width: 15%;
     font-size: 1rem;
     margin: 0;
 }
@@ -536,6 +538,7 @@
 }
 
 .card-title{
+    height: 20%;
     font-size: 1rem;
     color: #494949;
     margin: .5rem 0;
