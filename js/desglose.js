@@ -92,7 +92,7 @@ const renderProduct = (product) => {
       </div>
       <div class="ms-3">
         <h5 class="tituloProducto">${product.title}</h5>
-        <p class="small mb-0">${product.descriptionProduct}</p>
+       
       </div>
     </div>
     <div class="d-flex flex-row align-items-center">
