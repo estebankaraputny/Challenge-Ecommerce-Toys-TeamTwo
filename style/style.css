@@ -751,10 +751,11 @@ input[type="checkbox"]:checked + label {
 /* COMIENZA PAGINA DE DETALLES */
 .main-details{
     background-color: #e7e7e7;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     padding: 8% 2% 2% 2%;
+    margin-bottom: 50px;
 }
 
 .container{

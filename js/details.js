@@ -191,12 +191,13 @@ console.log(idProducts)
             </div>
             <div class="container_details">
                   <span class="nav-location">Home / ${productsToys[i].category} / ${productsToys[i].titleProduct} </span>
-  
+                          <span class="hidden spanId" id="${productsToys[i].idProduct}"></span>
+
                   <div class="details">
                   <h3 class="title-details">${productsToys[i].titleProduct}</h3>
                   </div>
                   <div class="details">
-                  <h3 class="price-details">$${productsToys[i].price}</h3>
+                  <h4 class="price-details">$${productsToys[i].price}</h4>
                   </div>
                   <div class="details">
                     <p><i class="bi bi-credit-card-2-back"></i> En <span class="precio-cuota">3</span> cuotas de <span class="precio-cuota">$${parseInt(cuota3)}</span> </p>
