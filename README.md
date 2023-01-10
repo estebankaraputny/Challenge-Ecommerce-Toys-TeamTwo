@@ -62,7 +62,7 @@ Al hacer click se deplegará una lista de categorias, al seleccionar una de ella
 ###### Buscador 🔍: 
 En esta seccion podran introducir el nombre del producto a buscar, haciendo click en el boton buscar mostrará el producto si este existiera.
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/buscadorNuevo.png?alt=media&token=e4fcd5ee-1c94-41a9-8ab1-d62a5f8de530" >
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/buscadorNuevo.png?alt=media&token=e4fcd5ee-1c94-41a9-8ab1-d62a5f8de530" width="300">
 
 
 
@@ -75,7 +75,7 @@ Para volver a ocultar esta lista solo se debe volver a hacer click sobre el icon
 ###### About :technologist::
 Este boton te redirecciona hacia la pagina About 
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/btnAboutNuevo.png?alt=media&token=7fcbd2c4-3368-4e06-834f-896636dc598c">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/btnAboutNuevo.png?alt=media&token=7fcbd2c4-3368-4e06-834f-896636dc598c" width="100">
 
 ###### Home 🏠:
 Este boton te redirecciona a la pagina de inicio si no te encuentras en ella
@@ -88,7 +88,7 @@ Este boton te redirecciona a la pagina de inicio si no te encuentras en ella
 ###### GitHub :octocat::
 Un link por cada uno de los participantes de este proyecto, ellos te conducen a sus repositorios de GitHub
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/footer.png?alt=media&token=82f8c774-a242-4c8b-8c1f-44f3b0d398ab">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/footer.png?alt=media&token=82f8c774-a242-4c8b-8c1f-44f3b0d398ab" width="500">
 
 ---
 ---
@@ -114,7 +114,7 @@ En esta pagina se pueden ver los productos seleccionados en forma de lista. Tamb
 ###### Producto :teddy_bear::
 Muestra una miniatura del producto, el precio, la cantidad y una opcion para eliminar el producto
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/productoDesgloseNuevo.png?alt=media&token=12908b57-00bd-4d8f-81c5-0b71045a9aaf">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/productoDesgloseNuevo.png?alt=media&token=12908b57-00bd-4d8f-81c5-0b71045a9aaf" width="300">
 
 ###### Vaciar Carrito :broom::
 Elimina todos los productos del carrito de una sola vez
@@ -125,7 +125,7 @@ Elimina todos los productos del carrito de una sola vez
 ###### Ingresar Cupon :ticket::
 En esta seccion se puede ingresar un cupon para recibir descuentos en su compra
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/ingresarCuponNuevo.png?alt=media&token=d576239e-8ee1-43c9-9a6f-f3dee7e3a4e5">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/ingresarCuponNuevo.png?alt=media&token=d576239e-8ee1-43c9-9a6f-f3dee7e3a4e5" width="200">
 
 ###### Ordenar Productos :books::
 Seleccionando una de las opciones de la lista desplegada, los productos del carrito seran ordenados segun ese criterio
@@ -135,7 +135,7 @@ Seleccionando una de las opciones de la lista desplegada, los productos del carr
 ###### Metodo de pago :credit_card: :
 En esta seccion se puede cargar una tarjeta de credito para efectuar el pago. En ella tambien se muestran los montos a pagar, si hay descuento lo muestra en pesos. Y un boton para confirmar el pago
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/medioDePago.png?alt=media&token=cb806f9a-b7c3-45b9-96b7-c7289625f6c0">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/medioPagoNuevo.png?alt=media&token=e1dd9235-cc32-4a29-8390-3c5cc8b340cc">
 
 ###### Confirmación de pago :white_check_mark::
 Una vez realizado el pago se mostrará una ventana informando que fue exitosa 
@@ -153,12 +153,23 @@ Si el carrito no posee articulos, aparecerá un avis en la pantalla con un boton
 #### About
 En esta pagina encontrarán información de los miembros del equipo encargado de realizar este e-commerce. Tambien se visualiza un formulario de contacto
 
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/contenidoAboutNuevo.png?alt=media&token=ef785520-916d-4a57-acda-79af6fd167e2" width="400">
+
+###### Equipo:
+
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/equipoAboutNuevo.png?alt=media&token=626b1e6d-d40d-424c-b679-b731e4fec983" width="400">
+
+###### Contacto:
+Desde el formulario al final de la pagina se podrá enviar un mensaje para dejar alguna, duda, sugerencia, queja.
+
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/contactoAboutNuevo.png?alt=media&token=d66a2955-8198-42a1-a4d6-e6692c5be156" width="400">
+
 ---
 ---
 #### Details
 Muestra en detalle el producto seleccionado haciendo click en la tarjeta (no en el boton agregar producto) de la pagina principal
 
-<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/productoDetalle.png?alt=media&token=02795dd5-81cc-49e9-9cd6-d68107717aec" width="200" height="200">
+<img src="https://firebasestorage.googleapis.com/v0/b/iniciatoys.appspot.com/o/productoDetallesNuevo.png?alt=media&token=d37df81f-a199-4fdc-9fde-00eea0faa9fb" width="400" >
 
 
 
