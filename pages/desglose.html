@@ -151,19 +151,19 @@
       
                             <div class="form-outline form-white mb-4">
                               <input type="number" id="cardNumber" class="form-control " size="17"
-                                placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" required/>
+                                placeholder="1234 5678 9012 3457" pattern="/^-?\d+.?\d*$" onkeypress="if(this.value.length==19) return false;" required/>
                               <label class="form-label" for="cardNumber" >Numero de Tarjeta</label>
                             </div>
       
                             <div class="row mb-4">
-                              <div class="col-md-6">
+                              <div class="col-md-8">
                                 <div class="form-outline form-white">
-                                  <input type="date" id="expiration" class="form-control "
+                                  <input type="month" id="expiration" class="form-control "
                                     placeholder="MM/YYYY" size="7" id="" minlength="7" maxlength="7" required />
                                   <label class="form-label" for="typeExp">Expiracion</label>
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-outline form-white">
                                   <input required type="password" id="cvv" class="form-control "
                                     placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" />

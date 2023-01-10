@@ -221,6 +221,7 @@ const btnPagar = document.getElementById("pay");
 btnPagar.addEventListener("click", (e) => {
   e.preventDefault();
   if(document.getElementById("cardName").value != "" && document.getElementById("cardNumber").value != "" && document.getElementById("expiration").value != "" && document.getElementById("cvv").value != "" ){
+    localStorage.removeItem("carrito");
     $('#exampleModalCenter').modal("show");
   setTimeout(function(){
     window.location = '/index.html';

@@ -25,12 +25,25 @@
   
         margin-top: 0px;
         margin-bottom: 0%;
-        width: 60%;
+        width: 72%;
         margin-right: 0px;
-       
-        
-    
     }
+    option{
+        color: var(--turquesa-oscuro);
+    }
+    
+
+
+ 
+    select{
+        color: var(--turquesa-oscuro);
+     
+    }
+
+  
+
+
+
 .bg-primary-desglose{
     background-color: var(--turquesa-claro) !important;
 }
