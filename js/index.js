@@ -163,6 +163,42 @@ const developers = [
 ]
 
 
+// EVENTO ONLOAD PARA CARGAR LA PAGINA
+// const contentLoader = document.getElementById("loader");
+
+function fadeOut(el) {
+    el.style.opacity = 1;
+    (function fade() {
+        if ((el.style.opacity -= .1) < 0) {
+            el.style.display = "none";
+        } else {
+            requestAnimationFrame(fade);
+        }
+    })();
+};
+
+// ** FADE IN FUNCTION **
+function fadeIn(el, display) {
+    el.style.opacity = 0;
+    el.style.display = display || "block";
+    (function fade() {
+        var val = parseFloat(el.style.opacity);
+        if (!((val += .1) > 1)) {
+            el.style.opacity = val;
+            requestAnimationFrame(fade);
+        }
+    })();
+};
+
+const loaderPage = document.querySelector("#loader");
+const bodyPage = document.querySelector("body")
+
+window.onload = function(){
+    fadeOut(loaderPage);
+    bodyPage.classList.remove("hiddenBody");
+};
+
+
 
 // EFECT TOGGLE IN BUTTON MENU 
 
