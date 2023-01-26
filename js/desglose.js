@@ -69,6 +69,49 @@ const productsToysDesglose = [
   },
 ];
 
+
+
+
+// EVENTO ONLOAD PARA CARGAR LA PAGINA
+// const contentLoader = document.getElementById("loader");
+
+function fadeOut(el) {
+  el.style.opacity = 1;
+  (function fade() {
+      if ((el.style.opacity -= .1) < 0) {
+          el.style.display = "none";
+      } else {
+          requestAnimationFrame(fade);
+      }
+  })();
+};
+
+// ** FADE IN FUNCTION **
+function fadeIn(el, display) {
+  el.style.opacity = 0;
+  el.style.display = display || "block";
+  (function fade() {
+      var val = parseFloat(el.style.opacity);
+      if (!((val += .1) > 1)) {
+          el.style.opacity = val;
+          requestAnimationFrame(fade);
+      }
+  })();
+};
+
+const loaderPage = document.querySelector("#loader");
+const bodyPage = document.querySelector("body")
+
+window.onload = function(){
+  fadeOut(loaderPage);
+  bodyPage.classList.remove("hiddenBody");
+};
+
+
+
+
+
+
 // localStorage.setItem("productsToys", JSON.stringify(productsToysDesglose));
 localStorage.setItem("cuponDescuento", "123456");
 localStorage.setItem("descuento", 0.25);
@@ -278,4 +321,9 @@ const calcularDescuento = () => {
 }
 const productosCarrito = JSON.parse(localStorage.getItem("carrito"));
 
+const linksMenu = document.getElementById("contentLinks");
+const botonMenu = document.getElementById("botonMenu");
+botonMenu.addEventListener("click",() =>{
+    linksMenu.classList.toggle(`activo`)
+});
 renderProducts(productosCarrito);

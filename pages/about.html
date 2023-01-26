@@ -9,7 +9,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../style/style.css">
 </head>
-<body>
+<body class="hiddenBody">
+  <div id="loader" class="content-loader">
+    <div aria-label="Orange and tan hamster running in a metal wheel" role="img" class="wheel-and-hamster">
+      <div class="wheel"></div>
+      <div class="hamster">
+        <div class="hamster__body">
+          <div class="hamster__head">
+            <div class="hamster__ear"></div>
+            <div class="hamster__eye"></div>
+            <div class="hamster__nose"></div>
+          </div>
+          <div class="hamster__limb hamster__limb--fr"></div>
+          <div class="hamster__limb hamster__limb--fl"></div>
+          <div class="hamster__limb hamster__limb--br"></div>
+          <div class="hamster__limb hamster__limb--bl"></div>
+          <div class="hamster__tail"></div>
+        </div>
+      </div>
+      <div class="spoke"></div>
+    </div>
+  </div>
     <!-- Inicia Barra de Navegación  -->
     <header>
       <nav  class="barra__navegacion">
@@ -40,36 +60,10 @@
              </li>
              <div class="content__icons">
                <a href="" class="icons__nav"><i class="bi bi-person-circle"></i></a>
-               <div class="content__cartIcon">
-                 <a class="icons__nav cart"><i class="bi bi-cart2"></i></a>
-               </div>
              </div>
            </ul>
          </div>
-         <!-- CONTENIDO DEL CARRITO -->
-         
-         <div class="container__cartProducts hidden">
-          <!-- PRODUCTOS -->
-          <div class="products-cart">
-            
-          </div>
-
-          <!-- TOTAL A PAGAR -->
-          <div class="content-total-and-button">
-            <div class="content__total">
-              <h2 class="total">Total:</h2> 
-              <p class="total__pagar">$0</p>
-            </div>
-            <div class="content-botones-carrito">
-              <div class="desglose">
-                <a href="../pages/desglose.html" class="boton__desglose">Comprar</a>
-              </div>
-              <div class="vaciar-carrito">
-                <button class="boton__desglose vaciar-carrito" id="vaciarCarrito">Vaciar Carrito</button>
-              </div>
-            </div>
-        </div>
-          </div>
+        
       </nav>
    </header>
    <!-- Inicia Sección de Productos  -->
