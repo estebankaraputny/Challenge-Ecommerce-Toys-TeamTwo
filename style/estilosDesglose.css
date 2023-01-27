@@ -1102,7 +1102,7 @@ justify-content: center;
     color:var(--naranja-claro)!important;
     /* background-color:var(--naranja-claro)!important; */
 }
-@media (max-width:450px){
+@media (max-width:950px){
 
     body{
         width: 100vw !important;
