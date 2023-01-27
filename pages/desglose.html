@@ -11,7 +11,7 @@
 
 </head>
 <body class="content__body">
-  <div class="animacion">
+  <!-- <div class="animacion">
     <div class="imgBx" style="background-color:rgb(255, 255, 255);">
        
     </div>
@@ -28,7 +28,7 @@
   <div class="details">
     <img src="../assets/image/monstruo2.png" alt="" style="width:300px; height: 200px;">
      </div>
-</div>
+</div> -->
 
 <body class="hiddenBody">
   <div id="loader" class="content-loader">
@@ -111,16 +111,16 @@
                       <hr>
       
                       <div class="d-flex justify-content-around align-items-center mb-4 btnsSuperiores" >
-                        <div class="d-flex " id="">
+                        <div class="d-flex div-btns" id="">
                           <button class="btn btn-primary btn-desglose" id="btnVaciarCarrito">Vaciar Carrito</button>
-                          <input type="text" id="cupon" class="form-control" placeholder="Ej: 123456">
+                          <input type="text" id="cupon" class="form-control input-cupon" placeholder="Ej: 123456">
                           <button class="btn btn-primary btn-desglose" id="cuponDescuento" >Ingresar cupon</button>
                           <!-- Button trigger modal   data-bs-toggle="modal" data-bs-target="#cuponModal" -->
 
 
 
                         </div>
-                        <div>
+                        <div class="order">
                           <p class="mb-0"><span class="text-muted">Ordenar:</span> 
                             <select name="orderBy" id="orderBy">
                               <option value="price">Precio</option>
@@ -139,22 +139,22 @@
       
                       <div class="card bg-primary-desglose text-white rounded-3 ">
                         <div class="card-body ">
-                          <div class="d-flex justify-content-between align-items-center mb-4">
+                          <div class="d-flex justify-content-between align-items-center padding-lr mb-4">
                             <h5 class="mb-0">Datos de Tarjeta</h5>
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
                               class="img-fluid rounded-3" style="width: 45px;" alt="Avatar">
                           </div>
       
-                          <p class="small mb-2">Tarjetas</p>
-                          <a href="#!" type="submit" class="text-white"><i
-                              class="fab fa-cc-mastercard fa-2x me-2"></i></a>
-                          <a href="#!" type="submit" class="text-white"><i
-                              class="fab fa-cc-visa fa-2x me-2"></i></a>
-                          <a href="#!" type="submit" class="text-white"><i
-                              class="fab fa-cc-amex fa-2x me-2"></i></a>
-                          <a href="#!" type="submit" class="text-white"><i class="fab fa-cc-paypal fa-2x"></i></a>
+                          <p class="small mb-2 display-none">Tarjetas</p>
+                          <a href="#!" type="submit" class="text-white display-none"><i
+                              class="fab fa-cc-mastercard fa-2x me-2 display-none"></i></a>
+                          <a href="#!" type="submit" class="text-white display-none"><i
+                              class="fab fa-cc-visa fa-2x me-2 display-none"></i></a>
+                          <a href="#!" type="submit" class="text-white display-none"><i
+                              class="fab fa-cc-amex fa-2x me-2 display-none"></i></a>
+                          <a href="#!" type="submit" class="text-white display-none"><i class="fab fa-cc-paypal fa-2x"></i></a>
       
-                          <form class="mt-4">
+                          <form class="mt-4 form-pay">
                             <div class="form-outline form-white mb-4">
                               <input type="text" id="cardName" class="form-control " siez="17"
                                 placeholder="Cardholder's Name" required/>
@@ -191,28 +191,28 @@
       
                           <hr class="my-4">
       
-                          <div  class="d-flex justify-content-between">
+                          <div  class="d-flex justify-content-between valores-pagar">
                             <p class="mb-2">Subtotal</p>
                             <p class="mb-2" id="subtotalPagar">0</p>
                           </div>
       
-                          <div id="impuestosPagar" class="d-flex justify-content-between">
+                          <div id="impuestosPagar" class="d-flex justify-content-between valores-pagar">
                             <p class="mb-2">Shipping</p>
                             <p class="mb-2">$20.00</p>
                           </div>
 
-                          <div  class="d-flex justify-content-between">
+                          <div  class="d-flex justify-content-between valores-pagar">
                             <p class="mb-2">Descuento</p>
                             <p class="mb-2" id="descuentoPagar">0</p>
                           </div>
       
                           
-                          <div class="d-flex justify-content-between mb-4">
+                          <div class="d-flex justify-content-between mb-4 valores-pagar">
                             <p class="mb-2">Total(Incl. imp)</p>
                             <p id="totalPagar" class="mb-2">0</p>
                           </div>
       
-                          <button type="submit" id="pay" class="btn btn-info btn-block btn-lg btn-desglose" >
+                          <button type="submit" id="pay" class="btn btn-info btn-block btn-lg btn-desglose valores-pagar" >
                             <div class="d-flex justify-content-around" >
                                 <span>Pagar <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                   <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
