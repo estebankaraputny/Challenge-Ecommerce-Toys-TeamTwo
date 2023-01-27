@@ -928,6 +928,7 @@ justify-content: center;
         align-items: center;
         color: var(--blanco);
         padding: 1rem;
+        margin-top:10%
     }
     
     .name-and-logo{
@@ -1101,7 +1102,7 @@ justify-content: center;
     color:var(--naranja-claro)!important;
     /* background-color:var(--naranja-claro)!important; */
 }
-@media (max-width:450px){
+@media (max-width:950px){
 
     body{
         width: 100vw !important;
@@ -1120,6 +1121,8 @@ justify-content: center;
         flex-direction: column;
         width: 100% !important;
         height: 100%;
+        align-items: center !important;
+        justify-content: center !important;
     }
     section{
         width: 100%;
@@ -1129,6 +1132,7 @@ justify-content: center;
         width: 100%;
         margin: 0;
         padding: 0 !important;
+        padding-top:1% !important;
     }
     .pay-body{
         width: 100%;
@@ -1137,6 +1141,25 @@ justify-content: center;
         flex-direction: column;
         justify-content: space-between;
         padding: 0 !important;
+        align-items: center !important;
+    }
+    .padding-lr{
+        padding-left:2% !important;
+        padding-right:2% !important;
+        padding-top: 1% !important;
+    }
+    .display-none{
+        display: none !important;
+    }
+    .form-pay{
+        padding-left: 3%;
+        padding-bottom: 2%;
+    }
+    .form-outline{
+        width:95% !important;
+    }
+    .valores-pagar{
+        width:95% !important;
     }
     .card-body{
         width:100%;
@@ -1157,10 +1180,13 @@ justify-content: center;
     }
     #productsList{
         width: 100%;
-        height: 100% !important;; 
+        height: auto !important;; 
         padding: 0 !important;
         margin: 0 !important;
+        padding-bottom: 3% !important;
+        align-items: center !important;
     }
+    
     .card {
         padding:0 !important;
     }
@@ -1169,10 +1195,11 @@ justify-content: center;
         width: 100% !important;
     }
     .productos-desglose{
-        width:100%;
-        padding: 0 !important;
+        width:90%;
+        padding: 1% !important;
         margin: 0 !important;
         justify-content: center !important;
+        align-items: center !important;
     }
     .animacion, .animacionDerecha, .animacionIzquierda{
         display: none;
@@ -1253,5 +1280,31 @@ justify-content: center;
         padding-bottom: 0 !important;
     }
 
+    .order{
+        display:none;
+    }
+    .btnsSuperiores{
+        display:flex;
+        flex-direction: column !important;
+        justify-content: space-between;
+    }
+    .div-btns{
+        flex-direction: column !important;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .btn-desglose{
+        width:80%
+    }
+    .input-cupon{
+        margin-top:3%;
+        margin-bottom:1%;
+        width: 80%;
+    }
+    .bg-primary-desglose{
+        width:98%
+    }
+   
 
 }
