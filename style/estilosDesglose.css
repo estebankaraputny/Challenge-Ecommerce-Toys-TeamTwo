@@ -1141,6 +1141,7 @@ justify-content: center;
         flex-direction: column;
         justify-content: space-between;
         padding: 0 !important;
+        align-items: center !important;
     }
     .padding-lr{
         padding-left:2% !important;
