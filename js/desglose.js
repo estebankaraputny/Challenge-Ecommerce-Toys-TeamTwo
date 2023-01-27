@@ -321,4 +321,9 @@ const calcularDescuento = () => {
 }
 const productosCarrito = JSON.parse(localStorage.getItem("carrito"));
 
+const linksMenu = document.getElementById("contentLinks");
+const botonMenu = document.getElementById("botonMenu");
+botonMenu.addEventListener("click",() =>{
+    linksMenu.classList.toggle(`activo`)
+});
 renderProducts(productosCarrito);
