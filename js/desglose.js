@@ -263,6 +263,8 @@ btnVaciarCarrito.addEventListener("click", (e) => {
 const btnPagar = document.getElementById("pay");
 btnPagar.addEventListener("click", (e) => {
   e.preventDefault();
+  const loginState = JSON.parse(localStorage.getItem("loginState"));
+  if(loginState == true){
   if(document.getElementById("cardName").value != "" && document.getElementById("cardNumber").value != "" && document.getElementById("expiration").value != "" && document.getElementById("cvv").value != "" ){
     localStorage.removeItem("carrito");
     $('#exampleModalCenter').modal("show");
@@ -270,11 +272,11 @@ btnPagar.addEventListener("click", (e) => {
     window.location = '/index.html';
 }, 3000);}
   
-  
-
-  
-
-  } );
+  }
+  else{
+    window.location = '/pages/login.html';
+  }
+});
 
 //confirmo que los datos de el formulario de tarjeta esten completos, para habilitar el boton de pago
 // const btnConfirmarTarjeta = document.getElementById("confirmarTarjeta"); 
