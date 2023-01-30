@@ -1,3 +1,17 @@
+:root{
+    --azul-oscuro: #172b4d;
+    --turquesa-oscuro: #36454f;
+    --turquesa-medio: #6082b6;
+    --turquesa-claro: #7393b3;
+    --gris: #e5e4e2;
+    --naranja-claro:#edcfc0;
+    --verde-claro:#d5e4d9;
+    --celeste-claro:#c3d3d6;
+    --rosa-claro:#e4d5e3;
+    --negro:#000;
+    --blanco: #fff;
+    --effect: hover 1s linear infinite;
+}
 .section-login{
     background-color:blueviolet;
     width:100vw;
@@ -13,7 +27,7 @@
     background-color:blueviolet;
 }
 .img-login{
-    width:20%;
+    width:15%;
 }
 
 form{
@@ -28,6 +42,25 @@ form{
 }
 input{
     background-color: violet;
+    border:none;
+    border-bottom: 3px solid black;
+}
+input::placeholder{
+    color: white;
+}
+.btn-login{
+    width: 40%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    background-color: var(--naranja-claro);
+}
+label{
+    margin-top: 5%;
+}
+a{
+    display:flex;
+    margin-top: 3%;
+    justify-content: center;
 }
 .section__product{
     justify-content: center;
@@ -42,6 +75,14 @@ input{
     margin: 0 !important;
     padding: 0 !important;
     z-index: -1 !important;
+}
+.login-google{
+    display:flex;
+    flex-direction:column;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    justify-content:center;
+    align-items: center;
 }
 
 @media (max-width: 700px){
