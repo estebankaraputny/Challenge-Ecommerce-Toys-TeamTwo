@@ -1418,6 +1418,7 @@ font-size: 50px;
         justify-content: center;
         overflow: hidden;
         pointer-events: none;
+        background-color: #6082b6;
     }
 
     .content__links.activo{
@@ -1469,5 +1470,14 @@ font-size: 50px;
         display: block;
         padding: .2rem;
         margin: .5rem;
+    }
+    .container{
+        display: grid;
+        justify-items: center;
+        margin-top: 50px;  
+  }
+    .container_details{
+        padding: 50px;
+        width: 100%;
     }
 }
