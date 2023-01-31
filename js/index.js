@@ -608,9 +608,6 @@ if(productosCarrito!=null){
 renderCart();
   
 
-    
-
-
 
 // PAGE DETAILS ENVIAR ID PARA SU RENDERIZACION
 let idProduct = document.querySelectorAll(".span");
