@@ -263,7 +263,7 @@ btnVaciarCarrito.addEventListener("click", (e) => {
 const btnPagar = document.getElementById("pay");
 btnPagar.addEventListener("click", (e) => {
   e.preventDefault();
-  const loginState = JSON.parse(localStorage.getItem("loginState"));
+  const loginState = JSON.parse(localStorage.getItem("login"));
   if(loginState == true){
   if(document.getElementById("cardName").value != "" && document.getElementById("cardNumber").value != "" && document.getElementById("expiration").value != "" && document.getElementById("cvv").value != "" ){
     localStorage.removeItem("carrito");

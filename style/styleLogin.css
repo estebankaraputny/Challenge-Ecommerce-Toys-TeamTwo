@@ -28,7 +28,11 @@
     background-color:blueviolet;
 }
 .img-login{
-    width:15%;
+    width:12%;
+}
+h3{
+    font-size:medium;
+    font-weight:bold;
 }
 
 form{
@@ -71,6 +75,10 @@ input::placeholder{
 }
 label{
     margin-top: 5% !important;
+}
+.btn-google{
+    border: none;
+    background-color:violet ;
 }
 a{
     display:flex;

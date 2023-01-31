@@ -1,18 +1,13 @@
-import {createUser} from './firebaseConfig.js';
+import {createUser, verificarUsuario, loginGoogle} from './firebaseConfig.js';
 const btnLogin = document.getElementById('btn-login');
-const usernameValue = document.getElementById('username').value;
-const passwordValue = document.getElementById('password').value;
-btnLogin.addEventListener('click', (e) => {
+btnLogin.addEventListener('click',  (e) => {
     e.preventDefault();
-    const localstorageUser = localStorage.getItem('user');
-    const localstoragePassword = localstorageUser.password;
-    const localstorageUsername = localstorageUser.username;
-    console.log(localstorageUsername);
-if(usernameValue === localstorageUsername && passwordValue === localstoragePassword) {
-    alert('Login successful');
-} else {
-    alert('Login failed')
-}
+    const mailValue = document.getElementById('mail').value;
+    const passwordValue = document.getElementById('password').value;
+    verificarUsuario(mailValue,passwordValue);
+
+    
+
 });
 
 
@@ -25,7 +20,15 @@ btnRegister.addEventListener('click',  (e) => {
     e.preventDefault();
   
 
-    createUser(mailRegisterValue, passwordRegisterValue);
+    createUser(mailRegisterValue, passwordRegisterValue,usernameRegisterValue);
     setTimeout(function(){
-        window.location = '/pages/login.html';
+        window.location = '/pages/desglose.html';
     }, 3000);})
+    
+
+
+    const btnLoginGoogle = document.getElementById('login-google');
+    btnLoginGoogle.addEventListener('click',(e)=>{
+        loginGoogle();
+
+    })
