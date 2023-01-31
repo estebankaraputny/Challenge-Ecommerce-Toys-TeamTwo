@@ -360,7 +360,7 @@
 .boton__search{
     background-color: var(--celeste-claro);
     padding: 5px;
-    width: 5%;
+    width: 35px;
     border: none;
     border-radius: 3px;
     color: var(--negro)
@@ -482,7 +482,7 @@
 
 .section__products{
     min-height: 100%;
-    padding-top: 5%;
+    padding-top: 5rem;
 }
 
 .content__barraSearch{
@@ -780,8 +780,9 @@
 
 
 .content__cards{
-    width: 80%;
+    width: 95%;
     height: 100%;
+    margin: auto;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -913,9 +914,9 @@
     width: 50%;
 }
 
-.name-category{
+/* .name-category{
     font-weight: 600;
-}
+} */
 
 .check-category{
     content: "\2714";
@@ -932,76 +933,6 @@ input[type="checkbox"]:checked + label {
 .check-category:hover{
     color: #6082b6;
     font-weight:bold;
-}
-
-
-
-/* COMIENZA RESPONSIVE  */
-@media (max-width: 700px){
-    .barra__navegacion{
-        flex-wrap: wrap;
-    }
-
-
-    .content__search{
-        width: 70%;
-    }
-
-
-    .boton__menu{
-        background-color: var(--celeste-claro);
-        border: none;
-        border-radius: 3px;
-        font-size: 1.5rem;
-        display: block;
-        padding: .2rem;
-        margin: .5rem;
-    }
-
-    .content__links{
-        width: 100%;
-        height: 0;
-        transition: all .5s ease;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        overflow: hidden;
-        pointer-events: none;
-    }
-
-    .content__links.activo{
-        height: 40vh;
-        pointer-events: auto;
-    }
-
-    .content__botones{
-        flex-direction: column;
-    }
-    
-    .options{
-        margin:1rem 0;
-        width: 80%;
-    }
-
-    .options:hover{
-        cursor: pointer;
-    }
-
-
-    .pie__pagina{
-        flex-direction: column;
-    }
-
-    .content__redes{
-        width: 100%;
-    }
-}
-
-
-@media (max-width: 450px){
-    .input__search{
-        width: 70%;
-    }
 }
 
 .informacion-adicional{
@@ -1034,6 +965,17 @@ input[type="checkbox"]:checked + label {
 
 .parrafo-info-adicional{
     font-size: 0.9rem;
+}
+
+.dropdown-menu{
+    padding: 10px;
+    width: 200px;
+}
+
+.btn-edit{
+    background: transparent;
+    color: var(--blanco);
+    margin: 0;
 }
 
 
@@ -1132,6 +1074,11 @@ input[type="checkbox"]:checked + label {
     display: flex;
     justify-content: space-evenly;
 }
+
+
+
+
+
 
 /* PAGINA ABOUT  */
 
@@ -1438,3 +1385,144 @@ font-size: 50px;
 
 }
 
+   
+ 
+
+
+
+/* COMIENZA RESPONSIVE  */
+@media (max-width: 700px){
+    .barra__navegacion{
+        flex-wrap: wrap;
+    }
+
+
+    .content__search{
+        width: 70%;
+    }
+
+
+    .boton__menu{
+        background-color: var(--celeste-claro);
+        border: none;
+        border-radius: 3px;
+        font-size: 1.5rem;
+        display: block;
+        padding: .2rem;
+        margin: .5rem;
+    }
+
+    .content__links{
+        width: 100%;
+        height: 0;
+        transition: all .5s ease;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        overflow: hidden;
+        pointer-events: none;
+        background-color: #6082b6;
+    }
+
+    .content__links.activo{
+        height: 40vh;
+        pointer-events: auto;
+    }
+
+    .content__botones{
+        flex-direction: column;
+    }
+    
+    .options{
+        margin:1rem 0;
+        width: 80%;
+    }
+
+    .options:hover{
+        cursor: pointer;
+    }
+
+
+    .pie__pagina{
+        flex-direction: column;
+    }
+
+    .content__redes{
+        width: 100%;
+    }
+
+    .informacion-adicional{
+        flex-direction: column;
+        flex-wrap: wrap;
+        height: auto;
+    }
+    
+    .content-item-info{
+        width: 50%;
+    }  
+
+    .input__search{
+        width: 70%;
+    }
+
+    .boton__category{
+        background-color: transparent;
+        border: none;
+        border-radius: 3px;
+        font-size: 1.5rem;
+        display: block;
+        padding: .2rem;
+        margin: .5rem;
+    }
+    .container{
+        display: grid;
+        justify-items: center;
+        margin-top: 50px;  
+  }
+    .container_details{
+        padding: 50px;
+        width: 100%;
+    }
+
+
+
+    /*About*/
+
+ .title-about-us{
+    width: 100%;
+    height: 400px;
+    background-image: none ;
+    background-size: cover;
+    opacity: 90%;
+ }
+ .h1-about-us{
+    display: flex;
+    justify-content: center;
+    padding-top:200px ;
+    color:#172b4d;
+    text-shadow: 4px 4px 3px #000000 ;
+    font-weight: 600;
+ }
+.card-about{
+    display: grid;
+    justify-content: space-evenly;
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 100px;
+    padding-right: 100px;
+    font-weight: 500;
+}
+.card-info{
+    margin: 5px;
+    background-color:#c3d3d6;
+    border-radius: 10px;
+    width: 100px;
+}
+.card-img-top{
+    border-radius: 10px;
+}
+.content__icons{
+}
+
+}
