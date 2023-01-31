@@ -23,8 +23,16 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, Go
     .then((userCredential)=>{
      
       const user = userCredential.user;
-      alert("registro creado")
+      swal(
+        'Increible!',
+        'You clicked the button!',
+        'success'
+      )
       localStorage.setItem("login",true)
+      localStorage.setItem("login",true)
+      setTimeout(function(){
+        window.location = '/pages/desglose.html';
+    }, 3000)
 
     })
     .catch((error)=>{
@@ -44,7 +52,11 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, Go
       .then((userCredential)=>{
      
         const user = userCredential.user;
-        alert("acceso correcto")
+        swal(
+          'Excelente!',
+          'Acceso correcto!',
+          'success'
+        )
         localStorage.setItem("login",true)
         setTimeout(function(){
           window.location = '/pages/desglose.html';
@@ -55,7 +67,11 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, Go
      .catch((error)=>{
       const errorCode = error.code;
       const errorMessage = error.message;
-      alert("acceso denegado");
+      swal(
+        'Intenta otra vez!',
+        'Acceso incorrecto!',
+        'error'
+      )
     
 
      })
@@ -65,8 +81,13 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, Go
     console.log(provider)
     signInWithPopup(auth,provider)
     .then((result) => {
-      console.log("google correcto")
+      
       localStorage.setItem("login",true)
+      swal(
+        'Excelente!',
+        'Acceso correcto!',
+        'success'
+      )
       setTimeout(function(){
         window.location = '/pages/desglose.html';
     }, 3000)
