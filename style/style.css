@@ -1385,13 +1385,7 @@ font-size: 50px;
 
 }
 
-    .icons_desk{
-        visibility: visible;
-    }
-    .icons_mobile {
-        display: none !important;
-
-    }
+   
  
 
 
@@ -1530,13 +1524,5 @@ font-size: 50px;
 }
 .content__icons{
 }
-.icons_desk{
-    visibility: hidden;
-    display: none;
 
-}
-.icons_mobile{
-    visibility: visible;
-    display: block !important;
-}
 }
