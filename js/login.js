@@ -18,12 +18,8 @@ btnRegister.addEventListener('click',  (e) => {
     const passwordRegisterValue = document.getElementById('passwordRegistration').value;
     const mailRegisterValue = document.getElementById('mailRegister').value;
     e.preventDefault();
-  
-
     createUser(mailRegisterValue, passwordRegisterValue,usernameRegisterValue);
-    setTimeout(function(){
-        window.location = '/pages/desglose.html';
-    }, 3000);})
+})
     
 
 
