@@ -15,7 +15,8 @@
 .section-login{
     background-color:blueviolet;
     width:100vw;
-    height:90vh;
+    height:100%;
+    padding-bottom: 2%;
 }
 
 .login{
@@ -38,8 +39,22 @@ form{
     margin-top: 2%;
     background-color: violet;
     width: 40%;
-    height:80vh
+    
+    
 }
+.accordion, .accordion-body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background-color: violet;
+    width: 40%;
+
+}
+.accordion-body{
+    width: 100% !important;
+}
+
 input{
     background-color: violet;
     border:none;
@@ -55,7 +70,7 @@ input::placeholder{
     background-color: var(--naranja-claro);
 }
 label{
-    margin-top: 5%;
+    margin-top: 5% !important;
 }
 a{
     display:flex;
@@ -64,6 +79,7 @@ a{
 }
 .section__product{
     justify-content: center;
+    height: 100vh;
 }
 .modal{
     z-index: 1 !important;
