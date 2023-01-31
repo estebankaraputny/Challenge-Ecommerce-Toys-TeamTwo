@@ -15,7 +15,8 @@
 .section-login{
     background-color:blueviolet;
     width:100vw;
-    height:100vh;
+    height:100%;
+    padding-bottom: 2%;
 }
 
 .login{
@@ -41,6 +42,18 @@ form{
     
     
 }
+.accordion, .accordion-body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    background-color: violet;
+    width: 40%;
+
+}
+.accordion-body{
+    width: 100% !important;
+}
 
 input{
     background-color: violet;
@@ -57,7 +70,7 @@ input::placeholder{
     background-color: var(--naranja-claro);
 }
 label{
-    margin-top: 5%;
+    margin-top: 5% !important;
 }
 a{
     display:flex;
