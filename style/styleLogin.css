@@ -15,7 +15,7 @@
 .section-login{
     background-color:blueviolet;
     width:100vw;
-    height:90vh;
+    height:100vh;
 }
 
 .login{
@@ -38,8 +38,10 @@ form{
     margin-top: 2%;
     background-color: violet;
     width: 40%;
-    height:80vh
+    
+    
 }
+
 input{
     background-color: violet;
     border:none;
@@ -64,6 +66,7 @@ a{
 }
 .section__product{
     justify-content: center;
+    height: 100vh;
 }
 .modal{
     z-index: 1 !important;
